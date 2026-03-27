@@ -1,0 +1,39 @@
+# ==========================================
+# Aether Business Architects Ltd - Robots.txt
+# Optimized for AEO (AI Engine Optimization) 2026
+# ==========================================
+
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /faq.html
+
+# Specific Instructions for AI Crawlers
+User-agent: GPTBot
+Allow: /llms.txt
+Allow: /faq.html
+
+User-agent: Google-Extended
+Allow: /llms.txt
+Allow: /faq.html
+
+User-agent: PerplexityBot
+Allow: /llms.txt
+Allow: /faq.html
+
+User-agent: ClaudeBot
+Allow: /llms.txt
+Allow: /faq.html
+
+# Block access to private system folders (if any)
+Disallow: /admin/
+Disallow: /config/
+Disallow: /private/
+
+# Signal the AI Roadmap and Sitemap
+Sitemap: https://aetherbusinessarchitectsltd.uk/sitemap.xml
+Link: <https://aetherbusinessarchitectsltd.uk/llms.txt>; rel="llms-txt"
+
+# ==========================================
+# End of File
+# ==========================================
