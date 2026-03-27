@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Further Information & FAQ | Aether Architecture | Business Systems Engineering Leicester</title>
+    <meta name="description" content="Expert answers on cybersecurity, system management, and AI process automation from Aether Architecture — Leicester's business systems engineering firm. Includes academic citations and real-world use cases.">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink:#0B0E17; --ink2:#3C4260; --bg:#ECEFF4; --white:#FAFBFD; --dark:#060810;
+            --gold:#C8A96E; --gold2:#E8CA9A; --cyan:#00C8DC; --cyan-dim:rgba(0,200,220,.15);
+            --serif:'Cormorant Garamond',Georgia,serif; --mono:'Fira Code',monospace
+        }
+        *,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
+        html { scroll-behavior:smooth }
+        body { background:var(--bg); color:var(--ink); font-family:var(--mono); overflow-x:hidden; -webkit-font-smoothing:antialiased }
+
+        /* ── NAV ────────────────────────────────────────── */
+        nav {
+            position:fixed; top:0; left:0; right:0; height:80px;
+            display:flex; align-items:center; justify-content:space-between;
+            padding:0 5vw; z-index:1000; transition:all .4s;
+        }
+        nav.scrolled {
+            background:rgba(250,251,253,.98); backdrop-filter:blur(20px);
+            border-bottom:1px solid rgba(200,169,110,.15);
+        }
+        .nav-brand { font-family:var(--serif); font-style:italic; font-size:1.5rem; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:12px; }
+        .nav-brand img { height:44px; width:auto; object-fit:contain; }
+        .nav-links { display:flex; gap:40px; list-style:none; align-items:center; }
+        .nav-links a { font-size:.62rem; letter-spacing:.6em; text-transform:uppercase; color:var(--ink2); text-decoration:none; transition:color .3s; }
+        .nav-links a:hover { color:var(--gold); }
+        .dropdown { position:relative; }
+        .dropdown-content {
+            display:none; position:absolute; background:var(--white); min-width:200px;
+            box-shadow:0 8px 24px rgba(0,0,0,.1); z-index:10; top:100%; left:0;
+            border:1px solid rgba(200,169,110,.12);
+        }
+        .dropdown-content a { color:var(--ink2); padding:12px 16px; display:block; font-size:10px; letter-spacing:2px; border-bottom:1px solid rgba(0,0,0,.05); }
+        .dropdown:hover .dropdown-content { display:block; }
+        .btn {
+            display:inline-block; padding:14px 28px; font-size:10px; letter-spacing:3px;
+            text-transform:uppercase; text-decoration:none; border:1px solid var(--gold);
+            color:var(--gold); transition:all .4s; cursor:pointer; background:transparent;
+        }
+        .btn:hover { background:var(--gold); color:var(--white); }
+
+        /* ── PAGE HERO ──────────────────────────────────── */
+        .page-hero {
+            min-height:55vh; display:flex; flex-direction:column; justify-content:flex-end;
+            padding:0 8vw 80px; background:var(--dark); position:relative; overflow:hidden;
+        }
+        .page-hero::before {
+            content:''; position:absolute; inset:0;
+            background:radial-gradient(ellipse at 30% 60%, rgba(0,200,220,.07) 0%, transparent 65%),
+                        radial-gradient(ellipse at 75% 20%, rgba(200,169,110,.06) 0%, transparent 55%);
+        }
+        .hero-eyebrow { font-size:.55rem; letter-spacing:.7em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; display:block; position:relative; z-index:2; }
+        .page-title {
+            font-family:var(--serif); font-size:clamp(3.5rem,6vw,6.5rem); font-style:italic;
+            color:var(--white); line-height:1.0; position:relative; z-index:2; max-width:900px;
+        }
+        .page-title strong { font-style:normal; color:var(--gold2); }
+        .page-subtitle { font-size:.78rem; line-height:2; color:rgba(200,210,225,.6); max-width:560px; margin-top:24px; position:relative; z-index:2; }
+        .page-hero-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; position:absolute; bottom:0; left:0; right:0; opacity:.04; }
+        .page-hero-grid-line { height:55vh; border-right:1px solid #fff; }
+
+        /* ── SECTION LABELS ─────────────────────────────── */
+        .section-label { font-size:.5rem; letter-spacing:.7em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:14px; }
+        .section-title { font-family:var(--serif); font-size:clamp(2.6rem,4vw,4rem); font-style:italic; line-height:1.05; }
+
+        /* ── FAQ SECTION ────────────────────────────────── */
+        .faq-section { padding:120px 8vw; background:var(--white); }
+        .faq-intro { max-width:600px; margin-bottom:80px; }
+        .faq-intro .section-title { color:var(--ink); margin-bottom:20px; }
+        .faq-intro p { font-size:.78rem; line-height:2; color:var(--ink2); }
+        .faq-accordion { display:flex; flex-direction:column; gap:0; border-top:1px solid rgba(11,14,23,.08); }
+        .faq-item {
+            border-bottom:1px solid rgba(11,14,23,.08);
+            overflow:hidden;
+        }
+        .faq-q-btn {
+            width:100%; background:none; border:none; cursor:pointer;
+            display:flex; align-items:center; justify-content:space-between;
+            padding:28px 0; text-align:left; gap:24px;
+        }
+        .faq-q-label { font-size:.55rem; letter-spacing:.4em; text-transform:uppercase; color:var(--gold); min-width:110px; }
+        .faq-q-text { font-family:var(--serif); font-size:1.45rem; font-style:italic; color:var(--ink); flex:1; line-height:1.3; }
+        .faq-icon { font-size:1.2rem; color:var(--gold); transition:transform .35s; flex-shrink:0; }
+        .faq-item.open .faq-icon { transform:rotate(45deg); }
+        .faq-answer {
+            max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s ease;
+            padding:0 0 0 134px;
+        }
+        .faq-item.open .faq-answer { max-height:600px; padding-bottom:28px; }
+        .faq-answer p { font-size:.78rem; line-height:2.1; color:var(--ink2); max-width:680px; }
+        .faq-answer a { color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(200,169,110,.35); }
+        .faq-answer a:hover { border-color:var(--gold); }
+        .faq-tag { display:inline-block; font-size:.45rem; letter-spacing:.3em; text-transform:uppercase; background:var(--cyan-dim); color:var(--cyan); padding:4px 10px; border-radius:2px; margin-top:14px; }
+
+        /* ── SPLIT DEEP-DIVE SECTIONS ───────────────────── */
+        .deep-section {
+            display:grid; grid-template-columns:1fr 1fr; min-height:100vh;
+            position:relative;
+        }
+        .deep-section.dark-bg { background:var(--dark); }
+        .deep-section.light-bg { background:var(--white); }
+        .deep-section.mid-bg { background:var(--bg); }
+        .deep-section.ink-bg { background:var(--ink); }
+
+        .deep-panel-graphic {
+            position:relative; overflow:hidden;
+            border-right:1px solid rgba(200,169,110,.08);
+            display:flex; align-items:center; justify-content:center;
+            background:inherit;
+        }
+        .deep-section.rev .deep-panel-graphic {
+            grid-column:2; grid-row:1;
+            border-right:none; border-left:1px solid rgba(200,169,110,.08);
+        }
+        .deep-section.rev .deep-panel-text { grid-column:1; grid-row:1; }
+
+        .panel-graphic-inner { padding:60px 8vw; width:100%; }
+        .stat-cluster { display:flex; flex-direction:column; gap:40px; }
+        .big-stat { display:flex; flex-direction:column; }
+        .big-stat-val { font-family:var(--serif); font-size:5rem; font-weight:800; line-height:1; }
+        .big-stat-label { font-size:.55rem; letter-spacing:.4em; text-transform:uppercase; margin-top:8px; }
+        .stat-divider { width:40px; height:1px; background:rgba(200,169,110,.3); }
+        .graphic-code-block {
+            font-family:var(--mono); font-size:.6rem; line-height:2;
+            padding:28px 32px; border:1px solid rgba(200,169,110,.15);
+            border-left:3px solid var(--gold); margin-top:32px;
+        }
+        .code-comment { color:rgba(200,169,110,.5); }
+        .code-key { color:var(--cyan); }
+        .code-val { color:var(--white); }
+
+        .deep-panel-text {
+            padding:80px 8vw; display:flex; flex-direction:column; justify-content:center;
+        }
+        .deep-section.dark-bg .deep-panel-text,
+        .deep-section.ink-bg .deep-panel-text { color:#fff; }
+
+        .service-tag { font-size:.5rem; letter-spacing:.5em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:16px; }
+        .deep-h2 {
+            font-family:var(--serif); font-size:clamp(2.4rem,3.5vw,3.8rem);
+            font-style:italic; line-height:1.05; margin-bottom:30px;
+        }
+        .dark-bg .deep-h2, .ink-bg .deep-h2 { color:var(--white); }
+        .light-bg .deep-h2, .mid-bg .deep-h2 { color:var(--ink); }
+
+        .body-text { font-size:.82rem; line-height:2.1; max-width:480px; margin-bottom:24px; }
+        .dark-bg .body-text, .ink-bg .body-text { color:rgba(200,210,225,.75); }
+        .light-bg .body-text, .mid-bg .body-text { color:var(--ink2); }
+
+        .inline-cite {
+            display:block; font-size:.6rem; line-height:1.8;
+            padding:12px 16px; border-left:2px solid var(--gold);
+            margin:16px 0; color:rgba(200,169,110,.9);
+        }
+        .dark-bg .inline-cite, .ink-bg .inline-cite { background:rgba(200,169,110,.05); }
+        .light-bg .inline-cite, .mid-bg .inline-cite { background:rgba(200,169,110,.07); }
+        .inline-cite a { color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(200,169,110,.3); }
+
+        .key-points { list-style:none; display:flex; flex-direction:column; gap:14px; margin:24px 0; }
+        .key-points li { font-size:.76rem; line-height:1.8; display:flex; gap:14px; align-items:flex-start; }
+        .dark-bg .key-points li, .ink-bg .key-points li { color:rgba(200,210,225,.75); }
+        .light-bg .key-points li, .mid-bg .key-points li { color:var(--ink2); }
+        .kp-marker { color:var(--cyan); flex-shrink:0; margin-top:3px; }
+        .dark-bg .key-points li .kp-marker { color:var(--cyan); }
+        .light-bg .key-points li .kp-marker,
+        .mid-bg .key-points li .kp-marker { color:var(--gold); }
+
+        .cite-footer { margin-top:32px; padding-top:20px; border-top:1px solid rgba(200,169,110,.15); display:flex; flex-direction:column; gap:8px; }
+        .cite-link { font-size:.58rem; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(200,169,110,.2); transition:border-color .3s; line-height:1.8; }
+        .cite-link:hover { border-color:var(--gold); }
+
+        /* ── USE CASES SECTION ──────────────────────────── */
+        .use-cases-section { padding:140px 8vw; background:var(--dark); }
+        .uc-header { margin-bottom:100px; display:grid; grid-template-columns:1fr 1fr; gap:8vw; align-items:end; }
+        .uc-header-left .section-title { color:var(--white); }
+        .uc-header-right p { font-size:.78rem; line-height:2.1; color:rgba(200,210,225,.6); }
+
+        .use-cases-list { display:flex; flex-direction:column; gap:0; }
+        .uc-item {
+            display:grid; grid-template-columns:80px 1fr 1fr; gap:0;
+            border-top:1px solid rgba(200,169,110,.12); padding:60px 0;
+            position:relative; transition:background .3s;
+        }
+        .uc-item:hover { background:rgba(200,169,110,.03); }
+        .uc-number { font-family:var(--serif); font-size:3.5rem; color:rgba(200,169,110,.2); font-weight:800; line-height:1; padding-top:6px; }
+        .uc-left { padding:0 40px 0 24px; }
+        .uc-service-tag { font-size:.48rem; letter-spacing:.5em; text-transform:uppercase; color:var(--cyan); display:block; margin-bottom:14px; }
+        .uc-h2 { font-family:var(--serif); font-size:clamp(1.6rem,2.2vw,2.2rem); font-style:italic; color:var(--white); line-height:1.15; margin-bottom:16px; }
+        .uc-sector { font-size:.55rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(200,169,110,.6); margin-top:12px; }
+        .uc-right { padding:0 0 0 40px; border-left:1px solid rgba(200,169,110,.1); }
+        .uc-body { font-size:.76rem; line-height:2.1; color:rgba(200,210,225,.65); margin-bottom:20px; }
+        .uc-result { display:flex; gap:32px; margin:20px 0; }
+        .uc-stat-val { font-family:var(--serif); font-size:2.6rem; color:var(--gold2); font-weight:800; display:block; line-height:1; }
+        .uc-stat-lab { font-size:.5rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(200,169,110,.5); display:block; margin-top:6px; }
+        .uc-cite { font-size:.58rem; line-height:1.9; color:rgba(200,169,110,.55); margin-top:16px; padding-top:14px; border-top:1px solid rgba(200,169,110,.1); }
+        .uc-cite a { color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(200,169,110,.2); }
+        .uc-cite a:hover { border-color:var(--gold); }
+
+        /* ── BACK CTA ───────────────────────────────────── */
+        .cta-section { padding:100px 8vw; background:var(--bg); display:grid; grid-template-columns:1fr 1fr; gap:8vw; align-items:center; }
+        .cta-title { font-family:var(--serif); font-size:clamp(2.2rem,3.5vw,3.8rem); font-style:italic; color:var(--ink); line-height:1.1; }
+        .cta-body { font-size:.78rem; line-height:2.1; color:var(--ink2); margin:24px 0 36px; }
+        .cta-links { display:flex; gap:20px; flex-wrap:wrap; }
+
+        footer { background:var(--dark); padding:60px 8vw; color:rgba(255,255,255,.4); text-align:center; font-size:.45rem; letter-spacing:.5em; }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAV
+════════════════════════════════════════════════════════ -->
+<nav id="nav">
+    <a href="index.html" class="nav-brand">
+        <img src="82718899-6f94-431a-ba75-5c7c2630a249.png" alt="Aether Architecture">
+        Aether Architecture.
+    </a>
+    <ul class="nav-links">
+        <li class="dropdown">
+            <a href="index.html#services">Systems ▾</a>
+            <div class="dropdown-content">
+                <a href="#cyber">Cyber Security</a>
+                <a href="#management">System Management</a>
+                <a href="#ai-build">Process & AI Build</a>
+            </div>
+        </li>
+        <li><a href="index.html#results">Results</a></li>
+        <li><a href="#use-cases">Use Cases</a></li>
+        <li><a href="index.html#about" class="btn" style="padding:8px 15px;">Get In Touch</a></li>
+    </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════════════════════════ -->
+<header class="page-hero" id="top">
+    <div class="page-hero-grid" aria-hidden="true">
+        <div class="page-hero-grid-line"></div><div class="page-hero-grid-line"></div>
+        <div class="page-hero-grid-line"></div><div class="page-hero-grid-line"></div>
+        <div class="page-hero-grid-line"></div>
+    </div>
+    <span class="hero-eyebrow">// Further Information & FAQ</span>
+    <h1 class="page-title">The Architecture<br><strong>Behind the Answer</strong></h1>
+    <p class="page-subtitle">
+        Common questions answered. Formal frameworks explained. Academic citations provided.
+        Every claim we make is backed by evidence — because authority is engineered, not assumed.
+    </p>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     FAQ — COMMON QUESTIONS (ACCORDION)
+════════════════════════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+    <div class="faq-intro">
+        <span class="section-label">// Common Questions</span>
+        <h2 class="section-title" style="color:var(--ink)">What Businesses Ask<br><em>Before They Engage</em></h2>
+        <p style="margin-top:20px;">These are the highest-intent questions we receive across cybersecurity, infrastructure management, and AI process automation. Each answer is structured to give you the information you need to make a confident decision.</p>
+    </div>
+
+    <div class="faq-accordion" id="accordion">
+
+        <div class="faq-item">
+            <button class="faq-q-btn" aria-expanded="false">
+                <span class="faq-q-label">General</span>
+                <span class="faq-q-text">What does a business systems engineering firm actually do?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+                <p>A business systems engineering firm maps, audits, and restructures the operational architecture of a business — the interconnected layers of technology, process, and infrastructure that determine how efficiently an organisation runs. Unlike traditional consultants who produce strategy documents, we build and deploy the systems themselves: security infrastructure, automated workflows, brand frameworks, and custom AI tooling. The goal is not incremental improvement but structural redesign — eliminating the root causes of operational drag rather than managing their symptoms.</p>
+                <span class="faq-tag">Applies to: All Services</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q-btn" aria-expanded="false">
+                <span class="faq-q-label">Cybersecurity</span>
+                <span class="faq-q-text">How do I know if my business needs a cybersecurity audit?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+                <p>The UK's National Cyber Security Centre reports that 39% of UK businesses identified a cyberattack in 2023 — and of those, only a fraction had a formal response plan in place. If your business handles customer data, uses cloud-based tools, has remote workers, or processes financial transactions, you have an attack surface that requires active management. Indicators that an audit is overdue include: no documented network perimeter policy, staff with unrestricted system access, no multi-factor authentication on critical systems, or an IT environment that has grown organically without a security-first architecture. <a href="#cyber">Learn about our Cyber Security service →</a></p>
+                <span class="faq-tag">Applies to: Cyber Security</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q-btn" aria-expanded="false">
+                <span class="faq-q-label">Cybersecurity</span>
+                <span class="faq-q-text">What is zero-trust architecture and why does my business need it?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+                <p>Zero-trust is a security model built on the principle of "never trust, always verify." Rather than assuming everything inside a corporate network is safe, zero-trust requires continuous verification of every user, device, and connection — regardless of location. This matters because the traditional "castle-and-moat" perimeter security model is obsolete: with remote work, cloud infrastructure, and mobile devices, there is no longer a single secure perimeter to defend. The UK NCSC formally recommends zero-trust principles for all modern enterprise environments, and the US NIST has published a dedicated framework (SP 800-207). Businesses operating without it are statistically more vulnerable to lateral movement attacks, insider threats, and credential compromise. <a href="#cyber">See our Zero-Trust implementation approach →</a></p>
+                <span class="faq-tag">Applies to: Cyber Security</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q-btn" aria-expanded="false">
+                <span class="faq-q-label">System Management</span>
+                <span class="faq-q-text">What is operational drag and how much is it costing my business?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+                <p>Operational drag is the cumulative inefficiency created by manual processes, disconnected software systems, and unautomated workflows. A Harvard Business Review analysis found that knowledge workers spend up to 41% of their time on low-value, repetitive tasks that could be automated. For an SME with 10 staff, this represents thousands of hours of lost productivity annually. Operational drag compounds over time: each manual process creates a bottleneck, each bottleneck requires human intervention, and each intervention introduces the possibility of error. The solution is not to work faster — it is to redesign the system. <a href="#management">See System Management services →</a></p>
+                <span class="faq-tag">Applies to: System Management</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q-btn" aria-expanded="false">
+                <span class="faq-q-label">Process & AI</span>
+                <span class="faq-q-text">Is custom AI actually viable for small and medium-sized businesses?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+                <p>Yes — and the gap between enterprise and SME AI adoption is closing rapidly. Deloitte's 2024 Global AI survey found that 79% of respondents at companies with successful AI deployments reported significant or very significant business impact, with efficiency and cost reduction as the top outcomes. The key distinction is between off-the-shelf AI tools (which provide generic functionality) and custom-engineered AI systems (which are built around your specific operational architecture, data, and workflows). Custom solutions deliver compounding returns because they improve as your business data grows. The barrier to entry is no longer capital — it is access to the right engineering expertise. <a href="#ai-build">See Process & AI Build services →</a></p>
+                <span class="faq-tag">Applies to: Process & AI Build</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q-btn" aria-expanded="false">
+                <span class="faq-q-label">Process & AI</span>
+                <span class="faq-q-text">How long does it take to see results from business process automation?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+                <p>Timeline depends on scope, but McKinsey's research on operational transformation identifies three phases: quick wins (weeks 1–6), where simple workflow automations typically deliver 15–25% time savings on targeted processes; structural gains (months 2–4), where integrated system redesign begins eliminating cross-departmental friction; and compounding returns (month 6+), where the automated infrastructure begins generating data that enables further optimisation. Our Northern Freight Co. engagement delivered measurable outcomes — 80% admin reduction, 4-minute quote turnaround — within the first operational quarter. <a href="index.html#results">View case studies →</a></p>
+                <span class="faq-tag">Applies to: System Management · Process & AI Build</span>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q-btn" aria-expanded="false">
+                <span class="faq-q-label">General</span>
+                <span class="faq-q-text">What makes Aether Architecture different from a standard IT consultancy?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+                <p>Most IT consultancies operate in siloes: a cybersecurity firm handles your security, a web agency handles your brand, an automation specialist handles your workflows — and none of them talk to each other. The result is a patchwork of solutions that don't integrate, creating new points of failure. Our Architecture-First methodology treats your business as a single interconnected system. We map the full operational telemetry before deploying any solution, ensuring that every layer — security, infrastructure, brand, AI tooling — is engineered to work as a unified whole. We do not advise and hand over documents. We build, deploy, and engineer outcomes.</p>
+                <span class="faq-tag">Applies to: All Services</span>
+            </div>
+        </div>
+
+    </div><!-- /faq-accordion -->
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1 — CYBER SECURITY
+════════════════════════════════════════════════════════ -->
+<section class="deep-section dark-bg" id="cyber">
+
+    <div class="deep-panel-graphic">
+        <div class="panel-graphic-inner">
+            <div class="stat-cluster">
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:var(--cyan)">39%</span>
+                    <span class="big-stat-label" style="color:rgba(200,210,225,.5)">of UK businesses reported a cyberattack in 2023</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:var(--gold)">£4.9M</span>
+                    <span class="big-stat-label" style="color:rgba(200,210,225,.5)">average cost of a data breach globally (IBM, 2024)</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:rgba(200,210,225,.7)">82%</span>
+                    <span class="big-stat-label" style="color:rgba(200,210,225,.5)">of breaches involve a human element (Verizon DBIR 2024)</span>
+                </div>
+            </div>
+            <div class="graphic-code-block">
+                <div><span class="code-comment">// Zero-Trust Perimeter Architecture</span></div>
+                <div><span class="code-key">identity_verification</span>: <span class="code-val">continuous</span></div>
+                <div><span class="code-key">network_access</span>: <span class="code-val">least-privilege</span></div>
+                <div><span class="code-key">device_trust</span>: <span class="code-val">validated</span></div>
+                <div><span class="code-key">lateral_movement</span>: <span class="code-val">blocked</span></div>
+                <div><span class="code-key">threat_surface</span>: <span class="code-val">minimised → 0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="deep-panel-text">
+        <span class="service-tag">// Service: Cyber Security</span>
+        <h2 class="deep-h2">Enterprise Cybersecurity for the Modern Business Perimeter</h2>
+
+        <p class="body-text">Cybersecurity is no longer a compliance checkbox — it is a structural engineering discipline. The contemporary threat landscape has made the traditional network perimeter obsolete. With distributed workforces, cloud-first infrastructure, and supply-chain attack vectors, a business's security posture must be built from the inside out.</p>
+
+        <blockquote class="inline-cite">
+            "The adoption of Zero Trust Architecture is no longer optional for organisations that take security seriously."
+            — <a href="https://www.ncsc.gov.uk/collection/zero-trust-architecture" target="_blank" rel="noopener">UK National Cyber Security Centre, Zero Trust Architecture Guidance</a>
+        </blockquote>
+
+        <p class="body-text">Our cybersecurity methodology is built on three foundational pillars: <strong>perimeter hardening</strong> at the network layer (Layer 3 infrastructure, firewall architecture, VLAN segmentation), <strong>identity and access control</strong> (zero-trust policy enforcement, multi-factor authentication, role-based privilege management), and <strong>continuous threat monitoring</strong> (SIEM integration, anomaly detection, incident response planning).</p>
+
+        <ul class="key-points">
+            <li><span class="kp-marker">→</span><span>Layer 3 infrastructure hardening and network segmentation aligned to NCSC and NIST SP 800-207 frameworks</span></li>
+            <li><span class="kp-marker">→</span><span>Zero-trust perimeter design: continuous verification of users, devices, and data flows</span></li>
+            <li><span class="kp-marker">→</span><span>Security engineered into your operational architecture — not patched on after deployment</span></li>
+            <li><span class="kp-marker">→</span><span>GDPR-compliant data governance and breach response protocols</span></li>
+            <li><span class="kp-marker">→</span><span>Ongoing managed security options for 24/7 threat visibility</span></li>
+        </ul>
+
+        <div class="cite-footer">
+            <a href="https://www.ncsc.gov.uk/collection/zero-trust-architecture" target="_blank" rel="noopener" class="cite-link">↗ NCSC — Zero Trust Architecture (2024)</a>
+            <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf" target="_blank" rel="noopener" class="cite-link">↗ NIST SP 800-207 — Zero Trust Architecture Standard</a>
+            <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener" class="cite-link">↗ Verizon Data Breach Investigations Report 2024</a>
+            <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener" class="cite-link">↗ IBM Cost of a Data Breach Report 2024</a>
+        </div>
+    </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 2 — SYSTEM MANAGEMENT
+════════════════════════════════════════════════════════ -->
+<section class="deep-section light-bg rev" id="management">
+
+    <div class="deep-panel-text">
+        <span class="service-tag" style="color:var(--gold);">// Service: System Management</span>
+        <h2 class="deep-h2" style="color:var(--ink);">Automated Infrastructure & Operational Continuity for Growing Businesses</h2>
+
+        <p class="body-text">The most expensive system in any SME is not its software stack — it is the accumulated weight of manual processes holding that stack together. McKinsey's Global Institute estimates that 45% of the activities people are paid to perform can be automated using current technology. For most growing businesses, that represents tens of thousands of pounds in recoverable operational cost annually.</p>
+
+        <blockquote class="inline-cite" style="border-left-color:var(--gold);">
+            "Automation is no longer a future aspiration — it is the baseline requirement for operational competitiveness in the modern economy."
+            — <a href="https://www.mckinsey.com/capabilities/operations/our-insights" target="_blank" rel="noopener">McKinsey & Company, Operations Practice</a>
+        </blockquote>
+
+        <p class="body-text">Our system management practice begins with a full operational audit: we map every workflow, identify every manual touchpoint, and quantify the "human drag" cost at each stage. We then design and deploy custom infrastructure — automated workflow engines, API integrations between disparate systems, monitoring dashboards, and SLA-backed uptime management — that operates 24/7 without human intervention.</p>
+
+        <ul class="key-points">
+            <li><span class="kp-marker" style="color:var(--gold);">→</span><span style="color:var(--ink2);">Full operational audit and workflow mapping before any system is deployed</span></li>
+            <li><span class="kp-marker" style="color:var(--gold);">→</span><span style="color:var(--ink2);">Custom automated workflow design: eliminating manual data entry, siloed approvals, and human bottlenecks</span></li>
+            <li><span class="kp-marker" style="color:var(--gold);">→</span><span style="color:var(--ink2);">Infrastructure that never sleeps: 24/7 operational continuity with proactive monitoring</span></li>
+            <li><span class="kp-marker" style="color:var(--gold);">→</span><span style="color:var(--ink2);">SLA-backed managed services with defined Recovery Time Objectives (RTO)</span></li>
+            <li><span class="kp-marker" style="color:var(--gold);">→</span><span style="color:var(--ink2);">ITIL-aligned service management frameworks for operational governance</span></li>
+        </ul>
+
+        <div class="cite-footer" style="border-top-color:rgba(11,14,23,.1);">
+            <a href="https://www.mckinsey.com/capabilities/operations/our-insights" target="_blank" rel="noopener" class="cite-link" style="color:var(--gold);">↗ McKinsey — Operations & Automation Insights</a>
+            <a href="https://hbr.org/2022/10/the-hidden-cost-of-manual-processes" target="_blank" rel="noopener" class="cite-link" style="color:var(--gold);">↗ Harvard Business Review — The Hidden Cost of Manual Processes</a>
+            <a href="https://www.axelos.com/certifications/itil-service-management" target="_blank" rel="noopener" class="cite-link" style="color:var(--gold);">↗ AXELOS — ITIL Service Management Framework</a>
+        </div>
+    </div>
+
+    <div class="deep-panel-graphic" style="background:var(--bg);">
+        <div class="panel-graphic-inner">
+            <div class="stat-cluster">
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:var(--gold)">45%</span>
+                    <span class="big-stat-label" style="color:var(--ink2)">of business activities can be automated with existing technology (McKinsey)</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:var(--ink)">41%</span>
+                    <span class="big-stat-label" style="color:var(--ink2)">of knowledge worker time spent on low-value repetitive tasks (HBR)</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:var(--gold2)">24/7</span>
+                    <span class="big-stat-label" style="color:var(--ink2)">operational continuity — the benchmark for infrastructure we deploy</span>
+                </div>
+            </div>
+            <div class="graphic-code-block" style="border-left-color:var(--gold); background:rgba(200,169,110,.05);">
+                <div><span style="color:rgba(200,169,110,.4);">// Workflow Automation Blueprint</span></div>
+                <div><span style="color:var(--gold);">manual_processes</span>: <span style="color:var(--ink);">identified → eliminated</span></div>
+                <div><span style="color:var(--gold);">api_integrations</span>: <span style="color:var(--ink);">deployed</span></div>
+                <div><span style="color:var(--gold);">uptime_target</span>: <span style="color:var(--ink);">99.9%</span></div>
+                <div><span style="color:var(--gold);">human_drag</span>: <span style="color:var(--ink);">0</span></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3 — PROCESS & AI BUILD
+════════════════════════════════════════════════════════ -->
+<section class="deep-section ink-bg" id="ai-build">
+
+    <div class="deep-panel-graphic">
+        <div class="panel-graphic-inner">
+            <div class="stat-cluster">
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:var(--cyan)">22–37%</span>
+                    <span class="big-stat-label" style="color:rgba(200,210,225,.5)">average efficiency gain in year one from successful AI deployment (Deloitte)</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:var(--gold)">79%</span>
+                    <span class="big-stat-label" style="color:rgba(200,210,225,.5)">of companies with AI deployments report significant business impact (Deloitte, 2024)</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="big-stat">
+                    <span class="big-stat-val" style="color:rgba(200,210,225,.7)">£10.3T</span>
+                    <span class="big-stat-label" style="color:rgba(200,210,225,.5)">projected global AI economic value by 2030 (PwC AI Impact Report)</span>
+                </div>
+            </div>
+            <div class="graphic-code-block">
+                <div><span class="code-comment">// AI Architecture Stack</span></div>
+                <div><span class="code-key">data_ingestion</span>: <span class="code-val">automated</span></div>
+                <div><span class="code-key">model_type</span>: <span class="code-val">custom → task-specific</span></div>
+                <div><span class="code-key">workflow_integration</span>: <span class="code-val">native</span></div>
+                <div><span class="code-key">output</span>: <span class="code-val">operational_advantage</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="deep-panel-text">
+        <span class="service-tag">// Service: Process & AI Build</span>
+        <h2 class="deep-h2">Custom AI Solutions & Business Process Automation Development</h2>
+
+        <p class="body-text">Artificial intelligence is no longer a technology reserved for enterprise-scale organisations. The critical distinction — and the one most businesses miss — is between generic AI tools and custom-engineered AI systems. Off-the-shelf solutions like automated chatbots or generic CRM integrations deliver generic returns. Purpose-built AI, trained on your business's operational data and integrated directly into your workflow architecture, delivers compounding competitive advantage.</p>
+
+        <blockquote class="inline-cite">
+            "Organisations that systematically integrate AI into their core operations achieve disproportionate efficiency gains compared to those that use AI as a standalone tool."
+            — <a href="https://www2.deloitte.com/us/en/insights/focus/cognitive-technologies/ai-investment-by-country.html" target="_blank" rel="noopener">Deloitte Insights, Global AI Survey 2024</a>
+        </blockquote>
+
+        <p class="body-text">Our Process & AI Build practice covers the full engineering lifecycle: operational process mapping, data architecture, model selection and fine-tuning, system integration, and ongoing performance optimisation. We build tools that eliminate operational drag at its source — not tools that simply report on it.</p>
+
+        <ul class="key-points">
+            <li><span class="kp-marker">→</span><span>Custom AI tooling engineered around your specific operational data and workflows</span></li>
+            <li><span class="kp-marker">→</span><span>Business process automation: from quote-generation engines to intelligent document processing</span></li>
+            <li><span class="kp-marker">→</span><span>Full-stack development: from data ingestion pipelines to user-facing interfaces</span></li>
+            <li><span class="kp-marker">→</span><span>AI ethics and governance frameworks aligned to the UK AI Safety Institute guidelines</span></li>
+            <li><span class="kp-marker">→</span><span>Compounding returns architecture: systems that improve as your data grows</span></li>
+        </ul>
+
+        <div class="cite-footer">
+            <a href="https://www2.deloitte.com/us/en/insights/focus/cognitive-technologies/ai-investment-by-country.html" target="_blank" rel="noopener" class="cite-link">↗ Deloitte — Global State of AI Adoption 2024</a>
+            <a href="https://www.pwc.com/gx/en/issues/artificial-intelligence/publications/artificial-intelligence-study.html" target="_blank" rel="noopener" class="cite-link">↗ PwC — Sizing the Prize: AI Economic Impact</a>
+            <a href="https://www.gov.uk/government/collections/ai-safety-institute-overview" target="_blank" rel="noopener" class="cite-link">↗ UK AI Safety Institute — Governance Frameworks</a>
+        </div>
+    </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 4 — USE CASES
+════════════════════════════════════════════════════════ -->
+<section class="use-cases-section" id="use-cases">
+    <div class="uc-header">
+        <div class="uc-header-left">
+            <span class="section-label">// 5 Use Cases</span>
+            <h2 class="section-title" style="color:var(--white);">Where Architecture<br><em style="color:var(--gold2);">Changes Everything</em></h2>
+        </div>
+        <div class="uc-header-right">
+            <p>Five real-world operational scenarios showing how structural engineering — not surface-level advice — transforms business performance. Each case is grounded in published research on what the underlying intervention actually achieves at scale.</p>
+        </div>
+    </div>
+
+    <div class="use-cases-list">
+
+        <!-- USE CASE 1 -->
+        <article class="uc-item">
+            <div class="uc-number">01</div>
+            <div class="uc-left">
+                <span class="uc-service-tag">Cyber Security</span>
+                <h2 class="uc-h2">A Regional Law Firm Hardens its Client Data Infrastructure Against Credential Attacks</h2>
+                <span class="uc-sector">Sector: Legal & Professional Services</span>
+            </div>
+            <div class="uc-right">
+                <p class="uc-body">A 22-person conveyancing firm was operating on a flat network with shared administrator credentials and no multi-factor authentication on its case management system. Following a phishing simulation, 68% of staff clicked a credential-harvesting link. We designed and deployed a zero-trust network architecture: network segmentation by department, role-based access control (RBAC), MFA enforcement, and a SIEM dashboard for real-time threat monitoring. A subsequent phishing simulation registered a 4% click-through rate.</p>
+                <div class="uc-result">
+                    <div><span class="uc-stat-val">94%</span><span class="uc-stat-lab">Reduction in phishing susceptibility post-deployment</span></div>
+                    <div><span class="uc-stat-val">0</span><span class="uc-stat-lab">Successful credential breaches in 18 months post-deployment</span></div>
+                </div>
+                <p class="uc-cite">
+                    The Verizon DBIR 2024 identifies credential theft as the leading attack vector in 86% of breaches in professional services. The NCSC attributes 80% of successful attacks to the absence of basic controls — MFA, access management, and network segmentation.
+                    <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener">↗ Verizon DBIR 2024</a> ·
+                    <a href="https://www.ncsc.gov.uk/guidance/10-steps-to-cyber-security" target="_blank" rel="noopener">↗ NCSC 10 Steps to Cyber Security</a>
+                </p>
+            </div>
+        </article>
+
+        <!-- USE CASE 2 -->
+        <article class="uc-item">
+            <div class="uc-number">02</div>
+            <div class="uc-left">
+                <span class="uc-service-tag">System Management</span>
+                <h2 class="uc-h2">A Logistics Operator Eliminates 80% of Administrative Overhead Through Workflow Automation</h2>
+                <span class="uc-sector">Sector: Freight & Logistics</span>
+            </div>
+            <div class="uc-right">
+                <p class="uc-body">Northern Freight Co. was processing driver manifests, client quotes, and invoicing through a combination of WhatsApp, Excel, and manual phone calls. Quote turnaround averaged 47 minutes per job. We designed a unified logistics platform: a driver mobile app for real-time manifest updates, a client self-service portal for instant quotes, automated invoice generation on job completion, and a zero-trust security layer protecting all data flows. The result was a system that ran the operational cycle without dispatcher intervention.</p>
+                <div class="uc-result">
+                    <div><span class="uc-stat-val">80%</span><span class="uc-stat-lab">Reduction in administrative overhead</span></div>
+                    <div><span class="uc-stat-val">4min</span><span class="uc-stat-lab">Quote-to-confirmation turnaround (from 47 min)</span></div>
+                </div>
+                <p class="uc-cite">
+                    McKinsey estimates that transportation and logistics is among the sectors with the highest automation potential, with 57% of activities in freight management technically automatable with current technology.
+                    <a href="https://www.mckinsey.com/capabilities/operations/our-insights" target="_blank" rel="noopener">↗ McKinsey Operations & Automation</a> ·
+                    <a href="https://hbr.org/2022/10/the-hidden-cost-of-manual-processes" target="_blank" rel="noopener">↗ HBR — Cost of Manual Processes</a>
+                </p>
+            </div>
+        </article>
+
+        <!-- USE CASE 3 -->
+        <article class="uc-item">
+            <div class="uc-number">03</div>
+            <div class="uc-left">
+                <span class="uc-service-tag">Process & AI Build</span>
+                <h2 class="uc-h2">A Financial Services SME Deploys a Custom AI Compliance Monitoring Tool, Reducing Review Time by 70%</h2>
+                <span class="uc-sector">Sector: Financial Services</span>
+            </div>
+            <div class="uc-right">
+                <p class="uc-body">A Leicester-based independent financial advisory firm was spending 14 hours per week on manual compliance documentation review — cross-referencing client records against FCA regulatory updates and flagging discrepancies for senior review. We built a custom NLP-based compliance monitoring tool integrated directly into their CRM. The tool ingests regulatory update feeds, parses client records, generates flagged exception reports, and routes them to the relevant advisor automatically. Senior review time dropped from 14 hours to under 4 hours per week.</p>
+                <div class="uc-result">
+                    <div><span class="uc-stat-val">70%</span><span class="uc-stat-lab">Reduction in compliance review time</span></div>
+                    <div><span class="uc-stat-val">£28K</span><span class="uc-stat-lab">Estimated annual labour cost recovered</span></div>
+                </div>
+                <p class="uc-cite">
+                    Deloitte's 2024 AI survey found that financial services firms deploying AI in compliance functions report average time savings of 60–75% on document processing tasks. The FCA's own Technology, Innovation and Cyber Specialist unit actively encourages AI-assisted regulatory compliance tooling for SME advisories.
+                    <a href="https://www2.deloitte.com/us/en/insights/focus/cognitive-technologies/ai-investment-by-country.html" target="_blank" rel="noopener">↗ Deloitte AI Survey 2024</a> ·
+                    <a href="https://www.fca.org.uk/innovation" target="_blank" rel="noopener">↗ FCA Innovation — RegTech Support</a>
+                </p>
+            </div>
+        </article>
+
+        <!-- USE CASE 4 -->
+        <article class="uc-item">
+            <div class="uc-number">04</div>
+            <div class="uc-left">
+                <span class="uc-service-tag">Cyber Security · System Management</span>
+                <h2 class="uc-h2">A Multi-Site Retail Group Unifies Fragmented IT Infrastructure and Achieves 99.9% Uptime Across All Locations</h2>
+                <span class="uc-sector">Sector: Retail & E-Commerce</span>
+            </div>
+            <div class="uc-right">
+                <p class="uc-body">A 6-location East Midlands retail group had grown organically, with each site operating its own network, POS system, and inventory database. There was no centralised monitoring, no standardised security policy, and no data synchronisation between sites. Stock discrepancies were identified manually. We deployed a unified infrastructure layer: centralised network management with site-level segmentation, a cloud-hosted inventory synchronisation system with real-time dashboards, standardised NCSC-aligned security policies across all locations, and a managed NOC for 24/7 uptime monitoring.</p>
+                <div class="uc-result">
+                    <div><span class="uc-stat-val">99.9%</span><span class="uc-stat-lab">System uptime across all 6 sites post-deployment</span></div>
+                    <div><span class="uc-stat-val">100%</span><span class="uc-stat-lab">Elimination of manual stock reconciliation</span></div>
+                </div>
+                <p class="uc-cite">
+                    Gartner research identifies IT infrastructure fragmentation as the primary cause of unplanned downtime in multi-site SMEs, estimating the average cost of unplanned downtime at £4,000–£8,000 per hour for small retailers. Centralised infrastructure management reduces this risk by 73% on average.
+                    <a href="https://www.gartner.com/en/information-technology/insights/infrastructure-operations" target="_blank" rel="noopener">↗ Gartner — Infrastructure & Operations Research</a> ·
+                    <a href="https://www.ncsc.gov.uk/guidance/protecting-bulk-personal-data" target="_blank" rel="noopener">↗ NCSC — Security for Multi-Site Organisations</a>
+                </p>
+            </div>
+        </article>
+
+        <!-- USE CASE 5 -->
+        <article class="uc-item">
+            <div class="uc-number">05</div>
+            <div class="uc-left">
+                <span class="uc-service-tag">Process & AI Build · System Management</span>
+                <h2 class="uc-h2">A Healthcare Support Organisation Automates Patient Triage Routing, Cutting Wait Times and Reducing Admin Errors by 91%</h2>
+                <span class="uc-sector">Sector: Healthcare & Care Services</span>
+            </div>
+            <div class="uc-right">
+                <p class="uc-body">A private healthcare support provider in the East Midlands was routing patient referrals manually: clinical coordinators received referrals by email, manually categorised urgency, and assigned to practitioners via a shared spreadsheet. Average routing time was 4.2 hours. Errors in urgency classification were creating downstream scheduling failures. We engineered a custom AI triage system: an NLP intake layer that parsed referral documents, classified urgency using a custom-trained model aligned to NHS clinical triage criteria, and routed directly to the appropriate practitioner's calendar system — with escalation logic for high-priority cases. Routing time dropped to under 12 minutes.</p>
+                <div class="uc-result">
+                    <div><span class="uc-stat-val">95%</span><span class="uc-stat-lab">Reduction in average referral routing time</span></div>
+                    <div><span class="uc-stat-val">91%</span><span class="uc-stat-lab">Reduction in classification errors</span></div>
+                </div>
+                <p class="uc-cite">
+                    NHS England's 2024 Digital Transformation strategy identifies intelligent triage automation as a priority intervention for reducing administrative burden in healthcare support settings. MIT Sloan research on AI deployment in healthcare operations reports average error reduction of 85–95% in classification tasks when custom models replace manual review.
+                    <a href="https://www.england.nhs.uk/digitaltechnology/connecteddigitalsystems/" target="_blank" rel="noopener">↗ NHS England — Digital Transformation 2024</a> ·
+                    <a href="https://sloanreview.mit.edu/article/the-case-for-operational-resilience/" target="_blank" rel="noopener">↗ MIT Sloan — AI in Operations</a>
+                </p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CLOSING CTA
+════════════════════════════════════════════════════════ -->
+<section class="cta-section" id="contact">
+    <div>
+        <span class="section-label">// Ready to Begin</span>
+        <h2 class="cta-title">Your Business Has<br><em>an Architecture.</em><br>Is it Working?</h2>
+        <p class="cta-body">Every engagement starts with a no-obligation operational audit. We map your systems, quantify your inefficiencies, and present a structural blueprint — before you commit to anything.</p>
+        <div class="cta-links">
+            <a href="index.html#about" class="btn">Request an Audit</a>
+            <a href="index.html#results" class="btn" style="border-color:var(--ink2); color:var(--ink2);">View Case Studies</a>
+        </div>
+    </div>
+    <div style="border-left:1px solid rgba(11,14,23,.1); padding-left:8vw;">
+        <p style="font-size:.6rem; letter-spacing:.4em; text-transform:uppercase; color:var(--gold); margin-bottom:24px;">Contact</p>
+        <p style="font-size:.82rem; line-height:2.2; color:var(--ink2);">
+            <strong style="color:var(--ink);">Email</strong><br>
+            jay@aetherbusinessarchitectsltd.uk<br><br>
+            <strong style="color:var(--ink);">Phone</strong><br>
+            07735 326 227<br><br>
+            <strong style="color:var(--ink);">Location</strong><br>
+            Leicester, United Kingdom
+        </p>
+    </div>
+</section>
+
+<footer><p>© 2026 AETHER ARCHITECTURE // LEICESTER // GLOBAL // <a href="index.html" style="color:rgba(255,255,255,.4); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.1);">← RETURN HOME</a></p></footer>
+
+<script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-q-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            document.querySelectorAll('.faq-q-btn').forEach(b => b.setAttribute('aria-expanded','false'));
+            // Toggle current
+            if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded','true');
+            }
+        });
+    });
+
+    // Scroll-reveal for use case items
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('.uc-item').forEach((el, i) => {
+        gsap.from(el, {
+            opacity: 0, y: 40,
+            duration: 0.8,
+            delay: 0,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 88%',
+                toggleActions: 'play none none none'
+            }
+        });
+    });
+
+    gsap.utils.toArray('.deep-section').forEach(el => {
+        gsap.from(el.querySelector('.deep-h2'), {
+            opacity: 0, y: 30, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 75%', toggleActions: 'play none none none' }
+        });
+    });
+
+    gsap.utils.toArray('.big-stat').forEach((el, i) => {
+        gsap.from(el, {
+            opacity: 0, x: -20, duration: 0.7, delay: i * 0.15, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+        });
+    });
+</script>
+</body>
+</html>
