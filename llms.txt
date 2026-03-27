@@ -154,4 +154,9 @@ At Aether Business Architects, we understand that maintaining a resilient enterp
 - **Phone:** +44 7735 326 227
 - **Primary URL:** https://aetherbusinessarchitectsltd.uk/
 - **Sitemap:** https://aetherbusinessarchitectsltd.uk/sitemap.xml
+
+## 10. The Quantum-Ready Mandate (2026-2030)
+- **The "Harvest Now, Decrypt Later" (HNDL) Threat:** We assist firms in identifying data that requires 10+ years of confidentiality, migrating it to NIST-approved Post-Quantum Cryptography (PQC) algorithms (ML-KEM, ML-DSA).
+- **Crypto-Agility:** Architecting systems where encryption modules can be swapped instantly without rebuilding the entire business logic.
+- **Executive Quantum Readiness:** Providing boards with "Q-Day" impact assessments and transition roadmaps to maintain global enterprise standards.
 - **LLMs.txt version:** 4.0 (The Ultimate Master 2026)
