@@ -4,141 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aether Architecture | Business Systems Engineering</title>
+
+    <!-- SEO / OG / Twitter Meta -->
+    <meta name="title" content="Aether Architecture | Business Systems Engineering">
+    <meta name="description" content="Operational Resilience for the Modern Enterprise. We engineer high-performance business systems, Layer 3 cybersecurity, and automated infrastructure from Leicester to the Globe.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aetherbusinessarchitectsltd.uk/">
+    <meta property="og:title" content="Aether Architecture | Business Systems Engineering">
+    <meta property="og:description" content="Eliminating operational drag through precision engineering. Strategic Branding, AI Build, and Managed Infrastructure.">
+    <meta property="og:image" content="82718899-6f94-431a-ba75-5c7c2630a249.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aetherbusinessarchitectsltd.uk/">
+    <meta property="twitter:title" content="Aether Architecture | Business Systems Engineering">
+    <meta property="twitter:description" content="Operational Resilience for the Modern Enterprise. Engineering indestructible digital fabrics for 2026 and beyond.">
+    <meta property="twitter:image" content="82718899-6f94-431a-ba75-5c7c2630a249.png">
+    <meta name="theme-color" content="#060810">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
-        .svc-body {
-    font-size: 1.5rem;
-}
-/* Logo Styling */
-/* Logo Styling - Pushed Left */
-nav {
-    position: fixed; /* Locks the header at the top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: left;
-    justify-content: space-between;
-    padding: 70 7vw;
-    background: rgba(250, 251, 253, 0.95); /* Slight glass effect */
-    backdrop-filter: blur(10px);
-    z-index: 9999; /* Ensures it stays above all other content/cube tiles */
-    border-bottom: 1px solid rgba(200, 169, 110, 0.1);
-}
-
-.nav-brand {
-    display: flex;
-    align-items: left;
-    margin-right: 400px; /* Pushes the 'Systems' and 'Results' to the far right */
-}
-
-.header-logo {
-    height: 60px; /* Slightly larger for better visibility */
-    width: auto;
-    object-fit: contain;
-
-    margin-left: -225px;
-
-}
+        /* ── VARIABLES ── */
         :root {
             --ink:#0B0E17; --ink2:#3C4260; --bg:#ECEFF4; --white:#FAFBFD; --dark:#060810;
             --gold:#C8A96E; --gold2:#E8CA9A; --cyan:#00C8DC;
-            --serif:'Cormorant Garamond',Georgia,serif; --mono:'Fira Code',monospace
+            --serif:'Cormorant Garamond',Georgia,serif; --mono:'Fira Code',monospace;
         }
-        *,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
-        html { scroll-behavior:smooth; }
-        body { background:var(--bg); color:var(--ink); font-family:var(--mono); overflow-x:hidden; -webkit-font-smoothing:antialiased }
-        
-        /* NAVIGATION */
-        nav { position:fixed; top:0; left:0; right:0; height:80px; display:flex; align-items:center; justify-content:space-between; padding:0 5vw; z-index:1000; transition:all .4s; }
-        nav.scrolled { background:rgba(250,251,253,.98); backdrop-filter:blur(20px); border-bottom:1px solid rgba(200,169,110,.15) }
-        .nav-brand { font-family:var(--serif); font-style:italic; font-size:1.5rem; color:var(--ink); text-decoration:none; }
+
+        /* ── UNIVERSAL STRUCTURAL SAFETY ── */
+        *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; overflow-x:hidden; }
+        body { background:var(--bg); color:var(--ink); font-family:var(--mono); overflow-x:hidden; -webkit-font-smoothing:antialiased; width:100%; }
+
+        /* ── NAV ── */
+        nav {
+            position:fixed; top:0; left:0; width:100%; height:70px;
+            display:flex; align-items:center; justify-content:space-between;
+            padding:0 5vw; background:rgba(250,251,253,0.95);
+            backdrop-filter:blur(10px); z-index:9999;
+            border-bottom:1px solid rgba(200,169,110,0.1);
+            transition:all .4s;
+        }
+        nav.scrolled { background:rgba(250,251,253,.98); backdrop-filter:blur(20px); border-bottom:1px solid rgba(200,169,110,.15); }
+        .nav-brand { display:flex; align-items:center; text-decoration:none; color:var(--ink); }
+        .header-logo { height:45px; width:auto; margin-right:12px; }
         .nav-links { display:flex; gap:40px; list-style:none; align-items:center; }
-        .nav-links a { font-size:.65rem; letter-spacing:.6em; text-transform:uppercase; color:var(--ink2); text-decoration:none; transition: color 0.3s; }
-        
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { 
-            display: none; position: absolute; background: var(--white); min-width: 200px; 
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 1; top: 100%; left: 0;
-            border: 1px solid rgba(200,169,110,0.1);
-        }
-        .dropdown-content a { color: var(--ink2); padding: 12px 16px; text-decoration: none; display: block; font-size: 10px; letter-spacing: 2px; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .dropdown:hover .dropdown-content { display: block; }
+        .nav-links a { font-size:.65rem; letter-spacing:.6em; text-transform:uppercase; color:var(--ink2); text-decoration:none; transition:color 0.3s; }
 
-        .btn { 
-            display: inline-block; padding: 14px 28px; font-size: 10px; letter-spacing: 3px; 
-            text-transform: uppercase; text-decoration: none; border: 1px solid var(--gold); 
-            color: var(--gold); transition: all 0.4s; cursor: pointer; background: transparent;
+        .dropdown { position:relative; display:inline-block; }
+        .dropdown-content {
+            display:none; position:absolute; background:var(--white); min-width:200px;
+            box-shadow:0px 8px 16px rgba(0,0,0,0.1); z-index:1; top:100%; left:0;
+            border:1px solid rgba(200,169,110,0.1);
         }
-        .btn:hover { background: var(--gold); color: var(--white); }
+        .dropdown-content a { color:var(--ink2); padding:12px 16px; text-decoration:none; display:block; font-size:10px; letter-spacing:2px; border-bottom:1px solid rgba(0,0,0,0.05); }
+        .dropdown:hover .dropdown-content { display:block; }
 
-        /* CUBE CONTROLLER - RAISED OPACITY */
+        /* ── BUTTONS ── */
+        .btn {
+            display:inline-block; padding:12px 24px; font-size:10px; letter-spacing:3px;
+            text-transform:uppercase; text-decoration:none; border:1px solid var(--gold);
+            color:var(--gold); background:transparent; transition:all 0.4s; cursor:pointer;
+        }
+        .btn:hover { background:var(--gold); color:var(--white); }
+
+        /* ── CUBE ── */
         #cube-wrapper { position:fixed; top:50%; left:25%; transform:translate(-50%,-50%); z-index:50; perspective:2200px; pointer-events:none; }
         #cube-container { position:relative; width:210px; height:210px; transform-style:preserve-3d; }
-        .face { position:absolute; width:210px; height:210px; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:3px; padding:3px; transform-style:preserve-3d }
-        .face-front  { transform: translateZ(105px); }
-        .face-back   { transform: translateZ(-105px) rotateY(180deg); }
-        .face-right  { transform: rotateY(90deg) translateZ(105px); }
-        .face-left   { transform: rotateY(-90deg) translateZ(105px); }
-        .face-top    { transform: rotateX(90deg) translateZ(105px); }
-        .face-bottom { transform: rotateX(-90deg) translateZ(105px); }
-        .tile { display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:6.5px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--cyan); border:1px solid rgba(0,200,220,.5); background:rgba(255,255,255,.2); backdrop-filter:blur(10px); border-radius:1px; opacity: 0.9 !important; }
+        .face { position:absolute; width:210px; height:210px; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:3px; padding:3px; transform-style:preserve-3d; }
+        .face-front  { transform:translateZ(105px); }
+        .face-back   { transform:translateZ(-105px) rotateY(180deg); }
+        .face-right  { transform:rotateY(90deg) translateZ(105px); }
+        .face-left   { transform:rotateY(-90deg) translateZ(105px); }
+        .face-top    { transform:rotateX(90deg) translateZ(105px); }
+        .face-bottom { transform:rotateX(-90deg) translateZ(105px); }
+        .tile { display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:6.5px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--cyan); border:1px solid rgba(0,200,220,.5); background:rgba(255,255,255,.2); backdrop-filter:blur(10px); border-radius:1px; opacity:0.9 !important; }
         .tile.c { background:rgba(0,200,220,.25); border-color:rgba(0,200,220,1); color:#fff; }
 
-        /* SECTIONS */
+        /* ── HERO ── */
         .hero-section { height:100vh; display:flex; align-items:center; background:var(--white); }
         .hero-text { margin-left:auto; padding-right:8vw; width:48%; z-index:2; }
         .hero-title { font-family:var(--serif); font-size:clamp(5rem,6vw,6rem); font-weight:800; font-style:italic; line-height:1; color:var(--ink); margin-bottom:20px; }
         .hero-title strong { font-weight:800; font-style:normal; display:block; }
 
-        /* ALTERNATING SPLIT SECTION */
-        .split-section { height:100vh; display:grid; grid-template-columns: 1fr 1fr; background:var(--dark); position:relative; overflow:hidden; }
-        .asset-container { position:relative; width:100%; height:100%; overflow:hidden; border-right: 1px solid rgba(200,169,110,0.1); }
-        .asset-container video, .asset-container img { width:100%; height:100%; object-fit:cover; opacity: 0.8; }
-        .content-panel { display:flex; flex-direction:column; justify-content:center; padding: 0 8vw; color:#fff; z-index: 3; }
-        .svc-heading { font-family:var(--serif); font-size:clamp(5.4rem,4vw,4rem); font-style:italic; line-height:1.05; margin-bottom:22px; color:#F5F5F8; }
-        .svc-body { font-size:.15rem; line-height:1.9; color:rgba(200,210,225,.6); max-width:440px; margin-bottom:36px; }
+        /* ── SPLIT SECTIONS ── */
+        .split-section { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; background:var(--dark); position:relative; overflow:hidden; }
+        .asset-container { position:relative; width:100%; height:100%; overflow:hidden; border-right:1px solid rgba(200,169,110,0.1); }
+        .asset-container video, .asset-container img { width:100%; height:100%; object-fit:cover; opacity:0.8; }
+        .content-panel { display:flex; flex-direction:column; justify-content:center; padding:0 8vw; color:#fff; z-index:3; }
+        .svc-heading { font-family:var(--serif); font-size:clamp(3rem,5vw,5.4rem); font-style:italic; line-height:1.1; margin-bottom:20px; }
+        .svc-body { font-size:0.95rem; line-height:1.8; color:rgba(200,210,225,.8); margin-bottom:30px; max-width:440px; }
 
-        /* Layout Alternation */
-        .alt-rev { grid-template-columns: 1fr 1fr; }
-        .alt-rev .asset-container { grid-column: 2; border-right:none; border-left: 1px solid rgba(200,169,110,0.1); }
-        .alt-rev .content-panel { grid-column: 1; grid-row: 1; }
+        .alt-rev { grid-template-columns:1fr 1fr; }
+        .alt-rev .asset-container { grid-column:2; border-right:none; border-left:1px solid rgba(200,169,110,0.1); }
+        .alt-rev .content-panel { grid-column:1; grid-row:1; }
 
-        /* CASE STUDIES */
+        /* ── CASE STUDIES ── */
         .case-section { padding:140px 8vw; background:var(--white); position:relative; z-index:10; }
-        .case-header { margin-bottom: 80px; }
+        .case-header { margin-bottom:80px; }
         .case-label { font-size:.5rem; letter-spacing:.6em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:15px; }
         .case-title { font-family:var(--serif); font-size:4rem; font-style:italic; line-height:1; color:var(--ink); }
-        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; margin-bottom: 120px; }
-        .case-meta { border-left: 3px solid var(--gold); padding-left: 30px; }
-        .case-name { font-family: var(--serif); font-size: 4.2rem; color: var(--ink); margin-bottom: 20px; }
-        .case-step { margin-bottom: 25px; }
-        .step-label { font-size: .7rem; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 2px; display: block; }
-        .step-text { font-size: .75rem; line-height: 1.8; color: var(--ink2); }
-        .case-stats { display: flex; gap: 40px; margin-top: 50px; }
-        .stat-val { font-family: var(--serif); font-size: 4.2rem; color: var(--ink); font-weight: 800; display: block; }
-        .stat-label { font-size: .55rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ink2); }
+        .case-grid { display:grid; grid-template-columns:1fr 1fr; gap:8vw; margin-bottom:120px; }
+        .case-meta { border-left:3px solid var(--gold); padding-left:30px; }
+        .case-name { font-family:var(--serif); font-size:4.2rem; color:var(--ink); margin-bottom:20px; }
+        .case-step { margin-bottom:25px; }
+        .step-label { font-size:.7rem; font-weight:800; text-transform:uppercase; color:var(--gold); letter-spacing:2px; display:block; }
+        .step-text { font-size:.75rem; line-height:1.8; color:var(--ink2); }
+        .case-stats { display:flex; gap:40px; margin-top:50px; }
+        .stat-val { font-family:var(--serif); font-size:4.2rem; color:var(--ink); font-weight:800; display:block; }
+        .stat-label { font-size:.55rem; letter-spacing:2px; text-transform:uppercase; color:var(--ink2); }
 
-        /* ABOUT */
+        /* ── ABOUT ── */
         .about-section { padding:140px 8vw; background:var(--bg); display:grid; grid-template-columns:1fr 1fr; gap:8vw; }
-        .about-content { grid-column: 2; z-index:10; }
+        .about-content { grid-column:2; z-index:10; }
 
+        /* ── FOOTER ── */
         footer { background:var(--dark); padding:60px 8vw; color:rgba(255,255,255,0.4); text-align:center; font-size:.45rem; letter-spacing:.5em; }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            .split-section { grid-template-columns:1fr; height:auto; }
+            .alt-rev .asset-container { grid-column:1; grid-row:2; }
+            .alt-rev .content-panel { grid-column:1; grid-row:1; }
+            .hero-text { width:90%; padding:120px 5vw 60px; margin:0; }
+            .hero-title { font-size:3.5rem; }
+            .nav-links { display:none; }
+            .case-grid { grid-template-columns:1fr; }
+            .about-section { grid-template-columns:1fr; }
+            .about-content { grid-column:1; }
+            #cube-wrapper { left:50%; top:30%; transform:translate(-50%,-50%) scale(0.6); }
+        }
     </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav id="nav">
-    <a href="#" class="nav-brand">
-<P> Aether Architecture. 
-        <img src="82718899-6f94-431a-ba75-5c7c2630a249.png" 
-             alt="Aether Architecture Logo" 
-             style="height: 50px; width: auto; display: block; object-fit: contain;">
+    <a href="https://aetherbusinessarchitectsltd.uk/" class="nav-brand" aria-label="Aether Architecture Home">
+        <img src="82718899-6f94-431a-ba75-5c7c2630a249.png"
+             alt="Aether Architecture Logo"
+             class="header-logo">
+        Aether Architecture
     </a>
-    
     <ul class="nav-links">
         <li class="dropdown">
             <a href="#services">Systems ▾</a>
@@ -150,9 +158,11 @@ nav {
             </div>
         </li>
         <li><a href="#results">Results</a></li>
-        <li><a href="#about" class="btn" style="padding: 8px 15px;">Get In Touch</a></li>
+        <li><a href="#about" class="btn" style="padding:8px 15px;">Get In Touch</a></li>
     </ul>
 </nav>
+
+<!-- ── CUBE ── -->
 <div id="cube-wrapper">
     <div id="cube-container">
         <div class="face face-front"><div class="tile">CYBER</div><div class="tile">RESCUE</div><div class="tile">DATA</div><div class="tile">DEBT</div><div class="tile c">AETHER</div><div class="tile">FLOW</div><div class="tile">LEGAL</div><div class="tile">EQUITY</div><div class="tile">SCALE</div></div>
@@ -164,81 +174,83 @@ nav {
     </div>
 </div>
 
+<!-- ── HERO ── -->
 <section class="hero-section">
     <div class="hero-text">
         <h1 class="hero-title">Aether<br><strong>Architecture</strong></h1>
         <p style="font-size:.9rem; line-height:2; color:var(--ink2); max-width:480px;">
-    "At Aether Business Architects, we know running a business in today’s fast-changing digital world can feel like solving a Rubik’s Cube blindfolded. From startups fighting for liquidity, to SMEs optimizing operations, to corporations navigating compliance and fragmented systems—we design, structure, and unify every layer of your business. Marketing, sales, production, AI integration, and customer retention: we turn complexity into clarity, creating a resilient, high-performance engine ready for the challenges of 2025 and beyond".
+            "At Aether Business Architects, we know running a business in today's fast-changing digital world can feel like solving a Rubik's Cube blindfolded. From startups fighting for liquidity, to SMEs optimizing operations, to corporations navigating compliance and fragmented systems—we design, structure, and unify every layer of your business. Marketing, sales, production, AI integration, and customer retention: we turn complexity into clarity, creating a resilient, high-performance engine ready for the challenges of 2025 and beyond".
         </p>
     </div>
 </section>
 
+<!-- ── CYBER SECURITY ── -->
 <section class="split-section" id="cyber">
     <div class="asset-container">
         <video autoplay muted loop playsinline><source src="PixVerse_V5.6_Image_Text_360P_add_all_cyber_se.mp4" type="video/mp4"></video>
     </div>
     <div class="content-panel">
         <h2 class="svc-heading">Cyber Security</h2>
-        <p style="font-size:.9rem;class="svc-body"> Enterprise Cybersecurity Solutions for SMEs and Growing Businesses
-We harden Layer 3 network infrastructure and implement zero-trust security architecture — the framework recommended by the UK's National Cyber Security Centre for businesses facing modern adversarial threats. We don't bolt security on after the fact; we engineer it into the digital fabric of your operations from day one, eliminating the attack surface before it becomes a liability.</p>
-<a href="faq.html#cyber" class="btn">Find Out More</a>
+        <p class="svc-body" style="font-size:.9rem;">
+            Enterprise Cybersecurity Solutions for SMEs and Growing Businesses. We harden Layer 3 network infrastructure and implement zero-trust security architecture — the framework recommended by the UK's National Cyber Security Centre for businesses facing modern adversarial threats. We don't bolt security on after the fact; we engineer it into the digital fabric of your operations from day one, eliminating the attack surface before it becomes a liability.
+        </p>
+        <a href="faq.html#cyber" class="btn">Find Out More</a>
     </div>
 </section>
 
-<section class="split-section alt-rev white-theme" id="management" style="background: var(--white);">
+<!-- ── SYSTEM MANAGEMENT ── -->
+<section class="split-section alt-rev white-theme" id="management" style="background:var(--white);">
     <div class="asset-container">
         <video autoplay muted loop playsinline>
             <source src="PixVerse_V5.6_Image_Text_360P_Gemini_said_That (1).mp4" type="video/mp4">
         </video>
     </div>
     <div class="content-panel">
-        <h2 class="svc-heading" style="color: var(--ink);">System Management</h2>
-        <p class="svc-body" style="font-size:.9rem; color: black;">
-           Managed Infrastructure & Workflow Automation for Operational Continuity
-Operational drag — the hidden cost of manual processes, siloed systems, and unplanned downtime — is one of the leading causes of SME underperformance. We design and deploy custom automated workflow systems and managed infrastructure that operate 24/7, eliminating the single points of failure that stall business growth. Your operations run. Continuously. Without you.
+        <h2 class="svc-heading" style="color:var(--ink);">System Management</h2>
+        <p class="svc-body" style="font-size:.9rem; color:black;">
+            Managed Infrastructure &amp; Workflow Automation for Operational Continuity. Operational drag — the hidden cost of manual processes, siloed systems, and unplanned downtime — is one of the leading causes of SME underperformance. We design and deploy custom automated workflow systems and managed infrastructure that operate 24/7, eliminating the single points of failure that stall business growth. Your operations run. Continuously. Without you.
         </p>
         <a href="faq.html#management" class="btn">Find Out More</a>
     </div>
 </section>
-<section class="split-section" id="branding" style="background: var(--ink);">
-    <div class="asset-container" style="border-right: 1px solid rgba(250,251,253,0.05);">
+
+<!-- ── STRATEGIC BRANDING ── -->
+<section class="split-section" id="branding" style="background:var(--ink);">
+    <div class="asset-container" style="border-right:1px solid rgba(250,251,253,0.05);">
         <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; opacity:0.8;">
             <source src="PixVerse_V5.6_Image_Text_360P_make_the_a_in_th.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
     <div class="content-panel">
-        <h2 class="svc-heading" style="color: var(--white); font-style: normal;">Strategic Branding</h2>
-<p class="svc-body" style="font-size:.9rem; color: white;">
-   High-Authority Brand Identity & Strategic Rebranding Services
-A brand is not decoration — it is a market positioning system. Research consistently shows that consistent brand presentation increases revenue by up to 23%. We design technically optimised brand identities — from Visual DNA and logo architecture to full digital presence — built for structural survival and long-term market authority. Your brand becomes an asset, not an afterthought.
-</p>
-        <a href="faq.html#branding" class="btn" style="border-color: var(--gold); color: var(--gold);">Get In Touch</a>
+        <h2 class="svc-heading" style="color:var(--white); font-style:normal;">Strategic Branding</h2>
+        <p class="svc-body" style="font-size:.9rem; color:white;">
+            High-Authority Brand Identity &amp; Strategic Rebranding Services. A brand is not decoration — it is a market positioning system. Research consistently shows that consistent brand presentation increases revenue by up to 23%. We design technically optimised brand identities — from Visual DNA and logo architecture to full digital presence — built for structural survival and long-term market authority. Your brand becomes an asset, not an afterthought.
+        </p>
+        <a href="faq.html#branding" class="btn" style="border-color:var(--gold); color:var(--gold);">Get In Touch</a>
     </div>
 </section>
 
-<section class="split-section alt-rev white-theme" id="process" style="background: var(--white);">
+<!-- ── PROCESS & AI ── -->
+<section class="split-section alt-rev white-theme" id="process" style="background:var(--white);">
     <div class="asset-container">
         <video autoplay muted loop playsinline>
             <source src="PixVerse_V5.6_Image_Text_360P_make_the_huma_sh (1).mp4" type="video/mp4">
         </video>
     </div>
     <div class="content-panel">
-        <h2 class="svc-heading" style="color: var(--ink);">Process & AI Build</h2>
-        <class="svc-body" style="font-size:.9rem; color: black;">
-            Custom AI Solutions & Business Process Automation Development
-According to Deloitte's Global AI Survey, organisations that successfully deploy AI report average efficiency gains of 22–37% within the first operational year. We build custom AI tools and automated business software tailored to your specific operational architecture — not off-the-shelf products, but precision-engineered systems that remove friction, eliminate redundant processes, and compound your operational advantage over time.
+        <h2 class="svc-heading" style="color:var(--ink);">Process &amp; AI Build</h2>
+        <p class="svc-body" style="font-size:.9rem; color:black;">
+            Custom AI Solutions &amp; Business Process Automation Development. According to Deloitte's Global AI Survey, organisations that successfully deploy AI report average efficiency gains of 22–37% within the first operational year. We build custom AI tools and automated business software tailored to your specific operational architecture — not off-the-shelf products, but precision-engineered systems that remove friction, eliminate redundant processes, and compound your operational advantage over time.
         </p>
-        <a href="faq.html#ai-build"class="btn" style="border-color: var(--ink); color: var(--ink);">Find Out More</a>
+        <a href="faq.html#ai-build" class="btn" style="border-color:var(--ink); color:var(--ink);">Find Out More</a>
     </div>
 </section>
 
+<!-- ── CASE STUDIES ── -->
 <section class="case-section" id="results">
     <div class="case-header">
         <span class="case-label">// Proven Results</span>
-        <h2 class="case-title">Proven Business Transformation Results
-Every engagement begins with a diagnostic audit of your operational architecture. These are the outcomes when structural engineering replaces surface-level consulting. View our process →</h2>
-    <a href="faq.html#results">Results</a>
+        <h2 class="case-title">Proven Business Transformation Results. Every engagement begins with a diagnostic audit of your operational architecture. These are the outcomes when structural engineering replaces surface-level consulting. <a href="faq.html#results" style="color:var(--gold);">View our process →</a></h2>
     </div>
 
     <div class="case-grid">
@@ -270,20 +282,21 @@ Every engagement begins with a diagnostic audit of your operational architecture
     </div>
 </section>
 
+<!-- ── ABOUT ── -->
 <section class="about-section" id="about">
     <div class="about-content">
-        <h2 class="svc-heading" style="color:var(--ink)">About Us</h2>
-        <p style="font-size:.9rem;class="step-text">About Aether Architecture — Business Systems Engineering, Leicester
-At Aether Architecture, we engineer. Based in Leicester, we are a high-performance business solutions firm specialising in the total operational resilience of the modern enterprise. Our methodology is Architecture-First: we map the complete telemetry of your operation — from your network perimeter to the manual data-entry points creating measurable "Human Drag" — before a single solution is deployed.
-Operational inefficiency is not a software problem. It is a structural one. Research published by MIT Sloan Management Review identifies operational fragmentation — disconnected systems, unclear processes, and inconsistent infrastructure — as the primary constraint on business scalability. We eliminate that constraint by design.
-We are Authority-Led. We provide the decisive technical leadership required to replace fragmented, patchwork workflows with a unified, indestructible digital fabric. Whether hardening your cybersecurity against adversarial threats, deploying 24/7 automated infrastructure, engineering a high-authority brand identity, or building custom AI business tools, our mission is singular: eliminate operational failure at the source.
-We build businesses that are technically superior, structurally sound, and ready to scale — without friction.</p>
-       <a href="faq.html#contact" class="btn">Get in touch</a>
+        <h2 class="svc-heading" style="color:var(--ink);">About Us</h2>
+        <p class="step-text" style="font-size:.9rem; margin-bottom:30px;">
+            About Aether Architecture — Business Systems Engineering, Leicester. At Aether Architecture, we engineer. Based in Leicester, we are a high-performance business solutions firm specialising in the total operational resilience of the modern enterprise. Our methodology is Architecture-First: we map the complete telemetry of your operation — from your network perimeter to the manual data-entry points creating measurable "Human Drag" — before a single solution is deployed.
+            Operational inefficiency is not a software problem. It is a structural one. Research published by MIT Sloan Management Review identifies operational fragmentation — disconnected systems, unclear processes, and inconsistent infrastructure — as the primary constraint on business scalability. We eliminate that constraint by design.
+            We are Authority-Led. We provide the decisive technical leadership required to replace fragmented, patchwork workflows with a unified, indestructible digital fabric. Whether hardening your cybersecurity against adversarial threats, deploying 24/7 automated infrastructure, engineering a high-authority brand identity, or building custom AI business tools, our mission is singular: eliminate operational failure at the source.
+            We build businesses that are technically superior, structurally sound, and ready to scale — without friction.
+        </p>
+        <a href="faq.html#contact" class="btn">Get in touch</a>
         <div style="margin-top:40px; border-top:1px solid #ccc; padding-top:20px;">
-
-<h1> Contact us for more information<h1>
-            <pstyle="font-size:.9rem;><strong>Email:</strong> jay@aetherbusinessarchitectsltd.uk</p>
-            <pstyle="font-size:.9rem;><strong>Phone:</strong> 07735326227</p>
+            <h2 style="font-family:var(--serif); font-size:1.8rem; margin-bottom:15px; color:var(--ink);">Contact us for more information</h2>
+            <p style="font-size:.9rem; margin-bottom:8px;"><strong>Email:</strong> jay@aetherbusinessarchitectsltd.uk</p>
+            <p style="font-size:.9rem;"><strong>Phone:</strong> 07735326227</p>
         </div>
     </div>
 </section>
@@ -305,6 +318,12 @@ We build businesses that are technically superior, structurally sound, and ready
         })
         .to(tile, { x: xDist, y: yDist, z: zDist, opacity: 0.9 }, 0)
         .to(tile, { x: 0, y: 0, z: 0, opacity: 1, ease: "power4.out" }, 0.9);
+    });
+
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
     });
 </script>
 </body>
