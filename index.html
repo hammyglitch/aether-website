@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Aether Architecture",
-
-  "url": "https://aetherbusinessarchitectsltd.uk/",
-  "logo": "https://aetherbusinessarchitectsltd.uk/aether logo.png"
-}
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aether Architecture | Business Systems Engineering</title>
@@ -22,42 +12,48 @@
     <meta property="og:url" content="https://aetherbusinessarchitectsltd.uk/">
     <meta property="og:title" content="Aether Architecture | Business Systems Engineering">
     <meta property="og:description" content="Eliminating operational drag through precision engineering. Strategic Branding, AI Build, and Managed Infrastructure.">
-    <meta property="og:image" content="82718899-6f94-431a-ba75-5c7c2630a249.png">
+    <meta property="og:image" content="https://aetherbusinessarchitectsltd.uk/aether-logo.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://aetherbusinessarchitectsltd.uk/">
     <meta property="twitter:title" content="Aether Architecture | Business Systems Engineering">
     <meta property="twitter:description" content="Operational Resilience for the Modern Enterprise. Engineering indestructible digital fabrics for 2026 and beyond.">
-    <meta property="twitter:image" content="82718899-6f94-431a-ba75-5c7c2630a249.png">
+    <meta property="twitter:image" content="https://aetherbusinessarchitectsltd.uk/aether-logo.png">
     <meta name="theme-color" content="#060810">
+
+    <!-- Schema.org — tells Google which logo to show in search results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Aether Architecture",
+      "url": "https://aetherbusinessarchitectsltd.uk/",
+      "logo": "https://aetherbusinessarchitectsltd.uk/aether-logo.png"
+    }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* ── VARIABLES ── */
         :root {
             --ink:#0B0E17; --ink2:#3C4260; --bg:#ECEFF4; --white:#FAFBFD; --dark:#060810;
             --gold:#C8A96E; --gold2:#E8CA9A; --cyan:#00C8DC;
             --serif:'Cormorant Garamond',Georgia,serif; --mono:'Fira Code',monospace;
         }
-
-        /* ── UNIVERSAL STRUCTURAL SAFETY ── */
         *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; overflow-x:hidden; }
         body { background:var(--bg); color:var(--ink); font-family:var(--mono); overflow-x:hidden; -webkit-font-smoothing:antialiased; width:100%; }
 
-        /* ── NAV ── */
         nav {
             position:fixed; top:0; left:0; width:100%; height:70px;
             display:flex; align-items:center; justify-content:space-between;
             padding:0 5vw; background:rgba(250,251,253,0.95);
             backdrop-filter:blur(10px); z-index:9999;
-            border-bottom:1px solid rgba(200,169,110,0.1);
-            transition:all .4s;
+            border-bottom:1px solid rgba(200,169,110,0.1); transition:all .4s;
         }
         nav.scrolled { background:rgba(250,251,253,.98); backdrop-filter:blur(20px); border-bottom:1px solid rgba(200,169,110,.15); }
-        .nav-brand { display:flex; align-items:center; text-decoration:none; color:var(--ink); }
+        .nav-brand { display:flex; align-items:center; text-decoration:none; color:var(--ink); font-family:var(--serif); font-style:italic; font-size:1.1rem; }
         .header-logo { height:45px; width:auto; margin-right:12px; }
         .nav-links { display:flex; gap:40px; list-style:none; align-items:center; }
         .nav-links a { font-size:.65rem; letter-spacing:.6em; text-transform:uppercase; color:var(--ink2); text-decoration:none; transition:color 0.3s; }
@@ -71,7 +67,6 @@
         .dropdown-content a { color:var(--ink2); padding:12px 16px; text-decoration:none; display:block; font-size:10px; letter-spacing:2px; border-bottom:1px solid rgba(0,0,0,0.05); }
         .dropdown:hover .dropdown-content { display:block; }
 
-        /* ── BUTTONS ── */
         .btn {
             display:inline-block; padding:12px 24px; font-size:10px; letter-spacing:3px;
             text-transform:uppercase; text-decoration:none; border:1px solid var(--gold);
@@ -79,7 +74,6 @@
         }
         .btn:hover { background:var(--gold); color:var(--white); }
 
-        /* ── CUBE ── */
         #cube-wrapper { position:fixed; top:50%; left:25%; transform:translate(-50%,-50%); z-index:50; perspective:2200px; pointer-events:none; }
         #cube-container { position:relative; width:210px; height:210px; transform-style:preserve-3d; }
         .face { position:absolute; width:210px; height:210px; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:3px; padding:3px; transform-style:preserve-3d; }
@@ -92,13 +86,11 @@
         .tile { display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:6.5px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--cyan); border:1px solid rgba(0,200,220,.5); background:rgba(255,255,255,.2); backdrop-filter:blur(10px); border-radius:1px; opacity:0.9 !important; }
         .tile.c { background:rgba(0,200,220,.25); border-color:rgba(0,200,220,1); color:#fff; }
 
-        /* ── HERO ── */
         .hero-section { height:100vh; display:flex; align-items:center; background:var(--white); }
         .hero-text { margin-left:auto; padding-right:8vw; width:48%; z-index:2; }
         .hero-title { font-family:var(--serif); font-size:clamp(5rem,6vw,6rem); font-weight:800; font-style:italic; line-height:1; color:var(--ink); margin-bottom:20px; }
         .hero-title strong { font-weight:800; font-style:normal; display:block; }
 
-        /* ── SPLIT SECTIONS ── */
         .split-section { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; background:var(--dark); position:relative; overflow:hidden; }
         .asset-container { position:relative; width:100%; height:100%; overflow:hidden; border-right:1px solid rgba(200,169,110,0.1); }
         .asset-container video, .asset-container img { width:100%; height:100%; object-fit:cover; opacity:0.8; }
@@ -110,7 +102,6 @@
         .alt-rev .asset-container { grid-column:2; border-right:none; border-left:1px solid rgba(200,169,110,0.1); }
         .alt-rev .content-panel { grid-column:1; grid-row:1; }
 
-        /* ── CASE STUDIES ── */
         .case-section { padding:140px 8vw; background:var(--white); position:relative; z-index:10; }
         .case-header { margin-bottom:80px; }
         .case-label { font-size:.5rem; letter-spacing:.6em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:15px; }
@@ -125,14 +116,11 @@
         .stat-val { font-family:var(--serif); font-size:4.2rem; color:var(--ink); font-weight:800; display:block; }
         .stat-label { font-size:.55rem; letter-spacing:2px; text-transform:uppercase; color:var(--ink2); }
 
-        /* ── ABOUT ── */
         .about-section { padding:140px 8vw; background:var(--bg); display:grid; grid-template-columns:1fr 1fr; gap:8vw; }
         .about-content { grid-column:2; z-index:10; }
 
-        /* ── FOOTER ── */
         footer { background:var(--dark); padding:60px 8vw; color:rgba(255,255,255,0.4); text-align:center; font-size:.45rem; letter-spacing:.5em; }
 
-        /* ── MOBILE ── */
         @media (max-width: 768px) {
             .split-section { grid-template-columns:1fr; height:auto; }
             .alt-rev .asset-container { grid-column:1; grid-row:2; }
@@ -149,14 +137,11 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav id="nav">
-<a href="https://aetherbusinessarchitectsltd.uk/" class="nav-brand" aria-label="Aether Architecture Home">
-    <img src="aether-logo.png"
-         alt="Aether Architecture Logo"
-         class="header-logo">
-    Aether Architecture
-</a>
+    <a href="https://aetherbusinessarchitectsltd.uk/" class="nav-brand" aria-label="Aether Architecture Home">
+        <img src="aether-logo.png" alt="Aether Architecture Logo" class="header-logo">
+        Aether Architecture
+    </a>
     <ul class="nav-links">
         <li class="dropdown">
             <a href="#services">Systems ▾</a>
@@ -172,7 +157,6 @@
     </ul>
 </nav>
 
-<!-- ── CUBE ── -->
 <div id="cube-wrapper">
     <div id="cube-container">
         <div class="face face-front"><div class="tile">CYBER</div><div class="tile">RESCUE</div><div class="tile">DATA</div><div class="tile">DEBT</div><div class="tile c">AETHER</div><div class="tile">FLOW</div><div class="tile">LEGAL</div><div class="tile">EQUITY</div><div class="tile">SCALE</div></div>
@@ -184,7 +168,6 @@
     </div>
 </div>
 
-<!-- ── HERO ── -->
 <section class="hero-section">
     <div class="hero-text">
         <h1 class="hero-title">Aether<br><strong>Architecture</strong></h1>
@@ -194,7 +177,6 @@
     </div>
 </section>
 
-<!-- ── CYBER SECURITY ── -->
 <section class="split-section" id="cyber">
     <div class="asset-container">
         <video autoplay muted loop playsinline><source src="PixVerse_V5.6_Image_Text_360P_add_all_cyber_se.mp4" type="video/mp4"></video>
@@ -208,7 +190,6 @@
     </div>
 </section>
 
-<!-- ── SYSTEM MANAGEMENT ── -->
 <section class="split-section alt-rev white-theme" id="management" style="background:var(--white);">
     <div class="asset-container">
         <video autoplay muted loop playsinline>
@@ -224,7 +205,6 @@
     </div>
 </section>
 
-<!-- ── STRATEGIC BRANDING ── -->
 <section class="split-section" id="branding" style="background:var(--ink);">
     <div class="asset-container" style="border-right:1px solid rgba(250,251,253,0.05);">
         <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; opacity:0.8;">
@@ -240,7 +220,6 @@
     </div>
 </section>
 
-<!-- ── PROCESS & AI ── -->
 <section class="split-section alt-rev white-theme" id="process" style="background:var(--white);">
     <div class="asset-container">
         <video autoplay muted loop playsinline>
@@ -256,13 +235,11 @@
     </div>
 </section>
 
-<!-- ── CASE STUDIES ── -->
 <section class="case-section" id="results">
     <div class="case-header">
         <span class="case-label">// Proven Results</span>
         <h2 class="case-title">Proven Business Transformation Results. Every engagement begins with a diagnostic audit of your operational architecture. These are the outcomes when structural engineering replaces surface-level consulting. <a href="faq.html#results" style="color:var(--gold);">View our process →</a></h2>
     </div>
-
     <div class="case-grid">
         <div class="case-meta">
             <h3 class="case-name">Northern Freight Co.</h3>
@@ -276,7 +253,6 @@
             <div class="case-step"><span class="step-label">Optimization</span><p class="step-text">Quotes close in 4 minutes. Driver admin reduced 80%. Rebrand generated 3 enterprise enquiries month one.</p></div>
         </div>
     </div>
-
     <div class="case-grid">
         <div class="case-meta">
             <h3 class="case-name">Élise Patisserie</h3>
@@ -292,7 +268,6 @@
     </div>
 </section>
 
-<!-- ── ABOUT ── -->
 <section class="about-section" id="about">
     <div class="about-content">
         <h2 class="svc-heading" style="color:var(--ink);">About Us</h2>
@@ -322,7 +297,6 @@
         const xDist = (Math.random() - 0.5) * 1800;
         const yDist = (Math.random() - 0.5) * 1800;
         const zDist = (Math.random() - 0.5) * 1800;
-
         gsap.timeline({
             scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: 1.5 }
         })
@@ -330,7 +304,6 @@
         .to(tile, { x: 0, y: 0, z: 0, opacity: 1, ease: "power4.out" }, 0.9);
     });
 
-    // Nav scroll effect
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 20);
