@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Operating System (AIOS) — Build Your AI OS | Aether Business Architects</title>
+<meta name="description" content="Build an AI Operating System for your business. The Three Ms and Four Cs frameworks. Skills automation, routines, knowledge management, real-time dashboards. Aether Business Architects.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://aetherbusinessarchitectsltd.uk/aios.html">
+<link rel="icon" type="image/png" href="aether-logo-2.png">
+<meta property="og:title" content="AI Operating System (AIOS) — Aether Business Architects">
+<meta property="og:description" content="Build an AI Operating System. Three Ms and Four Cs. Skills automation, routines, dashboards.">
+<meta property="og:url" content="https://aetherbusinessarchitectsltd.uk/aios.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"AI Operating System",
+  "description":"Build an AI Operating System for business",
+  "url":"https://aetherbusinessarchitectsltd.uk/aios.html",
+  "breadcrumb":{
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://aetherbusinessarchitectsltd.uk/"},
+      {"@type":"ListItem","position":2,"name":"AIOS","item":"https://aetherbusinessarchitectsltd.uk/aios.html"}
+    ]
+  }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400,1,600&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B0E17;--ink2:#3C4260;--bg:#ECEFF4;--white:#FAFBFD;--dark:#060810;--gold:#C8A96E;--gold2:#E8CA9A;--cyan:#00C8DC;--violet:#8B5CF6;--red:#FF4D6D;--green:#52FFA8;--serif:'Cormorant Garamond',Georgia,serif;--mono:'Fira Code',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--mono);overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;line-height:1.6;font-size:15px}
+.container{max-width:1180px;margin:0 auto;padding:0 5vw;position:relative;z-index:2}
+nav{position:fixed;top:0;left:0;width:100%;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(11,14,23,0.95);backdrop-filter:blur(10px);z-index:9999;border-bottom:1px solid rgba(200,169,110,0.1);transition:all .4s}
+nav.scrolled{background:rgba(11,14,23,0.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,169,110,.15)}
+.nav-brand{display:flex;align-items:center;text-decoration:none;color:#fff;font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:1.1;max-width:560px}.header-logo{height:45px;width:auto;margin-right:12px}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}.nav-links a{font-size:.65rem;letter-spacing:.5em;text-transform:uppercase;color:#fff;text-decoration:none;transition:color .3s}.nav-links a:hover{color:var(--gold)}
+.dropdown{position:relative;display:inline-block}.dropdown-content{display:none;position:absolute;background:var(--white);min-width:220px;box-shadow:0 8px 16px rgba(0,0,0,0.1);z-index:1;top:100%;left:0;border:1px solid rgba(200,169,110,0.1)}.dropdown-content a{color:var(--ink2);padding:12px 16px;text-decoration:none;display:block;font-size:10px;letter-spacing:2px;border-bottom:1px solid rgba(0,0,0,0.05)}.dropdown-content a:hover{color:var(--gold)}.dropdown:hover .dropdown-content{display:block}
+.nav-consultation-btn{display:inline-block;padding:8px 15px!important;font-size:10px!important;letter-spacing:3px!important;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.6);color:#fff;background:transparent;transition:all .4s;animation:navConsulPulse 3s ease-in-out infinite}
+@keyframes navConsulPulse{0%,100%{box-shadow:0 0 0 rgba(0,200,220,0)}50%{box-shadow:0 0 18px rgba(0,200,220,.35)}}
+.btn{display:inline-block;padding:12px 24px;font-size:10px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.5);color:#fff;background:transparent;transition:all .4s;cursor:pointer}.btn:hover{background:#fff;color:var(--dark)}
+.btn-cyan{display:inline-block;padding:14px 28px;font-family:var(--mono);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cyan);color:var(--cyan);background:transparent;transition:.35s ease;position:relative;overflow:hidden;animation:ctaBorderPulse 3.5s ease-in-out infinite}.btn-cyan:hover{background:var(--cyan);color:var(--dark);transform:translateY(-2px)}
+@keyframes ctaBorderPulse{0%,100%{box-shadow:0 0 0 rgba(0,200,220,0)}50%{box-shadow:0 0 20px rgba(0,200,220,.32)}}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:70px;position:relative;overflow:hidden;background:radial-gradient(circle at 80% 20%,rgba(0,200,220,.18),transparent 28%),linear-gradient(135deg,#060810 0%,#0B0E17 50%,#101827 100%);color:white}.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,220,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,220,.08) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 20s linear infinite;opacity:.45}.hero::after{content:"";position:absolute;inset:auto -20% -35% -20%;height:55%;background:radial-gradient(circle,rgba(139,92,246,.18),transparent 60%)}@keyframes gridMove{0%{transform:translateY(0)}100%{transform:translateY(60px)}}
+.hero h1{font-family:var(--serif);font-size:clamp(3.5rem,7vw,6.5rem);font-weight:600;line-height:.96;margin-bottom:26px;color:#fff;max-width:1050px}.hero h1 span{color:var(--cyan);font-style:italic;text-shadow:0 0 24px rgba(0,200,220,.25)}
+.hero p{font-size:1.12rem;color:rgba(255,255,255,.78);margin-bottom:36px;max-width:740px}.hero-stats{display:flex;gap:18px;margin-top:24px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.12);flex-wrap:wrap}.stat{min-width:120px;text-align:center;padding:16px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;backdrop-filter:blur(12px)}.stat-num{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--cyan);display:block;line-height:1}.stat-label{font-size:0.55rem;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px}.solutions-strip{display:grid;grid-template-columns:repeat(6,1fr);background:#060810;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}.solution{padding:34px 18px;text-align:center;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--cyan);border-right:1px solid rgba(255,255,255,.06)}.solution:last-child{border-right:none}
+.section{padding:90px 8vw}.section-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:16px}.section-title{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:600;line-height:1.05;margin-bottom:20px;color:var(--ink)}.section-sub{font-size:1rem;color:var(--ink2);max-width:700px;line-height:1.7}.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:34px}.card{padding:32px;background:var(--white);border:1px solid rgba(200,169,110,0.08);border-radius:14px;transition:all .4s;min-height:210px}.card:hover{border-color:rgba(0,200,220,0.25);transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,0,0.08)}.card h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:10px;color:var(--ink)}.card p{font-size:.82rem;color:var(--ink2);line-height:1.7}.card .cite{font-family:var(--mono);font-size:.6rem;color:var(--ink2);margin-top:12px;display:block}
+.split-section{min-height:80vh;display:grid;grid-template-columns:1fr 1fr;background:var(--dark);position:relative;overflow:hidden}.split-section .asset-container{position:relative;width:100%;height:100%;min-height:80vh;overflow:hidden;border-right:1px solid rgba(200,169,110,0.1)}.split-section .asset-container img{width:100%;height:100%;object-fit:cover;opacity:.84;transition:transform .8s ease;will-change:transform}.split-section:hover .asset-container img{transform:scale(1.03)}.split-section .content-panel{display:flex;flex-direction:column;justify-content:center;padding:8vw;color:#fff;z-index:3}.split-section .svc-heading{font-family:var(--serif);color:#fff;font-size:clamp(2.8rem,5vw,5rem);font-style:italic;line-height:1.03;margin-bottom:22px}.split-section .svc-body{font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.85);margin-bottom:34px;max-width:520px}.split-section.alt-rev .asset-container{grid-column:2;border-right:none;border-left:1px solid rgba(200,169,110,0.1)}.split-section.alt-rev .content-panel{grid-column:1;grid-row:1}.split-section.white-theme{background:var(--white)}.split-section.white-theme .content-panel{color:var(--ink)}.split-section.white-theme .svc-body{color:var(--ink2)}.split-section.white-theme .svc-heading{color:#312e81}
+.slide-in-up{opacity:0;transform:translateY(50px);transition:all .8s ease}.slide-in-up.visible{opacity:1;transform:translateY(0)}.cta-banner{padding:120px 8vw;text-align:center;background:radial-gradient(circle at 20% 20%,rgba(0,200,220,.18),transparent 26%),linear-gradient(135deg,#060810,#0B0E17,#101827);color:white}.cta-banner h2{font-family:var(--serif);font-size:clamp(3rem,5vw,5rem);line-height:1.02;margin-bottom:20px}.cta-banner p{max-width:800px;margin:0 auto 40px;font-size:1.08rem;color:rgba(255,255,255,.76);line-height:1.7}.citation{padding:24px;background:rgba(0,200,220,0.04);border:1px solid rgba(0,200,220,0.1);border-radius:12px;margin:16px 0}.citation p{font-size:.82rem;color:var(--ink2);line-height:1.7;margin-bottom:6px}.citation .src{font-family:var(--mono);font-size:.55rem;color:var(--cyan);letter-spacing:.1em}.faq{max-width:780px;margin:20px auto 0}.faq-item{border-bottom:1px solid rgba(200,169,110,0.12);padding:20px 0}.faq-q{font-size:.95rem;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center}.faq-q::after{content:"+";font-family:var(--mono);color:var(--gold);font-size:1.2rem;transition:transform .3s}.faq-q.active::after{transform:rotate(45deg)}.faq-a{font-size:.82rem;color:var(--ink2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}.faq-a.open{max-height:360px;padding-top:12px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column}.field.full{grid-column:1/-1}.field label{font-family:var(--mono);font-size:.6rem;color:var(--ink2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}.field input,.field select,.field textarea{padding:12px 16px;border:1px solid rgba(200,169,110,0.15);border-radius:8px;font-family:var(--mono);font-size:.85rem;color:var(--ink);background:var(--bg);transition:border-color .3s;width:100%}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);outline:none}.field textarea{min-height:120px;resize:vertical}.secure-panel{display:flex;gap:12px;align-items:flex-start;padding:18px;background:rgba(0,200,220,.05);border:1px solid rgba(0,200,220,.12);border-radius:12px}.secure-dot{width:10px;height:10px;background:var(--cyan);border-radius:50%;margin-top:6px;box-shadow:0 0 14px rgba(0,200,220,.7)}.secure-panel strong{font-family:var(--serif);font-size:1.1rem}.secure-panel p{font-size:.75rem;color:var(--ink2);line-height:1.6}.form-grid button{grid-column:1/-1;padding:15px 24px;font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dark);background:var(--cyan);border:1px solid var(--cyan);border-radius:8px;cursor:pointer;transition:.3s}.form-grid button:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,200,220,.22)}footer{background:var(--dark);padding:50px 8vw;color:rgba(255,255,255,0.4);text-align:center;font-size:.45rem;letter-spacing:.5em}.footer-logo{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--white);margin-bottom:8px}.footer-tag{font-size:.65rem;color:rgba(255,255,255,0.3);margin-bottom:24px}.footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}.footer-links a{font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,0.3);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}.footer-links a:hover{color:var(--gold)}.footer-copy{font-family:var(--mono);font-size:.45rem;color:rgba(255,255,255,0.15);letter-spacing:.18em}
+@media(max-width:1024px){.nav-brand{font-size:.9rem}.nav-links{gap:14px}.solutions-strip{grid-template-columns:repeat(3,1fr)}.solution{border-bottom:1px solid rgba(255,255,255,.06)}}
+@media(max-width:768px){.nav-links{display:none}.nav-brand{font-size:.82rem}.hero{min-height:92vh}.hero h1{font-size:3rem}.hero p{font-size:.95rem}.hero-stats{gap:12px}.stat{min-width:calc(50% - 8px)}.solutions-strip{grid-template-columns:1fr 1fr}.solution{padding:24px 10px;font-size:.55rem}.section{padding:70px 5vw}.split-section{grid-template-columns:1fr;min-height:auto}.split-section .asset-container{min-height:340px}.split-section .content-panel{padding:60px 5vw}.split-section.alt-rev .asset-container{grid-column:1;grid-row:1}.split-section.alt-rev .content-panel{grid-column:1;grid-row:2}.form-grid{grid-template-columns:1fr}.cta-banner{padding:90px 5vw}.footer-copy{letter-spacing:.1em}}
+
+/* Wave and neon animations from consultation page */
+@keyframes scan{50%{top:95%}}
+@keyframes pulseDot{0%,100%{transform:scale(.85);opacity:.75}}
+@keyframes slideSignal{0%{transform:translateX(-20%)}}
+@keyframes neonBreath{0%,100%{box-shadow:0 35px 140px rgba(0,0,0,.42),0 0 16px rgba(0,200,220,.06)}}
+@keyframes softCardPulse{0%,100%{box-shadow:0 0 0 rgba(0,200,220,0)}}
+.scanline{position:absolute;left:0;right:0;top:-20%;height:28%;background:linear-gradient(to bottom,transparent,rgba(0,200,220,.08),transparent);animation:scan 9s ease-in-out infinite;pointer-events:none;z-index:1}
+/* Gold dropdown borders */
+.dropdown-content{border:1px solid rgba(200,169,110,0.3);box-shadow:0 4px 20px rgba(200,169,110,0.08)}
+.dropdown-content a:hover{background:rgba(200,169,110,0.06);color:var(--gold)}
+/* Blue results/stats border */
+.stat{border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:12px 16px;background:rgba(99,102,241,0.03)}
+.stat-num{color:#6366f1}
+/* Bouncy card animation */
+@keyframes bounceIn{0%{opacity:0;transform:scale(0.3) translateY(40px)}50%{opacity:1;transform:scale(1.05) translateY(-10px)}70%{transform:scale(0.95) translateY(5px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.card.visible{animation:bounceIn 0.6s cubic-bezier(0.68,-0.55,0.265,1.55) forwards}
+</style>
+</head>
+<body>
+<nav id="nav">
+<a href="/" class="nav-brand"><img src="aether-logo-2.png" alt="Aether Business Architecture" class="header-logo" onerror="this.style.display='none'">Aether Business Architecture bespoke business solutions</a>
+<ul class="nav-links">
+<li class="dropdown"><a href="#services">Systems ▾</a><div class="dropdown-content"><a href="/cybersecurity-threats.html">Cyber Security</a><a href="/system-management.html">System Management</a><a href="/strategic-branding.html">Strategic Branding</a><a href="/process-ai-build.html">Process &amp; AI</a></div></li>
+<li><a href="/results.html">Results</a></li>
+<li><a href="/free-consultation.html" class="nav-consultation-btn">Free Consultation</a></li>
+<li><a href="#about" class="btn" style="padding:8px 15px;">Get In Touch</a></li>
+</ul>
+</nav>
+
+<section class="hero" style="overflow:hidden">
+<div class="hero-grid"></div>
+<div class="scanline"></div>
+<div style="position:relative;z-index:2"></div>
+<div class="container">
+<h1>Build an AI OS That<br><span>Runs Your Business.</span></h1>
+<p>An AI Operating System (AIOS) is not a tool — it is the complete architecture that automates your operations, manages your knowledge, and executes your strategy 24/7. Built on the Three Ms and Four Cs frameworks.</p>
+<a href="/free-consultation.html" class="btn-cyan">Book Free AI OS Consultation →</a>
+<div class="hero-stats" style="border:1px solid rgba(99,102,241,0.15);border-radius:12px;padding:20px;background:rgba(99,102,241,0.02)"><div class="stat"><span class="stat-num">3</span><span class="stat-label">Core Frameworks</span></div><div class="stat"><span class="stat-num">6</span><span class="stat-label">System Layers</span></div><div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Autonomous</span></div><div class="stat"><span class="stat-num">40%</span><span class="stat-label">Work Automated</span></div></div>
+</div>
+</section>
+
+<section class="solutions-strip">
+<div class="solution">AI Agents</div><div class="solution">SOP Automation</div><div class="solution">Knowledge Systems</div><div class="solution">Live Dashboards</div><div class="solution">Cyber Resilience</div><div class="solution">Operational Intelligence</div>
+</section>
+
+<section class="split-section" id="services">
+<div class="asset-container"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80" alt="AI Neural Network" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%230d1b2f%22 width=%22800%22 height=%22600%22/%3E%3Ctext fill=%22%23C8A96E%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 font-size=%2224%22%3EAutomation Dashboard%3C/text%3E%3C/svg%3E'"></div>
+<div class="content-panel"><h2 class="svc-heading">The Three Ms<br>&amp; Four Cs</h2><p class="svc-body">The foundation of every AI Operating System. The Three Ms — <strong>Mapping, Memory, Multiplexing</strong> — define how your AI thinks. The Four Cs — <strong>Collect, Connect, Create, Coordinate</strong> — define what it does. Together, they create a system that learns, adapts, and executes autonomously. <strong>By 2027, 40% of UK enterprise work</strong> will be automated by AI agents (Gartner 2025). Businesses with documented SOPs will be <strong>first in AI deployment</strong> (McKinsey 2025).</p><a href="/free-consultation.html" class="btn-cyan">Start Building →</a></div>
+</section>
+
+<section class="split-section alt-rev white-theme">
+<div class="asset-container"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80" alt="Robotic Automation" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%230d1b2f%22 width=%22800%22 height=%22600%22/%3E%3Ctext fill=%22%23C8A96E%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 font-size=%2224%22%3EAutomation Dashboard%3C/text%3E%3C/svg%3E'"></div>
+<div class="content-panel"><h2 class="svc-heading">Skills That<br>Scale Forever</h2><p class="svc-body">Skills are reusable, instruction-based workflows — the core of your AIOS. Each skill is built, audited, and levelled up to handle increasingly complex tasks. Skills make repeatable automation possible across sales, operations, admin, reporting and knowledge work.</p><a href="/free-consultation.html" class="btn-cyan">Build Skills →</a></div>
+</section>
+
+<section class="split-section">
+<div class="asset-container"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Automation Dashboard" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%230d1b2f%22 width=%22800%22 height=%22600%22/%3E%3Ctext fill=%22%23C8A96E%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 font-size=%2224%22%3EAutomation Dashboard%3C/text%3E%3C/svg%3E'"></div>
+<div class="content-panel"><h2 class="svc-heading">Routines That<br>Run Themselves</h2><p class="svc-body">Loop and scheduled task features run automations in the background — pulse checks, team updates, compliance reports, quote tracking and client reminders. Your AIOS handles operations while you sleep. <strong>UK businesses using automation report 80% reduction in admin tasks</strong> (Gartner 2025). Aether builds routines that are <strong>self-monitoring, self-healing, and self-optimising</strong>. When something goes wrong, the system flags it. When something can be improved, the system suggests it.</p><a href="/free-consultation.html" class="btn-cyan">Automate Now →</a></div>
+</section>
+
+<section class="split-section alt-rev white-theme">
+<div class="asset-container"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80" alt="Data Center" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect fill=%22%230d1b2f%22 width=%22800%22 height=%22600%22/%3E%3Ctext fill=%22%23C8A96E%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 font-size=%2224%22%3EAutomation Dashboard%3C/text%3E%3C/svg%3E'"></div>
+<div class="content-panel"><h2 class="svc-heading">LLM Wiki &amp;<br>Live Dashboards</h2><p class="svc-body">Transform scattered files and transcripts into a structured, searchable wiki. Use real-time dashboards for finances, project commitments, stock, delivery, customer signals and operational metrics. Your knowledge becomes structured and accessible.</p><a href="/free-consultation.html" class="btn-cyan">Structure Knowledge →</a></div>
+</section>
+
+<section class="section slide-in-up" style="background:var(--white)">
+<div class="container"><h2 class="section-title">Build &amp; Scale Your<br>AI Operating System</h2><p class="section-sub">A comprehensive course by Nate Herkelman on building an AIOS using Claude Code. Covers frameworks, tool integration, skills, routines, and knowledge management.</p><div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;margin:30px 0 0;box-shadow:0 12px 40px rgba(0,0,0,0.1)"><a href="https://www.youtube.com/watch?v=tM7YesB2MpI" target="_blank" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0d1b2f,#16213e);text-decoration:none;border-radius:16px">
+<div style="text-align:center">
+<div style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+<div style="width:0;height:0;border-style:solid;border-width:15px 0 15px 26px;border-color:transparent transparent transparent #C8A96E;margin-left:4px"></div>
+</div>
+<div style="font-family:var(--mono);font-size:.7rem;color:#fff;letter-spacing:.1em;text-transform:uppercase">Watch on YouTube</div>
+<div style="font-family:var(--serif);font-size:1.2rem;color:#C8A96E;margin-top:8px">AI OS Masterclass</div>
+</div></a></iframe></iframe></iframe></div></div>
+</section>
+
+<section class="section slide-in-up" style="background:var(--bg)">
+<div class="container"><span class="section-label">System Architecture</span><h2 class="section-title">Six Layers of<br>Your AI OS</h2><div class="cards-grid"><div class="card slide-in-up"><h3>1. SOP Layer</h3><p>Documented procedures form the knowledge base. Every process mapped, every step defined. SOPs reduce process variability and create the structure needed for automation.</p><span class="cite">Source: WorkflowAutomation.net | Scribe.com</span></div><div class="card slide-in-up"><h3>2. Data Layer</h3><p>Structured data from SOPs feeds analytics. Track performance, identify bottlenecks, and measure outcomes so your system can improve over time.</p><span class="cite">Source: McKinsey 2025</span></div><div class="card slide-in-up"><h3>3. Automation Layer</h3><p>Routine tasks are automated from SOP logic. Invoicing, reporting, reminders, data entry, CRM updates and repeatable admin become autonomous workflows.</p><span class="cite">Source: Gartner 2025</span></div><div class="card slide-in-up"><h3>4. AI Agent Layer</h3><p>AI agents execute documented processes with prompts, tools, memory and guardrails. Customer support, lead qualification, research and content systems can run continuously.</p><span class="cite">Source: PwC 2025</span></div><div class="card slide-in-up"><h3>5. Human Approval Layer</h3><p>Critical decisions require human oversight. AI flags exceptions, humans approve. Machine speed combines with human judgment so you stay in control.</p><span class="cite">Source: Aether Business Architects</span></div><div class="card slide-in-up"><h3>6. Dashboard Layer</h3><p>Real-time visibility into every process. Track compliance, automation performance, sales, costs, delivery and risk before problems become expensive.</p><span class="cite">Source: Forrester 2025</span></div></div></div>
+</section>
+
+<section class="section slide-in-up" style="background:var(--white)"><div class="container"><div class="citation"><p>Businesses with documented SOPs and structured knowledge are positioned to deploy AI agents faster because their processes can be converted into repeatable instructions, workflows, dashboards and approval loops.</p><p class="src">Source: Gartner 2025 | McKinsey 2025 | Aether Business Architects</p></div></div></section>
+
+<section class="section slide-in-up" style="background:var(--white)">
+<div class="container"><span class="section-label">Aether Delivery</span><h2 class="section-title">Aether AI OS<br>Services</h2><p class="section-sub">Complete AI Operating System engineering — from SOP documentation to autonomous AI agents.</p><div class="cards-grid"><div class="card slide-in-up"><h3>SOP Documentation</h3><p>Every process mapped, every step defined. The foundation of your AIOS, built so future automations have clear instructions to follow.</p></div><div class="card slide-in-up"><h3>AI Agent Build</h3><p>Custom AI agents that execute your SOPs autonomously across support, lead qualification, reporting, content creation and operational follow-up.</p></div><div class="card slide-in-up"><h3>Knowledge Engineering</h3><p>Transform scattered files into a structured, searchable wiki. Your single source of truth for staff, automations and AI agents.</p></div><div class="card slide-in-up"><h3>Automation Build</h3><p>Workflow automation for invoicing, reporting, data entry, compliance, customer follow-up and cloud-based operational routines.</p></div><div class="card slide-in-up"><h3>24/7 SOC Monitoring</h3><p>Security monitoring and operational alerting around your systems so your AIOS does not become an unmanaged risk surface.</p></div><div class="card slide-in-up"><h3>Real-Time Dashboards</h3><p>Live dashboards for tracking finances, project commitments, team tasks, lead flow, sales activity and operational metrics.</p></div></div></div>
+</section>
+
+<section class="cta-banner" id="cta"><div class="container"><span class="section-label">AI Operating System Consultation</span><h2>Build Your AI Workforce Before Your Competitors Do</h2><p>Map processes. Build SOPs. Deploy AI agents. Create a complete AI Operating System that connects operations, knowledge, dashboards and human approval into one working business architecture.</p><a href="/free-consultation.html" class="btn-cyan">Book Free Consultation →</a><p style="margin-top:16px;font-size:.78rem;color:rgba(255,255,255,.65)">Or call <strong style="color:white">07735 326227</strong></p></div></section>
+
+<section class="section slide-in-up" style="background:var(--bg)">
+<div class="container"><h2 class="section-title">AI OS Questions<br>Answered.</h2><div class="faq"><div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">What is an AI Operating System?</div><div class="faq-a">An AIOS is the complete architecture that automates your operations, manages your knowledge, and executes your strategy. It connects SOPs, data, automations, AI agents, approval layers and dashboards.</div></div><div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">How is AIOS different from a chatbot?</div><div class="faq-a">A chatbot answers questions. An AIOS executes business workflows — SOPs, data pipelines, automations, dashboards and human approval layers. It is infrastructure, not just a chat window.</div></div><div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">Do I need SOPs before building an AIOS?</div><div class="faq-a">Yes. You cannot reliably automate undocumented processes. SOPs are the foundation because they turn messy daily work into repeatable instructions an AI system can follow.</div></div><div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">How long does it take to build an AIOS?</div><div class="faq-a">A starter automation can be built in 2–4 weeks. A full AIOS build is normally delivered in phases across 3–6 months depending on business size, complexity, data quality and integrations.</div></div><div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">What is the ROI of an AIOS?</div><div class="faq-a">ROI comes from reducing admin, speeding up decisions, improving customer response, reducing rework, increasing visibility and allowing your team to focus on higher-value work.</div></div></div></div>
+</section>
+
+<section class="section slide-in-up" id="about" style="background:var(--white)">
+<div class="container"><h2 class="section-title">Start Your<br>Transformation</h2><p class="section-sub">Tell us about your business. We will map your complete system and show you exactly what to fix. Free consultation. No obligation.</p><div style="max-width:700px;margin:40px auto 0"><form class="form-grid" action="https://formspree.io/f/xgoqdkye" method="POST"><input type="hidden" name="destination_email" value="jay@aetherbusinessarchitectsltd.uk"><input type="hidden" name="submission_type" value="Aether Architecture Consultation Lead"><div class="field"><label>Business name</label><input type="text" name="business_name" placeholder="Your business name" required></div><div class="field"><label>Your name</label><input type="text" name="contact_name" placeholder="Your full name" required></div><div class="field"><label>Email address</label><input type="email" name="contact_email" placeholder="you@business.com" required></div><div class="field"><label>Phone / WhatsApp</label><input type="tel" name="contact_phone" placeholder="Best number to reach you"></div><div class="field"><label>Business type</label><select name="business_type"><option>Sole Trader</option><option>Limited Company</option><option>Partnership</option><option>Startup</option><option>SME</option><option>Enterprise</option><option>Charity / CIC</option><option>Other</option></select></div><div class="field"><label>Preferred contact method</label><select name="preferred_contact"><option>Email</option><option>Phone</option><option>WhatsApp</option><option>Either email or phone</option></select></div><div class="field"><label>Consultation required</label><select name="consultation_required"><option>AI Operating System</option><option>AI Cyber Threats</option><option>Quantum Defence Readiness</option><option>Cybersecurity Architecture</option><option>Operational Resilience</option><option>Business Systems Engineering</option><option>Brand Authority &amp; Rebranding</option><option>Cloud / Storage / Software Spend</option><option>Legal / Compliance Exposure</option><option>Website SEO / AEO Visibility</option><option>General Business Architecture Review</option></select></div><div class="field"><label>Business sector</label><select name="business_sector"><option>Retail</option><option>E-commerce</option><option>Finance</option><option>Healthcare</option><option>Construction</option><option>Logistics</option><option>Education</option><option>Professional Services</option><option>Hospitality</option><option>Technology</option><option>Manufacturing</option><option>Real Estate</option><option>Other</option></select></div><div class="field full"><label>Main concern</label><textarea name="main_concern" placeholder="Tell us what you are worried about, what you want to protect, or what you want to understand..." required></textarea></div><div class="field full secure-notice"><div class="secure-panel"><span class="secure-dot"></span><div><strong>Secure Structured Submission</strong><p>Consultation requests are sent securely via Formspree to jay@aetherbusinessarchitectsltd.uk. Your data is used solely for consultation purposes and is never shared or sold.</p></div></div></div><button type="submit">Send Secure Consultation Request</button></form></div></div>
+</section>
+
+
+<!-- FAQ -->
+<section class="section slide-in-up" style="background:var(--bg)">
+<div class="container">
+<h2 class="section-title" style="color:#312e81">AI OS Questions<br>Answered.</h2>
+<div class="faq" style="max-width:700px;margin:0 auto">
+<div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">What is an AI Operating System?<span></span></div><div class="faq-a">An AIOS is the complete architecture that automates your operations, manages your knowledge, and executes your strategy 24/7. Built on the <strong>Three Ms and Four Cs</strong> frameworks. <strong>By 2027, 40% of UK enterprise work</strong> will be automated by AI agents (Gartner 2025).</div></div>
+<div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">How long does it take to build an AIOS?<span></span></div><div class="faq-a">A full AIOS build takes <strong>3-6 months</strong>. We work in 2-week sprints. Starter projects (single automation) take <strong>2-4 weeks</strong>. Enterprise builds include all 6 layers.</div></div>
+<div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">Do I need SOPs before building an AIOS?<span></span></div><div class="faq-a">Yes. <strong>You cannot automate undocumented processes</strong> (Gartner 2025). SOPs are the foundation. <strong>73% of UK SMEs lack SOPs</strong> (BPTA 2025). We build both.</div></div>
+<div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">What is the ROI of an AIOS?<span></span></div><div class="faq-a">UK businesses using AI automation report <strong>80% reduction in admin tasks</strong> (Gartner 2025), <strong>10x throughput increase</strong> (McKinsey 2025), and <strong>300% ROI within 12 months</strong> (Deloitte 2025).</div></div>
+<div class="faq-item slide-in-up"><div class="faq-q" onclick="toggleFaq(this)">How is AIOS different from a chatbot?<span></span></div><div class="faq-a">A chatbot answers questions. An AIOS <strong>executes your entire business</strong> — SOPs, data pipelines, automation, dashboards, human approval layers. It is your business infrastructure.</div></div>
+</div>
+</div></section>
+<footer><div class="container"><div class="footer-logo">AETHER BUSINESS ARCHITECTS</div><div class="footer-tag">AI Operating System. Leicester, UK.</div><div class="footer-links"><a href="/">Home</a><a href="/pricing-2.html">Pricing</a><a href="/pricing-section.html">Pricing</a>
+<a href="/free-consultation.html">Free Consultation</a><a href="/cybersecurity-threats.html">Security</a><a href="/system-management.html">Systems</a><a href="/strategic-branding.html">Branding</a><a href="/process-ai-build.html">AI</a><a href="/sops.html">SOPs</a></div><div class="footer-copy">&copy; 2026 Aether Business Architects Ltd // Leicester // UK // jay@aetherbusinessarchitectsltd.uk // 07735 326227</div></div></footer>
+
+<script>
+(function(){
+  if(window.gsap && window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger)}
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20)});
+  if(window.gsap){
+    gsap.from('.hero h1',{y:40,opacity:0,duration:.9,ease:'power2.out'});
+    gsap.from('.hero p',{y:30,opacity:0,duration:.9,delay:.15,ease:'power2.out'});
+    gsap.from('.hero .btn-cyan',{y:25,opacity:0,duration:.8,delay:.25,ease:'power2.out'});
+    gsap.from('.stat',{y:25,opacity:0,duration:.7,delay:.35,stagger:.08,ease:'power2.out'});
+  }
+  document.querySelectorAll('.split-section').forEach(function(section){
+    var img=section.querySelector('.asset-container');
+    var text=section.querySelector('.content-panel');
+    if(img&&text){
+      var isAlt=section.classList.contains('alt-rev');
+      img.style.opacity='0';img.style.transform=isAlt?'translateX(60px)':'translateX(-60px)';
+      text.style.opacity='0';text.style.transform=isAlt?'translateX(-60px)':'translateX(60px)';
+      img.style.transition='all .85s ease';text.style.transition='all .85s ease';
+      var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){img.style.opacity='1';img.style.transform='translateX(0)';text.style.opacity='1';text.style.transform='translateX(0)';}})},{threshold:.18});
+      observer.observe(section);
+    }
+  });
+  var revealObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');}})},{threshold:.14});
+  document.querySelectorAll('.slide-in-up').forEach(function(el){revealObserver.observe(el)});
+  if(window.gsap && window.ScrollTrigger){
+    gsap.utils.toArray('.asset-container img').forEach(function(img){gsap.to(img,{scale:1.12,ease:'none',scrollTrigger:{trigger:img,start:'top bottom',end:'bottom top',scrub:true}})});
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var target=document.querySelector(this.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}})});
+})();
+function toggleFaq(el){el.classList.toggle('active');var answer=el.nextElementSibling;if(answer){answer.classList.toggle('open')}}
+</script>
+</body>
+</html>
