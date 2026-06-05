@@ -1,0 +1,705 @@
+<!-- SAVE AS: cybersecurity-threats.html -->
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cybersecurity Architecture for UK Businesses | Aether Business Architects</title>
+<meta name="description" content="Cybersecurity architecture for UK businesses. Zero Trust, AI threat detection, ransomware defence, post-quantum cryptography, incident response, cyber resilience, SOPS, AI OS and secure business systems by Aether Business Architects." />
+<meta name="keywords" content="cybersecurity UK, cyber security Leicester, Zero Trust, ransomware protection, AI cyber threats, quantum computing security, post-quantum cryptography, cyber resilience, incident response, Cyber Essentials, business security architecture, Aether Business Architects" />
+<meta name="robots" content="index, follow, max-image-preview: large" />
+<link rel="canonical" href="https://aetherbusinessarchitectsltd.uk/cybersecurity-threats.html" />
+<link rel="icon" type="image/png" href="aether-logo-2.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://aetherbusinessarchitectsltd.uk/cybersecurity-threats.html" />
+<meta property="og:title" content="Cybersecurity Architecture | Aether Business Architects" />
+<meta property="og:description" content="Protect your business with Zero Trust, AI threat detection, post-quantum resilience, SOPs and secure systems architecture." />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+--ink:#0B0E17;
+--ink2:#3C4260;
+--bg:#ECEFF4;
+--white:#FAFBFD;
+--dark:#060810;
+--gold:#C8A96E;
+--red:#FF4D6D;
+--cyan:#00C8DC;
+--violet:#8B5CF6;
+--indigo:#312e81;
+--green:#52FFA8;
+--line:rgba(200,169,110,0.16);
+--serif:'Cormorant Garamond', Georgia, serif;
+--mono:'Fira Code', monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth; overflow-x:hidden}
+body {
+background:var(--bg);
+color:var(--ink);
+font-family:var(--mono);
+overflow-x:hidden;
+line-height:1.5;
+-webkit-font-smoothing:antialiased;
+}
+.container{max-width:1180px; margin:0 auto; padding:0 5vw}
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 5vw;
+background:rgba(6,8,16,.96);
+backdrop-filter:blur(14px);
+z-index:9999;
+border-bottom:1px solid rgba(200,169,110,.14);
+}
+nav.scrolled {background:rgba(6,8,16,.99); box-shadow:0 10px 40px rgba(0,0,0,.22)}
+.nav-brand{
+display:flex;
+align-items:center;
+color:#fff;
+text-decoration:none;
+font-family:var(--serif);
+font-style:italic;
+font-size:1.1rem;
+}
+.header-logo{height:44px; width:auto; margin-right:12px}
+.nav-links{display:flex; gap:28px; list-style:none; align-items:center}
+.nav-links a{
+color:#fff;
+text-decoration:none;
+font-size:.6rem;
+letter-spacing:.24em;
+text-transform:uppercase;
+transition:.3s;
+}
+.nav-links a:hover{color:var(--gold)}
+.dropdown{position:relative}
+.dropdown-content {
+display:none;
+position:absolute;
+top:100%;
+left:0;
+min-width:250px;
+background:var(--white);
+border:1px solid var(--line);
+box-shadow:0 15px 40px rgba(0,0,0,.14);
+border-radius:6px;
+overflow:hidden;
+}
+.dropdown-content a{
+display:block;
+color:var(--ink);
+padding:11px 16px;
+border-bottom:1px solid rgba(0,0,0,.05);
+font-size:.7rem;
+letter-spacing:1px;
+}
+.dropdown-content a:hover{background:rgba(200,169,110,0.06); color:var(--gold)}
+.dropdown:hover .dropdown-content{display:block}
+.nav-consultation-btn{
+border:1px solid var(--gold);
+padding:7px 12px;
+color:var(--gold)!important;
+}
+
+/* COMPACT LOW-PADDING HERO */
+.hero{
+min-height:65vh;
+display:flex;
+align-items:center;
+padding-top:90px;
+padding-bottom:30px;
+background:
+radial-gradient(circle at 80% 20%, rgba(255,77,109,.12), transparent 30%),
+linear-gradient(180deg, var(--white),var(--bg));
+overflow:hidden;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:40px;
+align-items:center;
+}
+.kicker{
+display:inline-block;
+font-size:.62rem;
+letter-spacing:.26em;
+text-transform:uppercase;
+color:var(--red);
+margin-bottom:12px;
+}
+h1{
+font-family:var(--serif);
+font-size:clamp(2.4rem,5vw,4.8rem);
+line-height:1.02;
+font-weight:600;
+margin-bottom:16px;
+color:var(--ink);
+}
+h1 span{color:var(--red); font-style:italic}
+.hero p, .section-sub, p{color:var(--ink2); font-size:.95rem; line-height:1.6}
+.btn-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:20px}
+.btn{
+display:inline-block;
+padding:12px 22px;
+border:1px solid var(--red);
+color:var(--red);
+text-decoration:none;
+text-transform:uppercase;
+letter-spacing:.22em;
+font-size:.62rem;
+font-weight:600;
+transition:.35s;
+border-radius:6px;
+}
+.btn:hover{background:var(--red); color:#fff}
+.btn.gold{border-color:var(--gold); color:var(--gold)}
+.btn.gold:hover {background:var(--gold); color:var(--dark)}
+
+.hero-visual{
+min-height:380px;
+border-radius:24px;
+border:1px solid var(--line);
+background:
+linear-gradient(rgba(6,8,16,.25), rgba(6,8,16,.7)),
+url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1400&q=80") center/cover;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
+position:relative;
+}
+.hero-visual::after{
+content:"ZERO TRUST ARCHITECTURE";
+position:absolute;
+bottom:20px;
+left:24px;
+color:#fff;
+font-family:var(--serif);
+font-size:1.5rem;
+font-style:italic;
+}
+.hero-stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-top:24px;
+}
+.stat{
+background:rgba(255,255,255,.72);
+border:1px solid var(--line);
+border-radius:12px;
+padding:12px;
+text-align:center;
+}
+.stat-num{display:block; font-size:1.15rem; color:var(--red); font-weight:700}
+.stat-label{display:block; font-size:.48rem; text-transform:uppercase; color:var(--ink2); letter-spacing:.12em; margin-top:2px}
+
+/* COMPACT LOW-PADDING SECTIONS */
+.section{padding:48px 0}
+.section.dark{background:var(--dark); color:#fff}
+.section.white{background:var(--white)}
+.section-label{
+font-size:.62rem;
+letter-spacing:.24em;
+text-transform:uppercase;
+color:var(--red);
+margin-bottom:8px;
+display:block;
+}
+.dark.section-label{color:var(--gold)}
+.section-title{
+font-family:var(--serif);
+font-size:clamp(1.8rem,3.5vw,3.2rem);
+line-height:1.1;
+font-weight:600;
+margin-bottom:14px;
+color:var(--ink);
+}
+.dark .section-title{color:#fff}
+.dark p, .dark .section-sub{color:rgba(255,255,255,.72)}
+.cards-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+gap:20px;
+margin-top:28px;
+}
+.card{
+background:var(--white);
+border:1px solid var(--line);
+border-radius:14px;
+padding:22px;
+transition:.35s;
+position:relative;
+}
+.dark.card{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.12)}
+.card:hover{transform:translateY(-4px); box-shadow:0 15px 40px rgba(0,0,0,.12)}
+.card h3{
+font-family:var(--serif);
+font-size:1.2rem;
+margin-bottom:8px;
+color:var(--ink);
+}
+.dark.card h3{color:#fff}
+.card p, .card li{font-size:.82rem; color:var(--ink2); line-height:1.5}
+.dark.card p, .dark.card li{color:rgba(255,255,255,.72)}
+.card ul{padding-left:16px}
+.badge{
+display:inline-block;
+padding:4px 8px;
+border-radius:999px;
+font-size:.5rem;
+letter-spacing:.12em;
+text-transform:uppercase;
+margin-bottom:10px;
+border:1px solid rgba(0,0,0,.08);
+font-weight:600;
+}
+.dark .badge{border-color:rgba(255,255,255,.18)}
+.critical{color:var(--red); background:rgba(255,77,109,0.06)}
+.high{color:var(--gold); background:rgba(200,169,110,0.06)}
+.quantum-badge{color:var(--violet); background:rgba(139,92,246,0.06); border-color:var(--violet)!important}
+.safe{color:var(--green); background:rgba(82,255,168,0.06)}
+
+.photo-break{
+min-height:260px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+linear-gradient(rgba(6,8,16,.56), rgba(6,8,16,.72)),
+url("https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&q=80") center/cover fixed;
+}
+.photo-break h2{
+font-family:var(--serif);
+color:#fff;
+font-size:clamp(1.5rem,3vw,2.6rem);
+font-style:italic;
+max-width:900px;
+padding:0 5vw;
+line-height:1.2;
+}
+.link-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+gap:12px;
+margin-top:24px;
+}
+.link-card{
+display:block;
+padding:16px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.12);
+border-radius:12px;
+color:#fff;
+text-decoration:none;
+transition:.3s;
+}
+.link-card:hover {border-color:var(--gold); transform:translateY(-2px)}
+.link-card strong{display:block; font-family:var(--serif); font-size:1.15rem; margin-bottom:4px}
+.link-card span{font-size:.7rem; color:rgba(255,255,255,.66); line-height:1.4; display:block}
+.cta-section{
+background:radial-gradient(circle at top, rgba(255,77,109,.08), transparent 35%), var(--white);
+text-align:center;
+padding:48px 0;
+}
+.cta-section .section-sub{margin:0 auto 20px; max-width:760px}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+max-width:720px;
+margin:24px auto 0;
+}
+.field{display:flex; flex-direction:column}
+.field.full{grid-column:1/-1}
+label{
+font-size:.55rem;
+letter-spacing:.16em;
+text-transform:uppercase;
+color:var(--ink2);
+margin-bottom:4px;
+text-align:left;
+}
+input, select, textarea {
+padding:10px 12px;
+border:1px solid var(--line);
+border-radius:8px;
+font-family:var(--mono);
+background:var(--bg);
+color:var(--ink);
+font-size:.82rem;
+}
+input:focus, select:focus, textarea:focus{outline:none; border-color:var(--red)}
+textarea{min-height:100px; resize:vertical}
+button{
+grid-column:1/-1;
+padding:12px 20px;
+border:1px solid var(--red);
+background:var(--red);
+color:#fff;
+text-transform:uppercase;
+letter-spacing:.2em;
+font-family:var(--mono);
+font-size:.8rem;
+font-weight:600;
+cursor:pointer;
+border-radius:8px;
+transition:.3s;
+}
+button:hover{background:var(--dark); border-color:var(--dark)}
+
+footer {
+background:var(--dark);
+color:rgba(255,255,255,.45);
+padding:32px 5vw;
+text-align:center;
+}
+.footer-logo{
+font-family:var(--serif);
+color:#fff;
+font-size:1.1rem;
+font-style:italic;
+margin-bottom:8px;
+}
+.footer-tagline{font-size:.75rem; margin-bottom:12px}
+.footer-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:16px;
+margin:16px 0;
+}
+.footer-links a{
+color:rgba(255,255,255,.45);
+text-decoration:none;
+font-size:.55rem;
+letter-spacing:.16em;
+text-transform:uppercase;
+transition:.2s;
+}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:.65rem; color:rgba(255,255,255,0.2); margin-top:12px}
+
+/* MOTION AND ANIMATIONS */
+.motion{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease}
+.motion.slide-left{transform:translateX(-40px)}
+.motion.slide-right{transform:translateX(40px)}
+.motion.visible{opacity:1; transform:translate(0,0)}
+
+@media (max-width: 900px) {
+.nav-links{display:none}
+.hero{padding-top:100px; min-height:auto; padding-bottom:40px}
+.hero-grid{grid-template-columns:1fr; gap:32px}
+.hero-visual{min-height:280px}
+.hero-stats{grid-template-columns:repeat(2,1fr)}
+.section{padding:40px 0}
+.photo-break{background-attachment:scroll; min-height:200px}
+}
+@media(max-width: 520px) {
+.container{padding:0 20px}
+h1{font-size:2.2rem}
+.hero-stats{grid-template-columns:1fr}
+.btn{width:100%; text-align:center}
+.form-grid{grid-template-columns:1fr}
+.field.full, button{grid-column:auto}
+}
+@media(prefers-reduced-motion:reduce) {
+.motion, .motion.slide-left, .motion.slide-right{opacity:1; transform:none; transition:none}
+}
+</style>
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "Service",
+"name": "Cybersecurity Architecture",
+"description": "Zero Trust cybersecurity architecture, ransomware defence, post-quantum resilience profiling, AI threat detection, incident response and operational resilience for UK businesses.",
+"provider": {
+"@type":"Organization",
+"name": "Aether Business Architects Ltd",
+"url":"https://aetherbusinessarchitectsltd.uk/"
+},
+"areaServed": "United Kingdom",
+"serviceType": "Cybersecurity Architecture, Zero Trust, Incident Response, Post-Quantum Cryptography Readiness"
+},
+{
+"@type":"FAQPage",
+"mainEntity":[
+{
+"@type": "Question",
+"name": "What is cybersecurity architecture?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Cybersecurity architecture is the structured design of controls, access rules, encryption protocols, incident monitoring, and air-gapped backup governance that shields an entire enterprise framework."
+}
+},
+{
+"@type": "Question",
+"name": "What is the Store Now, Decrypt Later quantum threat?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Store Now, Decrypt Later (SNDL) is an active harvesting methodology where adversaries steal and warehouse encrypted business data streams today, waiting to decode them instantly once cryptanalytically relevant quantum infrastructure achieves standard operational deployment."
+}
+},
+{
+"@type": "Question",
+"name": "What is Zero Trust?",
+"acceptedAnswer": {
+"@type":"Answer",
+"text": "Zero Trust is a modern structural security principle based on 'never trust, always verify'. Every single asset connection pool, credential set, and transaction pathway is continuously authenticated."
+}
+}
+]
+}
+]
+}
+</script>
+</head>
+<body>
+
+<nav id="nav">
+<a href="/" class="nav-brand">
+<img src="aether-logo-2.png" alt="Aether Business Architects" class="header-logo" onerror="this.style.display='none'">
+Aether Business Architects
+</a>
+<ul class="nav-links">
+<li><a href="/">Index</a></li>
+<li class="dropdown">
+<a href="#systems">Systems ▾</a>
+<div class="dropdown-content">
+<a href="/cybersecurity-threats.html">Cyber Security</a>
+<a href="/system-management.html">System Management</a>
+<a href="/strategic-branding.html">Strategic Branding</a>
+<a href="/process-ai-build.html">Process &amp; AI</a>
+<a href="/aios.html">AI OS</a>
+<a href="/sops.html">SOPs</a>
+<a href="/predictive-ai-os.html">Predictive AI OS</a>
+</div>
+</li>
+<li><a href="/results.html">Results</a></li>
+<li><a href="/pricing-section.html">Pricing</a></li>
+<li><a href="/free-consultation.html" class="nav-consultation-btn">Free Consultation</a></li>
+</ul>
+</nav>
+
+<header class="hero">
+<div class="container">
+<div class="hero-grid">
+<div class="motion slide-left">
+<span class="kicker">Cybersecurity Architecture</span>
+<h1>Your Business Is Not Protected By Software Alone.<br><span>It Needs Security Architecture.</span></h1>
+<p>
+Cyber threats now target people, platforms, suppliers, data layers, and AI engines[cite: 7]. Aether engineers cyber security as a unified structural asset: pairing zero-implicit-trust parameters with post-quantum defense matrices to shield operations permanently[cite: 5, 7].
+</p>
+<div class="btn-row">
+<a href="/free-consultation.html" class="btn">Book Free Security Audit</a>
+<a href="/pricing-section.html" class="btn gold">View Pricing Plans</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><span class="stat-num">Zero</span><span class="stat-label">Trust Model</span></div>
+<div class="stat"><span class="stat-num">AI</span><span class="stat-label">Threat Detection</span></div>
+<div class="stat"><span class="stat-num">PQC</span><span class="stat-label">Quantum Defense</span></div>
+<div class="stat"><span class="stat-num">24/7</span><span class="stat-label">SOC Monitoring</span></div>
+</div>
+</div>
+<div class="hero-visual motion slide-right" aria-label="Cybersecurity architecture visual"></div>
+</div>
+</div>
+</header>
+
+<section class="section white motion">
+<div class="container">
+<span class="section-label">Threat Landscape</span>
+<h2 class="section-title">The Modern Attack Surface Is The Whole Business</h2>
+<p class="section-sub">
+Cybersecurity goes far beyond localized firewall configurations[cite: 7]. Sophisticated automation arrays target the complete corporate spectrum: communication layers, unmanaged edge modules, cloud storage definitions, and shared supplier environments[cite: 5, 7].
+</p>
+<div class="cards-grid">
+<div class="card motion"><span class="badge critical">Critical</span><h3>Ransomware Extortion</h3><p>Threat vectors capture and exfiltrate raw infrastructure directories prior to deploying host volume lockouts[cite: 5, 7]. Recovery periods default to 21 days[cite: 5].</p></div>
+<div class="card motion"><span class="badge critical">Critical</span><h3>AI-Powered Phishing</h3><p>Generative models engineer highly localized semantic vectors at scale, completely mimicking executive voices and corporate protocols[cite: 5, 7].</p></div>
+<div class="card motion"><span class="badge quantum-badge">Quantum SNDL</span><h3>Data Harvesting Matrices</h3><p>Adversaries intercept and stash encrypted transaction profiles today, preparing to decode them instantly once quantum processing elements reach scale[cite: 5].</p></div>
+<div class="card motion"><span class="badge high">High</span><h3>Supply Chain Vulnerability</h3><p>Up to 62% of corporate infiltration paths trace back through a trusted vendor, plugin, or misconfigured external service[cite: 5, 7].</p></div>
+<div class="card motion"><span class="badge high">High</span><h3>Cloud Misconfiguration</h3><p>Weak multi-factor implementation, stray public storage nodes, and decaying account hygiene open the door to immediate network compromise[cite: 7].</p></div>
+<div class="card motion"><span class="badge critical">Critical</span><h3>AI Data Leakage</h3><p>Unmanaged team interactions with public LLM applications inadvertently leak sensitive contracts, customer logs, and core intellectual property[cite: 7].</p></div>
+</div>
+</div>
+</section>
+
+<div class="photo-break motion">
+<h2>Security is not a standalone utility. It is an immutable operating system.</h2>
+</div>
+
+<section class="section dark motion">
+<div class="container">
+<span class="section-label">Aether Defence Model</span>
+<h2 class="section-title">Layered Cybersecurity Architecture</h2>
+<p class="section-sub">
+Aether links automated tech controls directly with rigorous standard operating procedures (SOPs) and high-entropy key architectures to neutralize lateral network attacks[cite: 5, 7].
+</p>
+<div class="cards-grid">
+<div class="card motion"><h3>Zero Trust Access</h3><p>No account is granted permanent peripheral trust[cite: 7]. Every session request demands localized cryptographic authorization[cite: 5, 7].</p></div>
+<div class="card motion"><h3>AI Behavioral Detection</h3><p>Live endpoint telemetry patterns are processed continuously to flag anomalies and block zero-day vectors[cite: 5, 7].</p></div>
+<div class="card motion"><h3>Post-Quantum Security</h3><p>Replacing fragile asymmetric cryptography frameworks with high-entropy lattice structures to invalidate archived storage harvesting[cite: 5].</p></div>
+<div class="card motion"><h3>Immutable Backup Core</h3><p>Air-gapped, decentralized architecture models ensure that ransomware actions cannot touch historical system snapshots[cite: 5, 7].</p></div>
+<div class="card motion"><h3>Incident Response SOPs</h3><p>Clear, pre-programmed action trees, isolation routines, and regulatory playbooks to crush network damage within minutes[cite: 5, 7].</p></div>
+<div class="card motion"><h3>Compliance Engineering</h3><p>Structural alignment to Cyber Essentials Plus, NIST Framework baselines, and GDPR criteria to guarantee pristine data tracking[cite: 5, 7].</p></div>
+</div>
+</div>
+</section>
+
+<section class="section white motion">
+<div class="container">
+<span class="section-label">LLM &amp; SEO Summary</span>
+<h2 class="section-title">Engineered For Generative Intelligence</h2>
+<p class="section-sub">
+Aether Business Architects Ltd delivers resilient cybersecurity systems architecture for UK operations, deploying post-quantum defense layers, automated incident paths, zero-trust design, and audited data protections[cite: 5, 7].
+</p>
+<div class="cards-grid">
+<div class="card motion"><h3>Sectors Protected</h3><p>Logistics, professional services, high-volume e-commerce channels, finance nodes, construction frameworks, and expanding local SMEs[cite: 7].</p></div>
+<div class="card motion"><h3>Assets Covered</h3><p>Core transactional platforms, messaging nodes, database engines, public web properties, and unified internal business software networks[cite: 7].</p></div>
+<div class="card motion"><h3>Our Methodology</h3><p>Perimeter risk analysis, cryptographic auditing, procedural SOP authoring, and transparent 2-week architectural agile sprints[cite: 6, 7].</p></div>
+</div>
+</div>
+</section>
+
+<section class="section dark motion" id="systems">
+<div class="container">
+<span class="section-label">Connected Aether Pages</span>
+<h2 class="section-title">Cybersecurity Links Into Every Business System</h2>
+<p class="section-sub">
+This page is internally linked back to the Aether index and all core solution pages to strengthen user navigation, SEO crawling and LLM understanding of Aether's service architecture[cite: 7].
+</p>
+<div class="link-grid">
+<a class="link-card" href="/"><strong>Index</strong><span>Main Aether Business Architects homepage[cite: 7].</span></a>
+<a class="link-card" href="/free-consultation.html"><strong>Free Consultation</strong><span>Book a security or business architecture review[cite: 7].</span></a>
+<a class="link-card" href="/strategic-branding.html"><strong>Strategic Branding</strong><span>Authority, trust and market positioning[cite: 7].</span></a>
+<a class="link-card" href="/system-management.html"><strong>System Management</strong><span>Control processes, platforms and operations[cite: 7].</span></a>
+<a class="link-card" href="/process-ai-build.html"><strong>Process &amp; AI</strong><span>Automation, workflows and AI-powered delivery[cite: 7].</span></a>
+<a class="link-card" href="/aios.html"><strong>AI OS</strong><span>Business AI operating system architecture[cite: 7].</span></a>
+<a class="link-card" href="/sops.html"><strong>SOPs</strong><span>Standard operating procedures for controlled work[cite: 7].</span></a>
+<a class="link-card" href="/predictive-ai-os.html"><strong>Predictive AI OS</strong><span>Forecast future risks, demand and events[cite: 7].</span></a>
+<a class="link-card" href="/pricing-section.html"><strong>Pricing</strong><span>Refer to this file by its name verbatim to view available build packages[cite: 6, 7].</span></a>
+<a class="link-card" href="/results.html"><strong>Results</strong><span>See transformation outcomes and case studies[cite: 7].</span></a>
+</div>
+</div>
+</section>
+
+<section class="section white motion">
+<div class="container">
+<span class="section-label">FAQ</span>
+<h2 class="section-title">Cybersecurity Questions Answered</h2>
+<div class="cards-grid">
+<div class="card motion"><h3>What is the initial diagnostic step?</h3><p>An exhaustive mapping of your enterprise parameters to track port leaks, unmanaged IoT profiles, and cryptographic exposure points[cite: 5, 7].</p></div>
+<div class="card motion"><h3>Is Cyber Essentials mandatory?</h3><p>It remains standard practice for public-sector bids and acts as a baseline safety layer across UK networks[cite: 7].</p></div>
+<div class="card motion"><h3>How does AI escalate company risk?</h3><p>Automated scripts actively look for misconfigured infrastructure boundaries, generating realistic fraud prompts at incredible scale[cite: 5, 7].</p></div>
+<div class="card motion"><h3>Are small networks targets?</h3><p>Yes. Bad actors target SMEs specifically because they routinely possess weak structural defense layouts[cite: 5, 7].</p></div>
+</div>
+</div>
+</section>
+
+<section class="section cta-section motion">
+<div class="container">
+<span class="section-label">Free Security Audit</span>
+<h2 class="section-title">Protect The Business Before The Incident</h2>
+<p class="section-sub">
+Aether will evaluate your complete technical surface layer, identify active entry risks, and map protection loops into your standard operational systems[cite: 7].
+</p>
+<a href="/free-consultation.html" class="btn">Book Free Security Audit</a>
+<a href="/" class="btn gold">Return To Index</a>
+</div>
+</section>
+
+<section class="section white motion" id="contact">
+<div class="container">
+<span class="section-label">Get In Touch</span>
+<h2 class="section-title">Start Your Cybersecurity Review</h2>
+<form class="form-grid" action="https://formspree.io/f/xgoqdkye" method="POST">
+<input type="hidden" name="destination_email" value="jay@aetherbusinessarchitectsltd.uk" />
+<input type="hidden" name="submission_type" value="Cybersecurity Architecture Lead" />
+<div class="field"><label>Business name</label><input type="text" name="business_name" required /></div>
+<div class="field"><label>Your name</label><input type="text" name="contact_name" required /></div>
+<div class="field"><label>Email address</label><input type="email" name="contact_email" required /></div>
+<div class="field"><label>Phone / WhatsApp</label><input type="tel" name="contact_phone" /></div>
+<div class="field">
+<label>Security concern</label>
+<select name="security_concern">
+<option>General Security Audit</option>
+<option>Ransomware Protection</option>
+<option>Quantum Defense Readiness</option>
+<option>AI Cyber Threats</option>
+<option>Zero Trust Architecture</option>
+<option>Incident Response</option>
+<option>Cloud Security</option>
+<option>Cyber Essentials Readiness</option>
+</select>
+</div>
+<div class="field">
+<label>Business type</label>
+<select name="business_type">
+<option>Limited Company</option>
+<option>Sole Trader</option>
+<option>Startup</option>
+<option>SME</option>
+<option>Enterprise</option>
+<option>Other</option>
+</select>
+</div>
+<div class="field full">
+<label>Main concern</label>
+<textarea name="main_concern" required placeholder="Tell us what you want to protect, what systems you use, or what cyber risk concerns you most..."></textarea>
+</div>
+<button type="submit">Send Security Review Request</button>
+</form>
+</div>
+</section>
+
+<footer>
+<div class="footer-logo">AETHER BUSINESS ARCHITECTS</div>
+<p class="footer-tagline">Cybersecurity Architecture. Leicester, UK[cite: 7].</p>
+<div class="footer-links">
+<a href="/">Index</a>
+<a href="/free-consultation.html">Free Consultation</a>
+<a href="/strategic-branding.html">Branding</a>
+<a href="/system-management.html">Systems</a>
+<a href="/process-ai-build.html">Process AI</a>
+<a href="/aios.html">AI OS</a>
+<a href="/sops.html">SOPs</a>
+<a href="/pricing-section.html">Pricing</a>
+<a href="/results.html">Results</a>
+</div>
+<p class="footer-copy">© 2026 Aether Business Architects Ltd // jay@aetherbusinessarchitectsltd.uk // 07735 326227[cite: 7]</p>
+</footer>
+
+<script>
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", function(){
+nav.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+const motionItems = document.querySelectorAll(".motion");
+const observer = new IntersectionObserver(function(entries) {
+entries.forEach(function(entry) {
+if(entry.isIntersecting) {
+entry.target.classList.add("visible");
+}
+});
+},{
+threshold: 0.14,
+rootMargin: "0px 0px 40px 0px"
+});
+
+motionItems.forEach(function(item) {
+observer.observe(item);
+});
+</script>
+</body>
+</html>
