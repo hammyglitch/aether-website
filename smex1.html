@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SME Business Architecture, Funding &amp; Growth | Aether Business Architects</title>
+<meta name="description" content="Start Smart, Scale Smart, Lead Smart. Free consultation for UK startups, sole traders and SMEs. Business blueprints, funding guidance, AetherOS deployment.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aetherbusinessarchitectsltd.uk/sme.html">
+<link rel="icon" type="image/png" href="aether os logo v2.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,300;0,400;0,600;0,700;1,300;1,400&family=Fira+Code:wght=300;400;500;600;700&family=Orbitron:wght=400;500;600;700;800;900&family=Inter:wght=300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+:root{
+  --bg:#0A0A0A;--bg2:#111;--bg3:#1a1a1a;--white:#fff;--grey:#bbb;--muted:#777;
+  --cyan:#00E5FF;--cyan-dim:rgba(0,229,255,0.1);--cyan-glow:rgba(0,229,255,0.5);
+  --gold:#C8A96E;--green:#10B981;--red:#FF4D6D;--violet:#8B5CF6;
+  --serif:'Cormorant Garamond',Georgia,serif;--mono:'Fira Code',monospace;--origin:'Orbitron',sans-serif;--inter:'Inter',sans-serif;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--white);font-family:var(--inter);overflow-x:hidden;line-height:1.4;font-size:14px}
+body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.004) 2px,rgba(255,255,255,0.004) 4px);pointer-events:none;z-index:9999}
+.container{max-width:1100px;margin:0 auto;padding:0 4vw}
+.section{padding:40px 0}
+.section-label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:8px}
+.section-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;line-height:1.1;margin-bottom:12px;color:var(--white)}
+.section-sub{font-size:0.95rem;color:var(--grey);max-width:640px;line-height:1.6}
+
+/* Neon Top Line */
+.neon-wave{position:fixed;top:0;left:0;width:100%;height:3px;z-index:9998;overflow:hidden;pointer-events:none}
+.neon-wave::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,var(--cyan) 30%,#fff 50%,var(--cyan) 70%,transparent 100%);animation:waveSlide 3s linear infinite;box-shadow:0 0 30px var(--cyan-glow)}
+@keyframes waveSlide{0%{left:-100%}100%{left:100%}}
+
+/* Nav Styles */
+nav{position:fixed;top:3px;left:0;width:100%;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);z-index:9999;border-bottom:1px solid rgba(0,229,255,0.06)}
+.nav-brand{display:flex;align-items:center;text-decoration:none;color:var(--white)}
+.nav-logo{height:32px;width:auto;margin-right:10px}
+.nav-brand-text{font-family:var(--origin);font-size:0.85rem;font-weight:700;letter-spacing:0.15em;color:var(--white);text-shadow:0 0 10px rgba(0,229,255,0.2)}
+.nav-brand-text em{font-style:normal;font-size:0.5rem;font-weight:400;color:var(--cyan);display:block;letter-spacing:0.35em;margin-top:-3px}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:all .3s;font-family:var(--mono)}
+.nav-links a:hover{color:var(--cyan)}
+.nav-links .dropdown{position:relative;cursor:pointer}
+.nav-links .dropdown-content{display:none;position:absolute;top:100%;right:0;background:#111;border:1px solid rgba(0,229,255,0.06);border-radius:8px;padding:6px 0;min-width:200px;z-index:10000;box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+.nav-links .dropdown:hover .dropdown-content{display:block}
+.nav-links .dropdown-content a{display:block;padding:8px 16px;font-size:0.52rem;letter-spacing:0.15em;color:#bbb;text-decoration:none}
+.nav-links .dropdown-content a:hover{color:var(--cyan);background:rgba(0,229,255,0.02)}
+
+/* Hero Section Grid */
+.hero{padding:110px 0 40px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:32px;align-items:center}
+.hero h1{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;line-height:1.05;margin-bottom:10px}
+.hero h1 span{color:var(--cyan)}
+.hero-desc{font-size:0.95rem;color:var(--grey);margin-bottom:20px;max-width:500px;line-height:1.6}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-block;padding:12px 24px;background:var(--cyan);color:var(--bg);font-family:var(--inter);font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .3s;font-weight:700;border:none}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 15px var(--cyan-glow)}
+.btn-secondary{display:inline-block;padding:12px 24px;background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-family:var(--inter);font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .3s;font-weight:600}
+.btn-secondary:hover{background:var(--cyan);color:var(--bg)}
+.hero-stats{display:flex;gap:20px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap}
+.stat-num{font-family:var(--inter);font-size:1.3rem;font-weight:800;color:var(--cyan);display:block;line-height:1}
+.stat-label{font-family:var(--mono);font-size:0.5rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:2px}
+
+/* Metrics Dashboard Graphic Frame */
+.growth-chart{background:var(--bg2);border-radius:var(--radius);padding:20px;border:1px solid rgba(0,229,255,0.06);position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.5)}
+.chart-title{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.chart-svg{width:100%;height:auto;display:block}
+.chart-bar{transform-origin:bottom}
+.chart-label{font-family:var(--mono);font-size:0.52rem;fill:var(--muted)}
+.chart-value{font-family:var(--inter);font-size:0.55rem;fill:var(--white);font-weight:700}
+.growth-legend{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:0.6rem;color:var(--muted);font-family:var(--mono)}
+.legend-dot{width:6px;height:6px;border-radius:50%}
+
+/* Journey Components */
+.journey-flow{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:24px;flex-wrap:wrap}
+.journey-step{padding:10px 14px;background:var(--bg2);border-radius:8px;text-align:center;min-width:85px;border:1px solid rgba(255,255,255,0.03);transition:all .3s}
+.journey-step:hover{border-color:var(--cyan);transform:translateY(-1px)}
+.journey-step .step-icon{font-size:1rem;margin-bottom:3px}
+.journey-step .step-label{font-family:var(--mono);font-size:.48rem;color:var(--muted);text-transform:uppercase}
+.journey-arrow{color:var(--cyan);font-size:0.7rem;opacity:0.4;animation:neonFlash 2s ease-in-out infinite}
+
+/* USE CASES SECTION - CRITICAL RESOLUTION & WHITEOUT */
+#usecases {opacity: 1 !important; visibility: visible !important; display: block !important;}
+.use-cases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:24px}
+
+.use-case{
+  padding:20px;
+  background:var(--white) !important; /* Forces high contrast crisp card profile */
+  color:#111111 !important; /* Safeguards absolute legibility on white sheets */
+  border-radius:var(--radius);
+  border:1px solid rgba(0,229,255,0.15);
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  transition:all .3s ease-in-out;
+  opacity: 1 !important; /* Hardcodes safety overrides for ScrollTrigger bugs */
+}
+.use-case:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,229,255,0.15);
+  border-color:var(--cyan);
+}
+.use-case-icon{
+  width:36px;
+  height:36px;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  margin-bottom:10px;
+  background:rgba(10,10,10,0.05) !important;
+}
+.use-case h3{font-family:var(--inter);font-size:0.92rem;font-weight:700;margin-bottom:6px;color:#111111 !important;}
+.use-case p{font-size:0.82rem;color:#333333 !important;line-height:1.55}
+.use-case .tag{
+  display:inline-block;
+  padding:3px 10px;
+  background:#111111 !important;
+  border:1px solid #111111;
+  border-radius:100px;
+  font-size:0.48rem;
+  color:var(--cyan) !important;
+  margin-top:10px;
+  font-family:var(--mono);
+  font-weight:600;
+}
+
+/* Alternating Rows Framework Layout */
+.smart-section{padding:0}
+.smart-row{display:grid;grid-template-columns:1fr;min-height:260px}
+.smart-row:nth-child(odd){background:var(--white);color:var(--bg)}
+.smart-row:nth-child(even){background:var(--bg);color:var(--white)}
+.smart-content{display:grid;grid-template-columns:1fr 1fr}
+.smart-text{padding:32px 40px;display:flex;flex-direction:column;justify-content:center}
+.smart-visual{padding:32px 40px;display:flex;align-items:center;justify-content:center}
+.smart-text .big-label{font-family:var(--origin);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;color:var(--cyan)}
+.smart-text h3{font-family:var(--serif);font-size:2rem;font-weight:800;margin-bottom:8px;line-height:1.1}
+.smart-text p{font-size:0.85rem;line-height:1.6;margin-bottom:12px}
+.smart-row:nth-child(odd) .smart-text p{color:#333}
+.smart-row:nth-child(even) .smart-text p{color:var(--grey)}
+.smart-features{list-style:none}
+.smart-features li{font-size:0.8rem;padding:4px 0}
+.smart-row:nth-child(odd) .smart-features li{color:#444;border-bottom:1px solid rgba(0,0,0,0.04)}
+.smart-row:nth-child(even) .smart-features li{color:var(--grey);border-bottom:1px solid rgba(255,255,255,0.02)}
+.smart-row:nth-child(odd) .smart-features li::before{color:var(--green);content:"\2713  ";margin-right:4px}
+.smart-row:nth-child(even) .smart-features li::before{color:var(--cyan);content:"\2713  ";margin-right:4px}
+.smart-icon-big{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+.smart-row:nth-child(odd) .smart-icon-big{background:rgba(0,229,255,0.06);color:var(--cyan)}
+.smart-row:nth-child(even) .smart-icon-big{background:var(--cyan-dim);color:var(--cyan)}
+
+/* Matrix Splitting Paradigm Components */
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.comp-col{padding:20px;border-radius:var(--radius)}
+.comp-old{background:rgba(255,77,109,0.02);border:1px solid rgba(255,77,109,0.06)}
+.comp-new{background:rgba(0,229,255,0.02);border:1px solid rgba(0,229,255,0.08)}
+.comp-col h4{font-family:var(--origin);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px}
+.comp-old h4{color:var(--red)}
+.comp-new h4{color:var(--cyan)}
+.comp-col ul{list-style:none}
+.comp-col li{font-size:0.82rem;padding:4px 0;color:var(--grey)}
+.comp-old li::before{content:"\2717  ";color:var(--red);margin-right:4px}
+.comp-new li::before{content:"\2713  ";color:var(--cyan);margin-right:4px}
+
+/* Funding Architecture Matrix Tables */
+.funding-table{width:100%;border-collapse:collapse;margin-top:24px;background:var(--bg2);border-radius:var(--radius);overflow:hidden}
+.funding-table th{padding:12px 16px;text-align:left;background:var(--bg3);color:var(--cyan);font-family:var(--mono);font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(0,229,255,0.08)}
+.funding-table td{padding:11px 16px;border-bottom:1px solid rgba(255,255,255,0.02);font-size:0.82rem;color:var(--grey)}
+.funding-table tr:hover td{background:rgba(0,229,255,0.01)}
+
+/* SECURE RESPONSIVE MEASURABLE OUTCOMES GRID (Cured 70% Visibility Overlap Bug) */
+.outcomes-section-wrapper {display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px;align-items:center}
+.outcomes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.outcome{padding:16px;text-align:center;background:var(--bg2);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03);min-height:90px;display:flex;flex-direction:column;justify-content:center;opacity: 1 !important;}
+.outcome-num{font-family:var(--inter);font-size:1.8rem;font-weight:800;color:var(--cyan);display:block;line-height:1}
+.outcome-label{font-size:0.65rem;color:var(--grey);margin-top:6px;line-height:1.3;font-family:var(--inter);font-weight:500}
+.outcomes-media-diagram {background:var(--bg2);border:1px solid rgba(0,229,255,0.08);border-radius:var(--radius);padding:18px;position:relative}
+
+/* Marketing Lead Capture Forms Frame */
+.promo{position:relative;padding:48px 0;overflow:hidden}
+.promo-frame{border:2px solid var(--cyan);border-radius:calc(var(--radius) + 4px);padding:28px;margin-top:20px;position:relative;animation:borderFlash 3s ease-in-out infinite}
+.promo-frame::before{content:"FREE CONSULTATION — NO OBLIGATION — NO FEE";position:absolute;top:-11px;left:20px;background:var(--bg);padding:0 10px;font-family:var(--origin);font-size:0.55rem;color:var(--cyan);letter-spacing:0.15em}
+.promo-frame-inner{text-align:center;max-width:640px;margin:0 auto}
+.promo-frame-inner h3{font-family:var(--serif);font-size:1.6rem;font-weight:700;margin-bottom:8px}
+.promo-frame-inner h3 span{color:var(--cyan)}
+.promo-frame-inner p{font-size:0.88rem;color:var(--grey);line-height:1.6;margin-bottom:16px}
+.promo-cta{display:inline-block;padding:12px 28px;background:transparent;border:2px solid var(--cyan);color:var(--cyan);font-family:var(--origin);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .3s}
+.promo-cta:hover{background:var(--cyan);color:var(--bg)}
+.promo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:24px}
+.promo-card{padding:16px;background:var(--bg2);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+.promo-card h4{font-size:0.85rem;font-weight:600;margin-bottom:4px}
+.promo-card p{font-size:0.75rem;color:var(--grey);line-height:1.5}
+
+/* Tags labels cluster */
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:20px;justify-content:center}
+.tag{padding:6px 14px;background:var(--bg2);border:1px solid rgba(255,255,255,0.04);border-radius:100px;font-family:var(--mono);font-size:0.52rem;color:var(--grey)}
+
+/* Call to action panel definitions */
+.cta{text-align:center;padding:48px 0}
+.cta .section-sub{margin:0 auto 24px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* Footer layout configuration boundaries */
+footer{padding:28px 0;text-align:center;border-top:1px solid rgba(255,255,255,0.03)}
+.footer-logo{font-family:var(--origin);font-size:0.85rem;font-weight:700;letter-spacing:0.15em}
+.footer-logo em{font-style:normal;font-size:0.5rem;font-weight:400;color:var(--cyan);display:block;letter-spacing:0.35em;margin-top:2px}
+.footer-tag{font-size:0.6rem;color:var(--muted);margin-bottom:12px;font-family:var(--mono)}
+.footer-links{display:flex;gap:16px;justify-content:center;margin-bottom:12px;flex-wrap:wrap}
+.footer-links a{font-family:var(--mono);font-size:0.5rem;color:var(--muted);text-decoration:none;text-transform:uppercase}
+.footer-links a:hover{color:var(--cyan)}
+.footer-copy{font-family:var(--mono);font-size:0.42rem;color:var(--muted);opacity:0.4}
+
+/* MODAL INTERCEPT BOX */
+.popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(12px);z-index:10000;align-items:center;justify-content:center}
+.popup-overlay.active{display:flex}
+.popup{background:#0A0A0A;border:2px solid var(--cyan);border-radius:16px;padding:32px;max-width:460px;width:92%;position:relative;box-shadow:0 0 50px var(--cyan-dim)}
+.popup-close{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer}
+.popup-close:hover{color:var(--cyan)}
+.popup-icon{font-size:2rem;text-align:center;margin-bottom:8px}
+.popup h3{font-family:var(--serif);font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:6px}
+.popup h3 span{color:var(--cyan)}
+.popup p{font-size:0.85rem;color:var(--grey);line-height:1.5;text-align:center;margin-bottom:16px}
+.popup-form{display:flex;flex-direction:column;gap:10px}
+.popup-form input,.popup-form textarea{padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,229,255,0.08);border-radius:8px;color:var(--white);font-size:0.8rem;outline:none}
+.popup-form input:focus,.popup-form textarea:focus{border-color:var(--cyan)}
+.popup-form textarea{min-height:80px}
+.popup-form button{padding:12px;background:var(--cyan);color:var(--bg);border:none;border-radius:8px;font-family:var(--origin);font-size:0.7rem;text-transform:uppercase;cursor:pointer;font-weight:700}
+.popup-success{display:none;text-align:center;padding:16px 0}
+.popup-success .check{font-size:2.5rem;color:var(--green);margin-bottom:8px;display:block}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-grid,.smart-content,.comparison,.outcomes-section-wrapper{grid-template-columns:1fr}
+  .journey-flow{flex-direction:column}
+  .journey-arrow{transform:rotate(90deg)}
+}
+</style>
+</head>
+<body>
+
+<div class="neon-wave"></div>
+
+<nav id="nav">
+  <a href="/" class="nav-brand">
+    <img src="aether os logo v2.png" alt="AetherOS" class="nav-logo" onerror="this.style.display='none'"> 
+    <div class="nav-brand-text">AETHER<em>OS</em></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/sme.html" style="color:#00E5FF;text-shadow:0 0 10px rgba(0,229,255,0.4)">SME</a></li>
+    <li><a href="/aether-os-promo-pricing.html">Pricing</a></li>
+    <li><a href="/aether-news.html">News</a></li>
+    <li class="dropdown">
+      <a href="/community.html">Community &#9660;</a>
+      <div class="dropdown-content">
+        <a href="/ceo-blog-diary.html">CEO Blog Diary</a>
+        <a href="/community.html#cyber-news">Cyber News</a>
+        <a href="/community.html#war-defence">War &amp; Defence</a>
+        <a href="/community.html#arts">Arts</a>
+        <a href="/community.html#business">Business Community</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+  <div>
+    <span class="section-label">SME Business Architecture</span>
+    <h1>Build Smarter.<br>Scale Faster.<br><span>Lead With Confidence.</span></h1>
+    <div class="hero-sub" style="font-size:clamp(1.2rem,2.5vw,1.6rem);font-style:italic;color:#bbb;margin-bottom:14px">
+      Architected by <span style="color:#00E5FF;font-weight:700">AetherOS</span>
+    </div>
+    <p class="hero-desc">AetherOS is an AI-driven operational resilience platform that automatically maps, monitors and optimises SME business architecture while identifying cybersecurity, compliance and process risks.</p>
+    <div class="hero-btns">
+      <a href="#promo" class="btn-primary">Start Free Trial</a>
+      <a href="#smart" class="btn-secondary">How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">5.64M</span><span class="stat-label">UK SMEs</span></div>
+      <div class="stat"><span class="stat-num">&pound;14.9B</span><span class="stat-label">Cyber Market</span></div>
+      <div class="stat"><span class="stat-num">68%</span><span class="stat-label">Attacked 2025</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Smart Tiers</span></div>
+    </div>
+  </div>
+
+  <div class="growth-chart">
+    <div class="chart-title">&#9650; SME Growth Trajectory — Matrix Scaling</div>
+    <svg class="chart-svg" viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="45" y1="185" x2="445" y2="185" stroke="#222" stroke-width="1"/>
+      <line x1="45" y1="152" x2="445" y2="152" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="4"/>
+      <line x1="45" y1="119" x2="445" y2="119" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="4"/>
+      <line x1="45" y1="86" x2="445" y2="86" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="4"/>
+      <line x1="45" y1="53" x2="445" y2="53" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="4"/>
+      <text x="36" y="189" class="chart-label" text-anchor="end">0</text>
+      <text x="36" y="156" class="chart-label" text-anchor="end">25%</text>
+      <text x="36" y="123" class="chart-label" text-anchor="end">50%</text>
+      <text x="36" y="90" class="chart-label" text-anchor="end">75%</text>
+      <text x="36" y="57" class="chart-label" text-anchor="end">100%</text>
+      
+      <rect class="chart-bar" x="68" y="168" width="28" height="17" rx="4" fill="#FF4D6D" opacity="0.4"/>
+      <rect class="chart-bar" x="128" y="158" width="28" height="27" rx="4" fill="#FF4D6D" opacity="0.4"/>
+      <rect class="chart-bar" x="188" y="150" width="28" height="35" rx="4" fill="#FF4D6D" opacity="0.4"/>
+      <rect class="chart-bar" x="248" y="145" width="28" height="40" rx="4" fill="#FF4D6D" opacity="0.4"/>
+      <rect class="chart-bar" x="308" y="140" width="28" height="45" rx="4" fill="#FF4D6D" opacity="0.4"/>
+      <rect class="chart-bar" x="368" y="138" width="28" height="47" rx="4" fill="#FF4D6D" opacity="0.4"/>
+      
+      <rect class="chart-bar" x="100" y="130" width="28" height="55" rx="4" fill="#00E5FF" opacity="0.6"/>
+      <rect class="chart-bar" x="160" y="95" width="28" height="90" rx="4" fill="#00E5FF" opacity="0.65"/>
+      <rect class="chart-bar" x="220" y="65" width="28" height="120" rx="4" fill="#00E5FF" opacity="0.7"/>
+      <rect class="chart-bar" x="280" y="40" width="28" height="145" rx="4" fill="#00E5FF" opacity="0.8"/>
+      <rect class="chart-bar" x="340" y="18" width="28" height="167" rx="4" fill="#00E5FF" opacity="0.9"/>
+      <rect class="chart-bar" x="400" y="5" width="28" height="180" rx="4" fill="#fff" opacity="0.95"/>
+      
+      <g class="neon-arrow">
+        <defs>
+          <filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="glowStrong"><feGaussianBlur stdDeviation="6" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <line x1="414" y1="190" x2="414" y2="25" stroke="#00E5FF" stroke-width="3" filter="url(#glowStrong)" opacity="0.9"/>
+        <polygon points="404,35 414,10 424,35" fill="#00E5FF" filter="url(#glow)"/>
+        <text x="414" y="200" text-anchor="middle" fill="#00E5FF" font-family="Orbitron" font-size="7" letter-spacing="0.1em" filter="url(#glow)">GROWTH</text>
+      </g>
+      
+      <text class="chart-value" x="82" y="163" text-anchor="middle" style="fill:#FF4D6D;opacity:0.7">&pound;50K</text>
+      <text class="chart-value" x="142" y="153" text-anchor="middle" style="fill:#FF4D6D;opacity:0.7">&pound;80K</text>
+      <text class="chart-value" x="202" y="145" text-anchor="middle" style="fill:#FF4D6D;opacity:0.7">&pound;110K</text>
+      <text class="chart-value" x="262" y="140" text-anchor="middle" style="fill:#FF4D6D;opacity:0.7">&pound;140K</text>
+      <text class="chart-value" x="322" y="135" text-anchor="middle" style="fill:#FF4D6D;opacity:0.7">&pound;170K</text>
+      <text class="chart-value" x="382" y="133" text-anchor="middle" style="fill:#FF4D6D;opacity:0.7">&pound;200K</text>
+      <text class="chart-value" x="114" y="124" text-anchor="middle" style="fill:#00E5FF">&pound;120K</text>
+      <text class="chart-value" x="174" y="89" text-anchor="middle" style="fill:#00E5FF">&pound;250K</text>
+      <text class="chart-value" x="234" y="59" text-anchor="middle" style="fill:#00E5FF">&pound;400K</text>
+      <text class="chart-value" x="294" y="34" text-anchor="middle" style="fill:#00E5FF">&pound;550K</text>
+      <text class="chart-value" x="354" y="12" text-anchor="middle" style="fill:#00E5FF">&pound;700K</text>
+      <text class="chart-value" x="414" y="-1" text-anchor="middle" style="fill:#fff">&pound;850K</text>
+      
+      <text x="82" y="200" class="chart-label" text-anchor="middle">Yr1</text>
+      <text x="142" y="200" class="chart-label" text-anchor="middle">Yr2</text>
+      <text x="202" y="200" class="chart-label" text-anchor="middle">Yr3</text>
+      <text x="262" y="200" class="chart-label" text-anchor="middle">Yr4</text>
+      <text x="322" y="200" class="chart-label" text-anchor="middle">Yr5</text>
+      <text x="382" y="200" class="chart-label" text-anchor="middle">Yr6</text>
+    </svg>
+    <div class="growth-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#FF4D6D;opacity:0.4"></div>Past Business Model</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#00E5FF"></div>Modern Business Model</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fff"></div>With AetherOS</div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="journey" class="section">
+<div class="container">
+  <span class="section-label">The Founder Journey</span>
+  <h2 class="section-title">Idea to Excellence. One Continuous Path.</h2>
+  <div class="journey-flow">
+    <div class="journey-step"><div class="step-icon">&#128161;</div><div class="step-label">Idea</div></div>
+    <div class="journey-arrow">&#8594;</div>
+    <div class="journey-step"><div class="step-icon">&#128176;</div><div class="step-label">Funding</div></div>
+    <div class="journey-arrow">&#8594;</div>
+    <div class="journey-step"><div class="step-icon">&#128220;</div><div class="step-label">Blueprint</div></div>
+    <div class="journey-arrow">&#8594;</div>
+    <div class="journey-step"><div class="step-icon">&#9881;</div><div class="step-label">Architecture</div></div>
+    <div class="journey-arrow">&#8594;</div>
+    <div class="journey-step"><div class="step-icon">&#129302;</div><div class="step-label">AetherOS</div></div>
+    <div class="journey-arrow">&#8594;</div>
+    <div class="journey-step"><div class="step-icon">&#9889;</div><div class="step-label">Automation</div></div>
+    <div class="journey-arrow">&#8594;</div>
+    <div class="journey-step"><div class="step-icon">&#128200;</div><div class="step-label">Growth</div></div>
+    <div class="journey-arrow">&#8594;</div>
+    <div class="journey-step"><div class="step-icon">&#127942;</div><div class="step-label">Investment</div></div>
+  </div>
+</div>
+</section>
+
+<section id="usecases" class="section">
+<div class="container">
+  <span class="section-label">Use Cases</span>
+  <h2 class="section-title">Real Businesses. Real Results.</h2>
+  <div class="use-cases-grid">
+    <div class="use-case">
+      <div class="use-case-icon">💡</div>
+      <h3>Startup Founder — Pre-Revenue</h3>
+      <p>Has a validated idea but no operational structure. Needs funding pathway analysis, business blueprint, and a 90-day launch plan.</p>
+      <span class="tag">START SMART</span>
+    </div>
+    <div class="use-case">
+      <div class="use-case-icon">📈</div>
+      <h3>Sole Trader — Scaling Up</h3>
+      <p>Doing everything manually. No SOPs. No compliance framework. One person bottleneck. Aether deploys AI SOP Builder, mapping core processes.</p>
+      <span class="tag">SCALE SMART</span>
+    </div>
+    <div class="use-case">
+      <div class="use-case-icon">🛡️</div>
+      <h3>Construction Firm — Cyber Essentials</h3>
+      <p>Needs Cyber Essentials certification for tenders. AetherOS maps their attack surface and provides continuous risk monitoring.</p>
+      <span class="tag">AETHEROS DEPLOY</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="smart-section" id="smart">
+  <div class="smart-row">
+    <div class="smart-content">
+      <div class="smart-text">
+        <div class="big-label">// Tier 01</div>
+        <h3>Start Smart</h3>
+        <p>For startups and sole traders launching a new venture. We provide the architecture, funding guidance, and operational blueprint to launch with confidence.</p>
+        <ul class="smart-features">
+          <li>Funding Pathway Analysis</li>
+          <li>Business Architecture Design</li>
+          <li>Growth Roadmap Framework</li>
+        </ul>
+      </div>
+      <div class="smart-visual"><div class="smart-icon-big">&#128161;</div></div>
+    </div>
+  </div>
+  <div class="smart-row">
+    <div class="smart-content">
+      <div class="smart-visual"><div class="smart-icon-big">&#9889;</div></div>
+      <div class="smart-text">
+        <div class="big-label">// Tier 02</div>
+        <h3>Scale Smart</h3>
+        <p>For growing businesses ready to automate and optimise. AetherOS deployment, AI SOP generation, process mining, and continuous risk monitoring.</p>
+        <ul class="smart-features">
+          <li>AetherOS Core Integration</li>
+          <li>Automated SOP Generation Layers</li>
+          <li>Cyber Risk Real-time Metrics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="outcomes">
+<div class="container">
+  <span class="section-label">// System Assurance Telemetry</span>
+  <h2 class="section-title">Numbers That Matter</h2>
+  <p class="section-sub">AetherOS substitutes ambiguous corporate promises with concrete, time-bound infrastructural telemetry data lines.</p>
+  
+  <div class="outcomes-section-wrapper">
+    <div class="outcomes-grid">
+      <div class="outcome">
+        <span class="outcome-num">90%</span>
+        <div class="outcome-label">SOP Creation Time Reduced</div>
+      </div>
+      <div class="outcome">
+        <span class="outcome-num">70%</span>
+        <div class="outcome-label">Audit Prep Effort Cut</div>
+      </div>
+      <div class="outcome">
+        <span class="outcome-num">80%</span>
+        <div class="outcome-label">Manual Process Mapping Cleared</div>
+      </div>
+      <div class="outcome">
+        <span class="outcome-num">6 Wks</span>
+        <div class="outcome-label">To Complete Audit Readiness</div>
+      </div>
+    </div>
+
+    <div class="outcomes-media-diagram">
+      <div class="chart-title" style="margin-bottom:8px;">▲ Automated Efficiency Optimization Matrix</div>
+      <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" class="chart-svg">
+        <path d="M 20 140 Q 110 90 200 40 T 380 15" fill="none" stroke="#00E5FF" stroke-width="2.5" filter="url(#glow)"/>
+        <path d="M 20 140 Q 110 130 200 120 T 380 115" fill="none" stroke="#FF4D6D" stroke-width="1.5" stroke-dasharray="3"/>
+        <circle cx="200" cy="40" r="4" fill="#fff" filter="url(#glow)"/>
+        <circle cx="380" cy="15" r="4" fill="#00E5FF" filter="url(#glow)"/>
+        <line x1="20" y1="150" x2="380" y2="150" stroke="#222" stroke-width="1"/>
+        <text x="25" y="165" fill="#666" font-family="Fira Code" font-size="8">Baseline</text>
+        <text x="190" y="165" fill="#666" font-family="Fira Code" font-size="8">Phase 2</text>
+        <text x="340" y="165" fill="#00E5FF" font-family="Fira Code" font-size="8">Optimised</text>
+      </svg>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <span class="section-label">Past vs Modern</span>
+  <h2 class="section-title">The Old Way. The Aether Way.</h2>
+  <div class="comparison">
+    <div class="comp-col comp-old">
+      <h4>Past Business Model</h4>
+      <ul>
+        <li>Consultants deliver static reports</li>
+        <li>Manual audits that go stale quickly</li>
+        <li>Spreadsheets for tracking everything</li>
+      </ul>
+    </div>
+    <div class="comp-col comp-new">
+      <h4>Modern Business Model</h4>
+      <ul>
+        <li>Living Business Architecture Systems</li>
+        <li>Continuous real-time AI security maps</li>
+        <li>Automated technical document parsing</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="funding" class="section">
+<div class="container">
+  <span class="section-label">Funding Pathways</span>
+  <h2 class="section-title">Where UK SMEs Get Funded.</h2>
+  <table class="funding-table">
+    <tr><th>Stage</th><th>Funding Source</th><th>Amount</th><th>Best For</th></tr>
+    <tr><td>Idea / MVP</td><td>Start Up Loans</td><td>&pound;500 - &pound;25K</td><td>Pre-revenue startups</td></tr>
+    <tr><td>Early Revenue</td><td>Innovate UK Smart Grants</td><td>&pound;25K - &pound;500K</td><td>AI, cyber, deep tech</td></tr>
+    <tr><td>Growth</td><td>Angel Investors</td><td>&pound;10K - &pound;250K</td><td>Proven traction</td></tr>
+  </table>
+</div>
+</section>
+
+<section class="promo" id="promo">
+<div class="promo-bg"></div>
+<div class="container" style="position:relative;z-index:1">
+  <span class="section-label" style="color:var(--cyan)">// Free Consultation — No Fee</span>
+  <h2 class="section-title">Have a Business Idea? Hit Us With It.</h2>
+  <div class="promo-frame">
+    <div class="promo-frame-inner">
+      <h3>Your Idea. <span>Our Architecture.</span></h3>
+      <p>Whether you are a startup founder, sole trader, or have a business idea you have been sitting on — Aether turns ideas into operational reality.</p>
+      <a href="#" class="promo-cta" onclick="openPopup();return false;">Submit Your Idea — Free</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container" style="text-align:center">
+  <span class="section-label">Built For</span>
+  <h2 class="section-title">Who Aether Serves</h2>
+  <div class="tags">
+    <span class="tag">Startup Founders</span>
+    <span class="tag">Sole Traders</span>
+    <span class="tag">Growing SMEs</span>
+    <span class="tag">Technology Companies</span>
+    <span class="tag">Logistics Firms</span>
+  </div>
+</div>
+</section>
+
+
+<footer>
+<div class="container">
+  <div class="footer-logo">AETHER<em>OS</em></div>
+  <div class="footer-tag">SME Business Architecture. Leicester, UK.</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/aether-os-promo-pricing.html">Pricing</a>
+    <a href="#funding">Funding</a>
+    <a href="#promo">Free Consultation</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Aether Business Architects Ltd // jay@aetherbusinessarchitectsltd.uk</div>
+</div>
+</footer>
+
+<div class="popup-overlay" id="popup">
+<div class="popup">
+  <button class="popup-close" onclick="closePopup()">&#10005;</button>
+  <div id="popup-form">
+    <div class="popup-icon">&#128161;</div>
+    <h3>Are You a <span>Startup?</span></h3>
+    <p>Have a business idea? Let Aether change your idea into wealth. Simple form. No obligation.</p>
+    <form class="popup-form" onsubmit="submitPopup(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Type your business idea here..." required></textarea>
+      <button type="submit">Submit Idea — Free</button>
+    </form>
+  </div>
+  <div class="popup-success" id="popup-success">
+    <span class="check">&#10003;</span>
+    <h4>Congratulations!</h4>
+    <p>You made the first step to creating your business. We will be in contact shortly.</p>
+  </div>
+</div>
+</div>
+
+<script>
+// INITIALIZE GSAP WITH AN ACTIVE, SAFE MATRIX CONTEXT
+gsap.registerPlugin(ScrollTrigger);
+
+window.addEventListener("scroll", function(){
+  document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 20);
+});
+
+// Animations Execute reliably now
+gsap.from(".hero h1", {y:40, opacity:0, duration:0.8, ease:"power2.out"});
+gsap.from(".chart-bar", {y:100, scaleY:0, opacity:0, duration:1, ease:"power2.out", stagger:0.05});
+
+// Contextual Intercept Automatic Popup Triggers
+var popupShown = false;
+setTimeout(function(){
+  if(!popupShown){
+    openPopup();
+  }
+}, 30000);
+
+function openPopup(){
+  document.getElementById("popup").classList.add("active");
+  popupShown = true;
+}
+
+function closePopup(){
+  document.getElementById("popup").classList.remove("active");
+}
+
+document.getElementById("popup").addEventListener("click", function(e){
+  if(e.target === this) closePopup();
+});
+
+function submitPopup(e){
+  e.preventDefault();
+  var btn = e.target.querySelector("button");
+  btn.textContent = "Submitting Strategy Brief...";
+  setTimeout(function(){
+    document.getElementById("popup-form").style.display = "none";
+    document.getElementById("popup-success").style.display = "block";
+    setTimeout(closePopup, 2500);
+  }, 1200);
+}
+</script>
+</body>
+</html>
