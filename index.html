@@ -826,36 +826,77 @@
             About Aether Business Architecture Bespoke Business Solutions — Business Systems Engineering, Leicester. At Aether Architecture, we engineer. Based in Leicester, we are a high-performance business solutions firm specialising in the total operational resilience of the modern enterprise. Our methodology is Architecture-First: we map the complete telemetry of your operation — from your network perimeter to the manual data-entry points creating measurable "Human Drag" — before a single solution is deployed.
             Operational inefficiency is not a software problem. It is a structural one. Research published by MIT Sloan Management Review identifies operational fragmentation — disconnected systems, unclear processes, and inconsistent infrastructure — as the primary constraint on business scalability. We eliminate that constraint by design.
         </p>
+<div class="aether-form-container">
+    <h3 style="font-family:var(--serif); font-size:1.8rem; margin-bottom:20px; color:var(--ink); font-style: italic;">Bespoke Architecture Intake Form</h3>
 
-        <div class="aether-form-container">
-            <h3 style="font-family:var(--serif); font-size:1.8rem; margin-bottom:20px; color:var(--ink); font-style: italic;">Bespoke Architecture Intake Form</h3>
-            <form class="formspree-form" action="https://formspree.io/f/xgoqdkye" method="POST" accept-charset="UTF-8">
-                <input type="hidden" name="destination_email" value="jay@aetherbusinessarchitectsltd.uk">
-                <input type="hidden" name="submission_type" value="Aether Homepage Consultation Lead">
-                <input type="hidden" name="page_source" value="Index Homepage">
-                <input type="hidden" name="_subject" value="New Homepage Enquiry - Aether Business Architects">
-                <input type="hidden" name="form_location" value="Index About Section">
-                <div class="form-row-group">
-                    <div class="form-field">
-                        <label for="form-name">Identification / Name</label>
-                        <input type="text" name="name" id="form-name" placeholder="E.g., Jason Holligan" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="form-email">Secure Communication Channel (Email)</label>
-                        <input type="email" name="_replyto" id="form-email" placeholder="E.g., client@enterprise.com" required>
-                    </div>
-                </div>
-                <div class="form-field">
-                    <label for="form-subject">Operational Focal Point</label>
-                    <input type="text" name="subject" id="form-subject" placeholder="E.g., Layer 3 Network Hardening / Automation Build">
-                </div>
-                <div class="form-field">
-                    <label for="form-message">Telemetry Details / Operational Deficiencies</label>
-                    <textarea name="message" id="form-message" rows="5" placeholder="Outline your current technical structures or architectural constraints..." required></textarea>
-                </div>
-                <button type="submit" class="form-submit-btn">Transmit Diagnostics</button>
-            </form>
+```
+<form class="formspree-form" action="https://formspree.io/f/xgoqdkye" method="POST" accept-charset="UTF-8">
+
+    <input type="hidden" name="destination_email" value="jay@aetherbusinessarchitectsltd.uk">
+    <input type="hidden" name="submission_type" value="Aether Homepage Consultation Lead">
+    <input type="hidden" name="page_source" value="Index Homepage">
+    <input type="hidden" name="_subject" value="New Homepage Enquiry - Aether Business Architects">
+    <input type="hidden" name="form_location" value="Index About Section">
+
+    <div class="form-row-group">
+        <div class="form-field">
+            <label for="form-name">Identification / Name</label>
+            <input type="text" name="name" id="form-name" placeholder="E.g., Jason Holligan" required>
         </div>
+
+        <div class="form-field">
+            <label for="form-email">Secure Communication Channel (Email)</label>
+            <input type="email" name="_replyto" id="form-email" placeholder="E.g., client@enterprise.com" required>
+        </div>
+    </div>
+
+    <div class="form-row-group">
+        <div class="form-field">
+            <label for="business-name">Business / Organisation</label>
+            <input type="text" name="business_name" id="business-name" placeholder="E.g., Aether Business Architects Ltd">
+        </div>
+
+        <div class="form-field">
+            <label for="phone-number">Contact Number</label>
+            <input type="tel" name="phone" id="phone-number" placeholder="E.g., 07735 123456">
+        </div>
+    </div>
+
+    <div class="form-field">
+        <label for="service-interest">Service Required</label>
+        <select name="service_interest"
+                id="service-interest"
+                style="width:100%;padding:14px;border:1px solid rgba(0,0,0,.15);border-radius:8px;background:#fff;color:#111;font:inherit;">
+            <option value="">Select Requirement</option>
+            <option>Business Architecture</option>
+            <option>AetherOS Deployment</option>
+            <option>Cyber Security Assessment</option>
+            <option>SOP Development</option>
+            <option>Operational Automation</option>
+            <option>Funding & Growth Support</option>
+            <option>Strategic Consultancy</option>
+        </select>
+    </div>
+
+    <div class="form-field">
+        <label for="form-subject">Operational Focal Point</label>
+        <input type="text" name="subject" id="form-subject" placeholder="E.g., Layer 3 Network Hardening / Automation Build">
+    </div>
+
+    <div class="form-field">
+        <label for="form-message">Telemetry Details / Operational Deficiencies</label>
+        <textarea name="message" id="form-message" rows="5" placeholder="Outline your current technical structures or architectural constraints..." required></textarea>
+    </div>
+
+    <button type="submit" class="form-submit-btn">
+        Transmit Diagnostics
+    </button>
+
+</form>
+```
+
+</div>
+
 
         <div style="margin-top:40px; border-top:1px solid #ccc; padding-top:20px;">
             <h2 style="font-family:var(--serif); font-size:1.8rem; margin-bottom:15px; color:var(--ink);">Contact us for more information</h2>
