@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AetherOS — AI-Driven Operational Resilience & Business Architecture for SMEs</title>
+<meta name="description" content="AetherOS is an AI-driven operational resilience platform that automatically maps, monitors and optimises SME business architecture while identifying cybersecurity, compliance and process risks.">
+<meta name="keywords" content="AetherOS, Business Architecture, Intelligent Automation, SME Operations, Cyber Resilience, Automated SOP">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aetherbusinessarchitectsltd.uk/">
+<link rel="icon" type="image/png" href="aether os logo v2.png">
+<meta property="og:title" content="AetherOS — AI-Driven Operational Resilience for SMEs">
+<meta property="og:description" content="Automatically map, monitor, and optimize your business architecture while mitigating cyber and compliance risks.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500&family=Orbitron:wght@600;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0A0A0A;--bg2:#111;--bg3:#161616;--white:#fff;--grey:#bbb;--muted:#666;
+  --cyan:#00E5FF;--cyan-dim:rgba(0,229,255,0.08);--cyan-glow:rgba(0,229,255,0.4);
+  --gold:#C8A96E;--green:#10B981;--red:#FF4D6D;--violet:#8B5CF6;
+  --serif:'Cormorant Garamond',Georgia,serif;--mono:'Fira Code',monospace;--origin:'Orbitron',sans-serif;--inter:'Inter',sans-serif;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--white);font-family:var(--inter);overflow-x:hidden;line-height:1.5;font-size:15px}
+body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.003) 2px,rgba(255,255,255,0.003) 4px);pointer-events:none;z-index:9999}
+.container{max-width:1100px;margin:0 auto;padding:0 4vw}
+.section{padding:64px 0}
+.section-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:14px}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:16px;color:var(--white)}
+.section-sub{font-size:1.05rem;color:var(--grey);max-width:640px;line-height:1.75;margin-bottom:24px}
+
+/* Neon Top Accent Line */
+.neon-wave{position:fixed;top:0;left:0;width:100%;height:3px;z-index:9998;overflow:hidden;pointer-events:none}
+.neon-wave::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,var(--cyan) 30%,#fff 50%,var(--cyan) 70%,transparent 100%);animation:waveSlide 3s linear infinite;box-shadow:0 0 30px var(--cyan-glow)}
+@keyframes waveSlide{0%{left:-100%}100%{left:100%}}
+
+@keyframes textFlash{
+  0%,100%{text-shadow:0 0 10px var(--cyan-glow),0 0 20px var(--cyan-dim)}
+  50%{text-shadow:0 0 20px var(--cyan-glow),0 0 35px var(--cyan-glow)}
+}
+@keyframes borderFlash{
+  0%,100%{border-color:var(--cyan);box-shadow:0 0 10px var(--cyan-dim)}
+  50%{border-color:rgba(0,229,255,0.4);box-shadow:0 0 25px var(--cyan-glow)}
+}
+
+/* Nav Styles */
+nav{position:fixed;top:3px;left:0;width:100%;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);z-index:9999;border-bottom:1px solid rgba(0,229,255,0.06)}
+nav.scrolled{box-shadow:0 4px 30px rgba(0,229,255,0.1);border-bottom-color:var(--cyan)}
+.nav-brand{display:flex;align-items:center;text-decoration:none;color:var(--white)}
+.nav-logo{height:38px;width:auto;margin-right:12px}
+.nav-brand-text{font-family:var(--origin);font-size:1rem;font-weight:800;letter-spacing:0.15em;color:var(--white);animation:textFlash 4s ease-in-out infinite}
+.nav-brand-text em{font-style:normal;font-size:0.55rem;font-weight:400;color:var(--cyan);display:block;letter-spacing:0.35em;margin-top:-3px}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:all .3s;font-family:var(--mono)}
+.nav-links a:hover{color:var(--cyan)}
+
+/* Hero Section */
+.hero{padding:140px 0 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-40%;right:-20%;width:700px;height:700px;background:radial-gradient(circle,rgba(0,229,255,0.04) 0%,transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:48px;align-items:center}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.2rem);font-weight:800;line-height:1.02;margin-bottom:14px;color:var(--white)}
+.hero h1 span{color:var(--cyan);animation:textFlash 3s ease-in-out infinite}
+.hero-sub{font-family:var(--serif);font-size:clamp(1.2rem,2.5vw,1.6rem);font-style:italic;color:var(--grey);margin-bottom:18px;line-height:1.4}
+.hero-sub span{color:var(--white);font-weight:700}
+.hero-desc{font-size:1.05rem;color:var(--grey);margin-bottom:32px;max-width:540px;line-height:1.75}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+/* Functional Component UI Buttons */
+.btn-primary{display:inline-block;padding:14px 28px;background:var(--cyan);color:var(--bg);font-family:var(--inter);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:all .3s;font-weight:700;border:none;cursor:pointer}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 20px var(--cyan-glow)}
+.btn-secondary{display:inline-block;padding:14px 28px;background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-family:var(--inter);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:all .3s;font-weight:600}
+.btn-secondary:hover{background:var(--cyan-dim);transform:translateY(-2px)}
+
+.hero-stats{display:flex;gap:32px;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05)}
+.stat-num{font-family:var(--inter);font-size:1.6rem;font-weight:800;color:var(--cyan);display:block;line-height:1}
+.stat-label{font-family:var(--mono);font-size:0.55rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-top:6px}
+
+/* Graphic Logo Container */
+.logo-container{background:var(--bg2);border-radius:var(--radius);padding:24px;border:1px solid rgba(0,229,255,0.08);position:relative;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.5)}
+.hero-graphic-logo{width:100%;max-width:320px;height:auto;border-radius:6px;box-shadow:0 0 30px rgba(0,229,255,0.15)}
+
+/* Architecture Layers Display */
+.architecture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+.arch-card{background:var(--bg2);border-radius:var(--radius);padding:32px;border:1px solid rgba(255,255,255,0.03);position:relative;transition:all 0.3s}
+.arch-card:hover{transform:translateY(-4px);border-color:var(--cyan)}
+.arch-badge{font-family:var(--mono);font-size:0.6rem;text-transform:uppercase;color:var(--cyan);background:var(--cyan-dim);padding:4px 10px;border-radius:4px;position:absolute;top:20px;right:20px}
+.arch-card h3{font-family:var(--origin);font-size:0.95rem;letter-spacing:0.05em;margin:16px 0 12px;color:var(--white)}
+.arch-card p{font-size:0.85rem;color:var(--grey);line-height:1.6;margin-bottom:16px}
+.arch-tags{display:flex;gap:6px;flex-wrap:wrap}
+.arch-tag{font-family:var(--mono);font-size:0.6rem;background:rgba(255,255,255,0.03);color:var(--grey);padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,0.05)}
+
+/* Technical Framework Flow Blocks */
+.blueprint-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.bp-step{background:var(--bg3);border-radius:var(--radius);padding:24px;border:1px solid rgba(255,255,255,0.02);position:relative}
+.bp-step::before{content:attr(data-step);position:absolute;top:-15px;left:20px;background:var(--bg);color:var(--cyan);font-family:var(--origin);font-size:0.8rem;font-weight:900;padding:2px 10px;border:1px solid var(--cyan);border-radius:4px}
+.bp-step h4{font-size:0.9rem;font-weight:700;margin:12px 0 8px;color:var(--white)}
+.bp-step p{font-size:0.8rem;color:var(--grey);line-height:1.5}
+
+/* Comparison Framework Matrix */
+.comparison-container{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.comp-pane{padding:32px;border-radius:var(--radius);background:var(--bg2)}
+.comp-pane.legacy{border:1px solid rgba(255,77,109,0.15);background:linear-gradient(180deg,var(--bg2) 0%,rgba(255,77,109,0.02) 100%)}
+.comp-pane.aether{border:1px solid rgba(0,229,255,0.2);background:linear-gradient(180deg,var(--bg2) 0%,rgba(0,229,255,0.02) 100%);animation:borderFlash 4s ease-in-out infinite}
+.comp-pane h3{font-family:var(--origin);font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:20px}
+.legacy h3{color:var(--red)}
+.aether h3{color:var(--cyan)}
+.comp-list{list-style:none}
+.comp-list li{font-size:0.88rem;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.02);color:var(--grey);display:flex;align-items:center}
+.legacy li::before{content:"\2717";color:var(--red);margin-right:12px;font-weight:700}
+.aether li::before{content:"\2713";color:var(--cyan);margin-right:12px;font-weight:700}
+
+/* Guardrail Critical Container Block */
+.guardrail-alert{background:rgba(255,77,109,0.03);border:1px solid rgba(255,77,109,0.2);border-radius:var(--radius);padding:24px;margin-top:32px;display:flex;gap:16px;align-items:flex-start}
+.guardrail-icon{font-size:1.5rem;color:var(--red);line-height:1}
+.guardrail-text h5{font-family:var(--mono);font-size:0.75rem;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
+.guardrail-text p{font-size:0.85rem;color:var(--grey);line-height:1.6}
+
+/* Measurable Quantifiable Results Display Layout */
+.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.outcome-block{background:var(--bg2);border-radius:var(--radius);padding:28px;text-align:center;border:1px solid rgba(255,255,255,0.03);transition:all 0.3s}
+.outcome-block:hover{border-color:rgba(0,229,255,0.15);box-shadow:0 4px 20px var(--cyan-dim)}
+.outcome-val{font-family:var(--inter);font-size:2.8rem;font-weight:900;color:var(--cyan);display:block;line-height:1;margin-bottom:6px}
+.outcome-lbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;font-family:var(--mono);margin-bottom:6px;display:block}
+.outcome-desc{font-size:0.82rem;color:var(--grey);line-height:1.4}
+
+/* Promo Layout Frame UI Component Block */
+.promo-frame{border:2px solid var(--cyan);border-radius:calc(var(--radius) + 4px);padding:44px;margin-top:40px;position:relative;animation:borderFlash 3s ease-in-out infinite;background:linear-gradient(135deg,rgba(10,10,10,1) 0%,rgba(0,229,255,0.02) 100%)}
+.promo-frame::before{content:"FREE COMPREHENSIVE AUDIT EVALUATION";position:absolute;top:-11px;left:24px;background:var(--bg);padding:0 14px;font-family:var(--origin);font-size:0.65rem;color:var(--cyan);letter-spacing:0.2em}
+.promo-inner{text-align:center;max-width:700px;margin:0 auto}
+.promo-inner h3{font-family:var(--serif);font-size:2rem;font-weight:700;margin-bottom:12px}
+.promo-inner h3 span{color:var(--cyan)}
+.promo-inner p{font-size:0.95rem;color:var(--grey);line-height:1.7;margin-bottom:24px}
+
+/* Footer Section */
+footer{padding:48px 0;text-align:center;border-top:1px solid rgba(255,255,255,0.04);background:var(--bg2)}
+.footer-logo{font-family:var(--origin);font-size:1rem;font-weight:800;color:var(--white);letter-spacing:0.15em}
+.footer-logo em{font-style:normal;font-size:0.55rem;font-weight:400;color:var(--cyan);display:block;letter-spacing:0.35em;margin-top:2px}
+.footer-tag{font-size:0.7rem;color:var(--muted);margin:12px 0 18px;font-family:var(--mono);letter-spacing:0.05em}
+.footer-copy{font-family:var(--mono);font-size:0.55rem;color:var(--muted);opacity:0.5;margin-top:12px}
+
+/* Dynamic Interactive Lead Capture Layout Layer Overlay Block */
+.popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);z-index:10000;align-items:center;justify-content:center;padding:16px}
+.popup-overlay.active{display:flex}
+.popup{background:linear-gradient(135deg,#0A0A0A 0%,#141414 100%);border:2px solid var(--cyan);border-radius:16px;padding:40px;max-width:520px;width:100%;position:relative;box-shadow:0 0 50px var(--cyan-dim)}
+.popup-close{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer}
+.popup-close:hover{color:var(--cyan)}
+.popup h3{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--white);margin-bottom:12px;text-align:center}
+.popup h3 span{color:var(--cyan)}
+.popup p{font-size:0.88rem;color:var(--grey);line-height:1.6;margin-bottom:20px;text-align:center}
+.popup-form{display:flex;flex-direction:column;gap:14px}
+.popup-form input,.popup-form textarea{padding:12px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(0,229,255,0.12);border-radius:8px;color:var(--white);font-family:var(--inter);font-size:0.85rem;outline:none;transition:all .3s}
+.popup-form input:focus,.popup-form textarea:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,229,255,0.25)}
+.popup-form textarea{min-height:100px;resize:vertical}
+.popup-form button{padding:14px;background:var(--cyan);color:var(--bg);border:none;border-radius:8px;font-family:var(--origin);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-weight:800;transition:all .3s}
+.popup-form button:hover{box-shadow:0 0 15px var(--cyan-glow)}
+.popup-success{display:none;text-align:center;padding:24px 0}
+.popup-success .check-icon{font-size:3.5rem;color:var(--green);margin-bottom:14px;display:block}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .architecture-grid{grid-template-columns:1fr}
+  .blueprint-timeline{grid-template-columns:1fr;gap:28px}
+  .comparison-container{grid-template-columns:1fr}
+  .outcomes-grid{grid-template-columns:1fr}
+  .popup{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="neon-wave"></div>
+
+<!-- NAVIGATION UNIT CONTAINER PANEL LAYER BAR BLOCK -->
+<nav id="nav">
+  <a href="/" class="nav-brand">
+    <img src="aether os logo v2.png" alt="AetherOS Logo" class="nav-logo" onerror="this.style.display='none'"> 
+    <div class="nav-brand-text">AETHER<em>OS</em></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#blueprint">Blueprint</a></li>
+    <li><a href="#outcomes">Outcomes</a></li>
+    <li><a href="#audit" style="color:var(--cyan)">Free Audit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO COMPONENT STRUCTURAL SCREEN WRAPPER SECTION BLOCK -->
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+  <div>
+    <span class="section-label">Automated System Governance</span>
+    <h1>Engineered for Stability.<br>Optimised for Growth.<br><span>Sovereign Operation.</span></h1>
+    <div class="hero-sub">Powered by the <span>AetherOS Kernel Engine</span></div>
+    <p class="hero-desc">AetherOS is an AI-driven operational resilience platform that automatically maps, monitors and optimises SME business architecture while identifying cybersecurity, compliance and process risks.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary" onclick="openLeadPopup();return false;">Deploy Platform Engine</a>
+      <a href="#architecture" class="btn-secondary">Technical Framework</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Continuous Mapping</span></div>
+      <div class="stat"><span class="stat-num">&lt; 5 Mins</span><span class="stat-label">Risk Identification</span></div>
+      <div class="stat"><span class="stat-num">Local-First</span><span class="stat-label">Data Privacy Stack</span></div>
+    </div>
+  </div>
+  <div class="logo-container">
+    <img src="aether os logo v2.png" alt="Aether OS Core Logo Model Image" class="hero-graphic-logo">
+  </div>
+</div>
+</div>
+</section>
+
+<!-- CORE TECHNOLOGY ARCHITECTURE COOPERATIVE THREE-LAYER CARD ROW WRAPPER SECTION BLOCK -->
+<section class="section" id="architecture" style="background:var(--bg3); border-top:1px solid rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.02);">
+<div class="container">
+  <span class="section-label">// System Stack Architecture</span>
+  <h2 class="section-title">The Three Cooperative Layers<br>of Intelligent Automation</h2>
+  <p class="section-sub">AetherOS bypasses simple rule-based script failures by executing operations across an interconnected, cognitive execution matrix.</p>
+  
+  <div class="architecture-grid">
+    <!-- Card Layer 1 Component Block -->
+    <div class="arch-card">
+      <span class="arch-badge">Layer 01</span>
+      <h3 style="color:var(--cyan);">The Cognitive Layer</h3>
+      <p>Functions as the central platform brain. Ingests raw, unstructured real-world variables—such as operational telemetry data, complex regulatory text, and transaction records—transforming them instantly into strict, validated JSON schemas.</p>
+      <div class="arch-tags">
+        <span class="arch-tag">Context Extraction</span>
+        <span class="arch-tag">Intent Parsing</span>
+        <span class="arch-tag">JSON Schema Forcing</span>
+      </div>
+    </div>
+    
+    <!-- Card Layer 2 Component Block -->
+    <div class="arch-card" style="border-color:rgba(0,229,255,0.15);">
+      <span class="arch-badge" style="background:var(--cyan); color:var(--bg);">Layer 02</span>
+      <h3 style="color:var(--white);">The Orchestration Layer</h3>
+      <p>Functions as the operational governor. Evaluates the outputs generated by the Cognitive Layer against deterministic business logic limits, vector memory stores, and compliance constraints before letting data proceed.</p>
+      <div class="arch-tags">
+        <span class="arch-tag">Semantic Routers</span>
+        <span class="arch-tag">Vector DB Cache</span>
+        <span class="arch-tag">Safety Guardrails</span>
+      </div>
+    </div>
+    
+    <!-- Card Layer 3 Component Block -->
+    <div class="arch-card">
+      <span class="arch-badge">Layer 03</span>
+      <h3 style="color:var(--cyan);">The Execution Layer</h3>
+      <p>Functions as the hands of the system. Pushes validated and protected system data coordinates into local core architectures, legacy relational databases, internal ERP modules, and external API services securely.</p>
+      <div class="arch-tags">
+        <span class="arch-tag">Secure Webhooks</span>
+        <span class="arch-tag">API Integration</span>
+        <span class="arch-tag">Database Synchronisation</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- STRATEGIC FOUR PHASE STRATEGY PIPELINE BLOCKS VIEW SECTION -->
+<section class="section" id="blueprint">
+<div class="container">
+  <span class="section-label">// Implementation Execution Path</span>
+  <h2 class="section-title">Strategic Implementation Blueprint</h2>
+  <p class="section-sub">A modular execution roadmap designed to mitigate structural volatility by stabilizing foundational data layers before introducing probabilistic AI logic models.</p>
+  
+  <div class="blueprint-timeline">
+    <div class="bp-step" data-step="P1">
+      <h4>Data Stabilization</h4>
+      <p>Clean and structure core baseline parameters inside your system of record, defining strict unique key schemas and rock-solid API endpoints.</p>
+    </div>
+    <div class="bp-step" data-step="P2">
+      <h4>Deterministic Mapping</h4>
+      <p>Establish underlying rigid code paths, routing logic layouts, and process rules while identifying human workflow data bottlenecks.</p>
+    </div>
+    <div class="bp-step" data-step="P3">
+      <h4>Cognitive Integration</h4>
+      <p>Deploy secure localized LLMs safely targeted at identified friction nodes using schema limits to match your structural pipeline pipelines.</p>
+    </div>
+    <div class="bp-step" data-step="P4">
+      <h4>Guardrails &amp; Safety</h4>
+      <p>Enforce live validation checking routines. Drops in confidence criteria below 92% instantly reroute tasks to a Human-in-the-Loop validation interface.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- COMPARISON MATRIX ROW COMPONENT PANEL INTERFACE SCREEN -->
+<section class="section" style="background:var(--bg2); border-top:1px solid rgba(255,255,255,0.02);">
+<div class="container">
+  <span class="section-label">// Paradigm Disruption</span>
+  <h2 class="section-title">What Aether Does Differently</h2>
+  <p class="section-sub">Moving your organization out of disconnected, reactive tool silos into an integrated operational resilience framework.</p>
+  
+  <div class="comparison-container">
+    <div class="comp-pane legacy">
+      <h3>The Legacy Status Quo</h3>
+      <ul class="comp-list">
+        <li>Consultancy reports that go stale inside 30 days</li>
+        <li>Manual compliance audits locked in flat spreadsheets</li>
+        <li>Fragmented cybersecurity tools causing alert fatigue</li>
+        <li>Static SOP documentation hidden away inside folders</li>
+        <li>Siloed risk monitoring completely unaware of business dependencies</li>
+      </ul>
+    </div>
+    <div class="comp-pane aether">
+      <h3>The Aether OS Engine</h3>
+      <ul class="comp-list">
+        <li>Unified and living AI Business Architecture engine</li>
+        <li>Automated, self-healing SOP script generation</li>
+        <li>Continuous real-time risk scoring and structural logging</li>
+        <li>Autonomous dynamic regulatory and compliance mapping</li>
+        <li>Active AI Business Advisor delivering measurable value parameters</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Guardrail Component Block Included Inside Feature Presentation Grid Elements -->
+  <div class="guardrail-alert">
+    <div class="guardrail-icon">&#9888;</div>
+    <div class="guardrail-text">
+      <h5>Critical Integrity Guardrail</h5>
+      <p>AetherOS prevents direct, unvalidated model writes to critical financial ledgers or inventory management tables. All generative model actions are checked by an underlying software verification layer before any commit is processed.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- QUANTIFIABLE BUSINESS MEASURABLE VALUE METRICS DISPLAY BLOCK GRID SECTION -->
+<section class="section" id="outcomes">
+<div class="container">
+  <span class="section-label">// Empirical Performance Attributes</span>
+  <h2 class="section-title">Measurable Strategic Outcomes</h2>
+  <p class="section-sub">AetherOS shifts operational metrics from subjective promises into precise, time-bound structural target value data lines.</p>
+  
+  <div class="outcomes-grid">
+    <div class="outcome-block">
+      <span class="outcome-val">90%</span>
+      <span class="outcome-lbl">SOP Speed Reduction</span>
+      <p class="outcome-desc">Elimination of document drag via automated process logging and mapping.</p>
+    </div>
+    <div class="outcome-block" style="border-color: rgba(0,229,255,0.12);">
+      <span class="outcome-val">&lt; 5m</span>
+      <span class="outcome-lbl">Risk Transparency Rate</span>
+      <p class="outcome-desc">Instant mapping from system infrastructure flaws to core client operations dependencies.</p>
+    </div>
+    <div class="outcome-block">
+      <span class="outcome-val">50%</span>
+      <span class="outcome-lbl">Incident Remediation Cap</span>
+      <p class="outcome-desc">Mitigation tracking links alerts directly to automated, clear action instructions.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PROMOTIONAL CALIBRATED CONVERSION FOOTPRINT UI CONTAINER COMPONENT LAYER -->
+<section class="section" id="audit" style="border-top:1px solid rgba(255,255,255,0.03);">
+<div class="container">
+  <div class="promo-frame">
+    <div class="promo-inner">
+      <h3>Map Your Architecture. <span>Secure Your Enterprise.</span></h3>
+      <p>Request a custom evaluation scan. We build out a secure data room map blueprint, match business risks with regulatory requirements, and calculate process parameters. Zero fee. No obligation footprint.</p>
+      <a href="#" class="btn-primary" style="font-family:var(--origin); font-size:0.8rem;" onclick="openLeadPopup();return false;">Request Free Architecture Audit</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- STRUCTURAL FOOTER COMPONENT PANEL GRID LAYER BLOCK -->
+<footer>
+<div class="container">
+  <div class="footer-logo">AETHER<em>OS</em></div>
+  <div class="footer-tag">Aether Business Architects Ltd // Continuous Resilience System Architecture</div>
+  <div class="footer-copy">&copy; 2026 Aether Business Architects Ltd // jay@aetherbusinessarchitectsltd.uk // 07735 326227</div>
+</div>
+</footer>
+
+<!-- SYSTEM DATA INTERCEPT MODAL OVERLAY SHEET ELEMENT CAPTURE FRAME -->
+<div class="popup-overlay" id="lead-popup">
+  <div class="popup">
+    <button class="popup-close" onclick="closeLeadPopup()">&#10005;</button>
+    <div id="form-container-layer">
+      <h3>Initialize <span>System Scan</span></h3>
+      <p>Submit your functional enterprise brief parameters. An engineering architect will verify your business logic maps and configure your test engine environment workspace setup.</p>
+      <form class="popup-form" onsubmit="handleFormSubmission(event)">
+        <input type="text" placeholder="Authorized Contact Name" required>
+        <input type="email" placeholder="Corporate Secure Email Root" required>
+        <input type="text" placeholder="Company Enterprise Entity Target (Optional)">
+        <textarea placeholder="Outline current infrastructure setup bottlenecks or target core requirements..." required></textarea>
+        <button type="submit">Submit Mission Brief</button>
+      </form>
+    </div>
+    <div class="popup-success" id="success-container-layer">
+      <span class="check-icon">&#10003;</span>
+      <h4 style="font-family:var(--serif); font-size:1.5rem; margin-bottom:8px;">Telemetry Logged</h4>
+      <p style="color:var(--grey); font-size:0.85rem;">Your business architecture configuration details have been cached securely. An architect will review your system parameters shortly.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Scroll Interaction Detection Unit Script Logic Layer
+window.addEventListener("scroll", function(){
+  document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 20);
+});
+
+// Modal UI Controller Intercept System Logic Engine Routines
+function openLeadPopup() {
+  document.getElementById("lead-popup").classList.add("active");
+}
+
+function closeLeadPopup() {
+  document.getElementById("lead-popup").classList.remove("active");
+  // Reset form status configurations after close routine execution loop
+  setTimeout(function(){
+    document.getElementById("form-container-layer").style.display = "block";
+    document.getElementById("success-container-layer").style.display = "none";
+  }, 400);
+}
+
+// Trap Modal Background Outside Window Boundary Dismiss Controls
+document.getElementById("lead-popup").addEventListener("click", function(e) {
+  if(e.target === this) closeLeadPopup();
+});
+
+// Form Transaction Simulation Submit Validation Handler Pipeline Function Routine 
+function handleFormSubmission(e) {
+  e.preventDefault();
+  var submitBtn = e.target.querySelector("button");
+  submitBtn.textContent = "Syncing Engine Telemetry...";
+  submitBtn.style.opacity = "0.7";
+  submitBtn.disabled = true;
+
+  setTimeout(function(){
+    document.getElementById("form-container-layer").style.display = "none";
+    document.getElementById("success-container-layer").style.display = "block";
+    e.target.reset();
+    submitBtn.textContent = "Submit Mission Brief";
+    submitBtn.style.opacity = "1";
+    submitBtn.disabled = false;
+  }, 1200);
+}
+</script>
+</body>
+</html>
