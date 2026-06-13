@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>System Management UK — Infrastructure Monitoring, Automated Backups, Incident Response | Aether Business Architects</title>
+<meta name="description" content="Complete system management for UK SMEs. Infrastructure monitoring, automated backups, patch management, incident response. 99.9% uptime SLA. Powered by AetherOS.">
+<meta name="keywords" content="system management UK, IT infrastructure monitoring, automated backups, patch management, incident response, cloud management, performance optimisation, AetherOS, SME IT support, Leicester IT consultancy, managed IT services, IT downtime reduction, compliance monitoring, cybersecurity management">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aetherbusinessarchitectsltd.uk/system-management.html">
+<link rel="icon" type="image/png" href="aether-logo-2.png">
+<meta property="og:title" content="System Management — Aether Business Architects">
+<meta property="og:description" content="Infrastructure monitoring, automated maintenance, disaster recovery. 99.9% uptime SLA. Powered by AetherOS.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"System Management","description":"Complete infrastructure monitoring, automated backups, patch management, incident response, cloud management, and performance optimisation for UK SMEs.","provider":{"@type":"Organization","name":"Aether Business Architects Ltd","url":"https://aetherbusinessarchitectsltd.uk"},"areaServed":"UK","serviceType":"IT Infrastructure Management"}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0E17;--ink2:#3C4260;--bg:#0A0A0A;--bg2:#111111;--bg3:#1a1a1a;--white:#fff;--grey:#bbb;--muted:#777;
+  --cyan:#00E5FF;--cyan-dim:rgba(0,229,255,0.1);--cyan-glow:rgba(0,229,255,0.5);
+  --gold:#C8A96E;--gold-dim:rgba(200,169,110,0.1);--gold-glow:rgba(200,169,110,0.4);
+  --red:#FF4D6D;--green:#52FFA8;--violet:#8B5CF6;--blue:#3b82f6;
+  --serif:'Cormorant Garamond',Georgia,serif;--mono:'Fira Code',monospace;--inter:'Inter',sans-serif;
+  --radius:14px;--shadow:0 4px 32px rgba(0,0,0,0.3);--shadow-lg:0 12px 48px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--white);font-family:var(--inter);overflow-x:hidden;line-height:1.6;font-size:16px}
+body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.004) 2px,rgba(255,255,255,0.004) 4px);pointer-events:none;z-index:9999}
+.container{max-width:1100px;margin:0 auto;padding:0 4vw}
+/* NEON WAVE */
+.neon-wave{position:fixed;top:0;left:0;width:100%;height:3px;z-index:9998;overflow:hidden;pointer-events:none}
+.neon-wave::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,var(--cyan) 30%,#fff 50%,var(--cyan) 70%,transparent 100%);animation:waveSlide 3s linear infinite;box-shadow:0 0 30px var(--cyan-glow),0 0 80px rgba(0,229,255,0.4)}
+@keyframes waveSlide{0%{left:-100%}100%{left:100%}}
+/* NEON ANIMATIONS */
+@keyframes neonPulse{0%,100%{box-shadow:0 0 10px var(--cyan-dim),0 0 20px var(--cyan-dim)}50%{box-shadow:0 0 20px var(--cyan-glow),0 0 40px var(--cyan-glow),0 0 60px rgba(0,229,255,0.2)}}
+@keyframes textFlash{0%,100%{text-shadow:0 0 10px var(--cyan-glow),0 0 20px var(--cyan-dim)}50%{text-shadow:0 0 20px var(--cyan-glow),0 0 40px var(--cyan-glow)}}
+@keyframes borderFlash{0%,100%{border-color:var(--cyan);box-shadow:0 0 10px var(--cyan-dim),inset 0 0 10px var(--cyan-dim)}50%{border-color:rgba(0,229,255,0.4);box-shadow:0 0 25px var(--cyan-glow),inset 0 0 25px var(--cyan-glow)}}
+@keyframes glowPulse{0%,100%{opacity:1}50%{opacity:0.7}}
+/* NAV */
+nav{position:fixed;top:3px;left:0;width:100%;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;background:rgba(250,251,253,0.95);backdrop-filter:blur(20px);z-index:9999;border-bottom:1px solid rgba(200,169,110,0.1)}
+nav.scrolled{box-shadow:0 2px 40px rgba(0,229,255,0.06)}
+.nav-brand{display:flex;align-items:center;text-decoration:none;color:var(--white)}
+.nav-brand img{height:36px;width:auto;margin-right:10px}
+.nav-brand-text{font-family:var(--origin);font-size:0.85rem;font-weight:700;letter-spacing:0.15em;color:var(--white);animation:textFlash 3s ease-in-out infinite}
+.nav-brand-text em{font-style:normal;font-size:0.5rem;font-weight:400;color:var(--cyan);display:block;letter-spacing:0.35em;margin-top:-3px}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:#6B7280;text-decoration:none;transition:color 0.3s}
+.nav-links a:hover{color:var(--cyan);text-shadow:0 0 15px var(--cyan-glow)}
+.btn-nav{display:inline-block;padding:8px 18px;border:1px solid #C8A96E;color:#C8A96E;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .3s;animation:borderFlash 3s ease-in-out infinite}
+.btn-nav:hover{background:#C8A96E;color:#fff}
+/* HERO */
+.hero{padding:110px 0 56px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-40%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,229,255,0.04) 0%,transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.section-label{display:block;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;animation:textFlash 3s ease-in-out infinite}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,4.2rem);font-weight:800;line-height:1.05;margin-bottom:18px;color:var(--white)}
+.hero h1 span{background:linear-gradient(135deg,var(--cyan),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:textFlash 3s ease-in-out infinite}
+.hero p{font-size:1.25rem;color:var(--grey);margin-bottom:28px;max-width:500px;line-height:1.8}
+.hero-stats{display:flex;gap:36px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05)}
+.stat-num{font-family:var(--inter);font-size:1.6rem;font-weight:800;color:var(--cyan);display:block;line-height:1;animation:textFlash 3s ease-in-out infinite}
+.stat-label{font-family:var(--mono);font-size:0.55rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-top:4px}
+.btn{display:inline-block;padding:14px 28px;font-family:var(--inter);font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:all .3s;font-weight:700}
+.btn-primary{background:var(--cyan);color:var(--bg);animation:neonPulse 3s ease-in-out infinite}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-secondary{background:transparent;border:1px solid #C8A96E;color:#C8A96E;animation:borderFlash 3s ease-in-out infinite}
+.btn-secondary:hover{background:var(--cyan);color:var(--bg)}
+/* NEON HIGHLIGHT TEXT */
+.neon-text{color:var(--cyan);text-shadow:0 0 10px var(--cyan-glow),0 0 20px var(--cyan-dim);font-weight:700}
+.neon-gold{color:var(--gold);text-shadow:0 0 10px var(--gold-glow)}
+/* SECTIONS */
+.section{padding:64px 0}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:18px;color:var(--white)}
+.section-title span{color:var(--cyan);animation:textFlash 3s ease-in-out infinite}
+.section-sub{font-size:1.2rem;color:var(--grey);max-width:680px;line-height:1.8}
+.citation{font-family:var(--mono);font-size.6rem;color:var(--muted);display:block;margin-top:6px}
+.citation a{color:var(--gold);text-decoration:none}
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:36px}
+.card{padding:32px;background:var(--bg2);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03);transition:all .4s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .4s}
+.card:hover::before{opacity:1}
+.card:hover{border-color:rgba(0,229,255,0.1);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.card-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px}
+.card h3{font-family:var(--serif);font-size:1.25rem;font-weight:700;margin-bottom:10px;color:var(--white)}
+.card h3 span{color:var(--cyan)}
+.card p{font-size:1.1rem;color:var(--grey);line-height:1.7}
+/* PROCESS DIAGRAM */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px}
+.step{padding:28px 20px;text-align:center;background:var(--bg2);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03);position:relative;transition:all .3s}
+.step:hover{border-color:rgba(0,229,255,0.1);transform:translateY(-2px)}
+.step-num{font-family:var(--inter);font-size:2.2rem;font-weight:800;color:rgba(0,229,255,0.12);line-height:1;margin-bottom:14px}
+.step h4{font-size:1.25rem;font-weight:600;margin-bottom:8px;color:var(--white)}
+.step p{font-size:0.9rem;color:var(--grey);line-height:1.6}
+.step-arrow{position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:var(--cyan);font-size:1.2rem;opacity:0.4}
+/* DIAGRAM BOX */
+.diagram-box{background:var(--bg2);border-radius:var(--radius);padding:40px;margin-top:36px;border:1px solid rgba(255,255,255,0.03);position:relative;overflow:hidden}
+.diagram-box::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),var(--gold),transparent)}
+.diagram-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px}
+.diagram-item{text-align:center;padding:24px;background:rgba(255,255,255,0.02);border-radius:10px;border:1px solid rgba(255,255,255,0.04)}
+.diagram-item .icon{font-size:2rem;margin-bottom:12px}
+.diagram-item h4{font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:6px}
+.diagram-item p{font-size:0.85rem;color:var(--grey);line-height:1.5}
+/* OS LOGO BOX */
+.os-logo-box{background:var(--bg2);border-radius:var(--radius);padding:32px;text-align:center;border:1px solid rgba(0,229,255,0.06)}
+.os-logo-box img{max-width:180px;height:auto;margin-bottom:16px}
+.os-logo-box h3{font-family:var(--serif);font-size:1.4rem;color:var(--white);margin-bottom:8px}
+.os-logo-box h3 span{color:var(--cyan)}
+.os-logo-box p{font-size:0.85rem;color:var(--grey);line-height:1.6}
+/* FAQ */
+.faq{max-width:750px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.04);padding:20px 0}
+.faq-q{font-size:1.25rem;font-weight:600;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:"+";font-family:var(--mono);color:var(--cyan);font-size:1.3rem}
+.faq-a{font-size:1.1rem;color:var(--grey);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.faq-a.open{max-height:400px;padding-top:14px}
+/* CTA */
+.cta{text-align:center;padding:64px 0}
+.cta .section-sub{margin:0 auto 36px}
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px;margin:36px auto 0}
+.field{display:flex;flex-direction-direction:column}
+.field label{font-family:var(--mono);font-size:0.6rem;color:var(--grey);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.field input,.field select,.field textarea{padding:12px 16px;border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-family:var(--inter);font-size:1.1rem;color:var(--white);background:var(--bg2);outline:none;transition:border-color .3s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 10px var(--cyan-dim)}
+.field textarea{grid-column:1/-1;min-height:100px;resize:vertical}
+.form-grid .btn{grid-column:1/-1;margin-top:8px;text-align:center;cursor:pointer;border:none}
+/* FOOTER */
+footer{padding:40px 0;text-align:center;border-top:1px solid rgba(255,255,255,0.03)}
+.footer-logo{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:#fff;margin-bottom:8px}
+.footer-tag{font-size:0.7rem;color:rgba(255,255,255,0.3);margin-bottom:20px}
+.footer-links{display:flex;gap:20px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+.footer-links a{font-family:var(--mono);font-size:0.52rem;color:rgba(255,255,255,0.4);text-decoration:none;text-transform:uppercase;letter-spacing:.1em}
+.footer-links a:hover{color:var(--cyan)}
+.footer-copy{font-family:var(--mono);font-size:0.45rem;color:rgba(255,255,255,0.12)}
+@media(max-width:768px){.nav-links{display:none}.hero-grid{grid-template-columns:1fr}.cards-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr 1fr}.diagram-row{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}}
+
+.dropdown{position:relative;display:inline-block}
+.dropdown-content{display:none;position:absolute;top:100%;right:0;background:#fff;min-width:220px;box-shadow:0 8px 24px rgba(0,0,0,0.08);border-radius:8px;padding:8px 0;z-index:10000;border:1px solid rgba(200,169,110,0.08)}
+.dropdown-content a{color:#3C4260;padding:10px 16px;text-decoration:none;display:block;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;transition:all .2s}
+.dropdown-content a:hover{color:var(--gold);background:rgba(200,169,110,0.04)}
+.dropdown:hover .dropdown-content{display:block}
+</style>
+</head>
+<body>
+<div class="neon-wave"></div>
+
+<nav id="nav">
+  <a href="/" class="nav-brand">
+    <img src="aether-logo-2.png" alt="Aether Business Architects" onerror="this.style.display='none'">
+    <div class="nav-brand-text" style="color:#0B0E17">AETHER BUSINESS ARCHITECTURE<br><em style="font-style:normal;font-size:0.5rem;font-weight:400;color:#C8A96E;display:block;letter-spacing:0.2em">bespoke business solutions</em></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://aetherbusinessarchitectsltd.uk/">Home</a></li>
+    <li class="dropdown">
+      <a href="#">Systems &#9660;</a>
+      <div class="dropdown-content">
+        <a href="/cybersecurity-threats.html">Cyber Security</a>
+        <a href="/system-management.html">System Management</a>
+        <a href="/strategic-branding.html">Strategic Branding</a>
+        <a href="/process-ai-build.html">Process &amp; AI Build</a>
+        <a href="/sops.html">SOPs</a>
+      </div>
+    </li>
+    <li><a href="/aether-os-promo-pricing.html">Results</a></li>
+    <li><a href="/free-consultation.html">Free Consultation</a></li>
+    <li><a href="/sme.html#promo">Get In Touch</a></li>
+  </ul>
+  <a href="/sme.html#promo" class="btn-nav">Free Consultation</a>
+</nav>
+
+<section class="hero"><div class="container"><div class="hero-grid">
+<div>
+<span class="section-label">System Management — Powered by AetherOS</span>
+<h1>Your Infrastructure.<br><span>Always On.</span></h1>
+<p>UK SMEs lose an average of <span class="neon-text">17,000 hours per year</span> to IT downtime and manual system management. AetherOS eliminates that entirely. Automated monitoring, maintenance, and recovery — your business never sleeps, neither do we.</p>
+<div class="hero-stats">
+  <div class="stat"><span class="stat-num">99.9%</span><span class="stat-label">Uptime SLA</span></div>
+  <div class="stat"><span class="stat-num">15min</span><span class="stat-label">Response Time</span></div>
+  <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Monitoring</span></div>
+  <div class="stat"><span class="stat-num">37%</span><span class="stat-label">Cost Reduction</span></div>
+</div>
+<br>
+<a href="#capabilities" class="btn btn-primary">Explore Capabilities</a>
+<a href="/aether-os-promo-pricing.html" class="btn btn-secondary">View AetherOS Pricing &#8594;</a>
+</div>
+<div class="os-logo-box">
+<img src="aether os logo v2.png" alt="AetherOS" style="max-width:200px;height:auto">
+<h3>AETHER <span>OS</span></h3>
+<p>AI-Driven Operational Resilience. The operating system that manages your entire infrastructure — automatically.</p>
+<br>
+<a href="/aether-os-promo-pricing.html" class="btn btn-secondary" style="font-size:0.65rem;padding:10px 20px">Get AetherOS &#8594;</a>
+</div>
+</div></div></section>
+
+<section class="section" id="capabilities"><div class="container">
+<span class="section-label">Core Capabilities</span>
+<h2 class="section-title">Complete System<br><span>Management</span></h2>
+<p class="section-sub" style="margin-bottom:12px">Every layer of your infrastructure monitored, maintained, and optimised by <span class="neon-text">AetherOS</span>. From servers to SaaS, we keep it running — automatically.</p>
+<span class="citation">According to Gartner, proactive infrastructure monitoring reduces unplanned downtime by up to 80%. Organisations using AIOps platforms report 99.9% average uptime versus 95.7% for manually managed infrastructure (<a href="https://www.gartner.com/en/infrastructure-operations-management" target="_blank" rel="noopener">Gartner IOM, 2024</a>; <a href="https://www.uptimeinstitute.com/" target="_blank" rel="noopener">Uptime Institute Annual Report, 2024</a>).</span>
+<div class="cards-grid">
+<div class="card">
+<div class="card-icon" style="background:rgba(0,229,255,0.06);color:var(--cyan)">&#128202;</div>
+<h3><span>Infrastructure</span> Monitoring</h3>
+<p>Real-time visibility into every server, service, and connection. CPU, memory, disk, network — all tracked with intelligent alerting. <span class="neon-text">AetherOS monitors 10,000+ metrics simultaneously</span>, detecting anomalies before they become outages. <span class="citation">IDC reports that organisations using AI-driven monitoring reduce mean time to repair (MTTR) by 65% (<a href="https://www.idc.com/" target="_blank" rel="noopener">IDC Future of Operations, 2024</a>).</span></p>
+</div>
+<div class="card">
+<div class="card-icon" style="background:rgba(200,169,110,0.06);color:var(--gold)">&#128190;</div>
+<h3><span>Automated</span> Backups</h3>
+<p>Immutable, encrypted backups every hour. Air-gapped storage. Tested restoration monthly. <span class="neon-text">AetherOS backup systems achieve 99.99% data integrity</span> with sub-15-minute recovery point objectives. <span class="citation">IBM research shows that organisations with automated backup systems recover 67% faster from incidents and reduce data loss costs by an average of $1.2M per event (<a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener">IBM Cost of a Data Breach Report, 2024</a>).</span></p>
+</div>
+<div class="card">
+<div class="card-icon" style="background:rgba(255,77,109,0.06);color:var(--red)">&#9881;</div>
+<h3><span>Patch</span> Management</h3>
+<p>Automated security patches and updates. <span class="neon-text">Zero-day response within 24 hours</span>. No manual intervention required. AetherOS correlates threat intelligence with your specific infrastructure to prioritise critical patches. <span class="citation">The Ponemon Institute found that unpatched vulnerabilities are responsible for 60% of data breaches, with an average cost of $4.45M per breach (<a href="https://www.ponemon.org/" target="_blank" rel="noopener">Ponemon Institute, 2024</a>).</span></p>
+</div>
+<div class="card">
+<div class="card-icon" style="background:rgba(168,85,246,0.06);color:var(--violet)">&#9888;</div>
+<h3><span>Incident</span> Response</h3>
+<p>Automated playbooks detect, isolate, and resolve issues. <span class="neon-text">Mean time to resolution: under 15 minutes</span>. Human escalation only when needed. AetherOS processes over 1 million events per day per client infrastructure. <span class="citation">According to IDC, automated incident response reduces operational costs by an average of 32% while improving resolution speed by 5x (<a href="https://www.idc.com/" target="_blank" rel="noopener">IDC Future of Operations, 2024</a>).</span></p>
+</div>
+<div class="card">
+<div class="card-icon" style="background:rgba(82,255,168,0.06);color:var(--green)">&#9729;</div>
+<h3><span>Cloud</span> Management</h3>
+<p>Multi-cloud orchestration. AWS, Azure, Oracle, Google Cloud — managed from one dashboard. <span class="neon-text">Cost optimisation built in</span>. AetherOS identifies wasted resources and right-sizes instances automatically. <span class="citation">Flexera reports that 30% of cloud spend is wasted without proper management. Organisations using automated cloud management save an average of $2.4M annually (<a href="https://www.flexera.com/" target="_blank" rel="noopener">Flexera State of the Cloud Report, 2024</a>).</span></p>
+</div>
+<div class="card">
+<div class="card-icon" style="background:rgba(245,158,11,0.06);color:#F59E0B">&#9889;</div>
+<h3><span>Performance</span> Optimisation</h3>
+<p>Continuous performance tuning. Load balancing, caching, CDN. <span class="neon-text">Your systems run at peak efficiency 24/7</span>. AetherOS uses machine learning to predict capacity needs before bottlenecks occur. <span class="citation">Google research confirms that every 100ms of latency reduces conversions by 7%. AetherOS optimises response times to under 50ms for critical services (<a href="https://www.thinkwithgoogle.com/" target="_blank" rel="noopener">Google/SOASTA Research, 2024</a>).</span></p>
+</div>
+</div>
+</div></section>
+
+<section class="section" style="background:var(--bg2)"><div class="container" id="process">
+<span class="section-label">How AetherOS Manages</span>
+<h2 class="section-title">The <span>Operating System</span><br>Approach</h2>
+<p class="section-sub">AetherOS treats your entire infrastructure as a single living system. Not siloed tools — one unified intelligence layer that learns, adapts, and optimises continuously.</p>
+<div class="diagram-box">
+<div class="diagram-row">
+<div class="diagram-item"><div class="icon">&#128202;</div><h4>Monitor</h4><p>10,000+ metrics per infrastructure. Real-time anomaly detection via machine learning.</p></div>
+<div class="diagram-item"><div class="icon">&#9881;</div><h4>Analyse</h4><p>AI correlates events across systems. Predicts failures before they happen.</p></div>
+<div class="diagram-item"><div class="icon">&#9889;</div><h4>Automate</h4><p>Self-healing infrastructure. Automated patching, scaling, and recovery.</p></div>
+</div>
+<div class="diagram-row">
+<div class="diagram-item"><div class="icon">&#128190;</div><h4>Protect</h4><p>Immutable backups. Zero-trust security. Continuous compliance monitoring.</p></div>
+<div class="diagram-item"><div class="icon">&#9729;</div><h4>Optimise</h4><p>Cost reduction. Performance tuning. Capacity planning via predictive AI.</p></div>
+<div class="diagram-item"><div class="icon">&#128200;</div><h4>Report</h4><p>Real-time dashboards. Executive summaries. Automated compliance evidence.</p></div>
+</div>
+</div>
+<div class="process-grid" style="margin-top:40px">
+<div class="step"><div class="step-num">01</div><h4>Discovery</h4><p>Map every system, dependency, and integration point. Complete infrastructure audit. AetherOS builds a digital twin of your entire environment.</p></div>
+<div class="step"><div class="step-num">02</div><h4>Deploy</h4><p>Install monitoring agents, configure alerts, set up automated backup pipelines. Zero downtime deployment.</p></div>
+<div class="step"><div class="step-num">03</div><h4>Monitor</h4><p>24/7 surveillance. AI-powered anomaly detection. Human analysts on standby for complex issues.</p></div>
+<div class="step"><div class="step-num">04</div><h4>Optimise</h4><p>Continuous improvement. Performance tuning. Cost reduction. Capacity planning via predictive AI.</p></div>
+</div>
+</div></section>
+
+<section class="section"><div class="container">
+<span class="section-label">Why AetherOS</span>
+<h2 class="section-title">The Business Case for<br><span>Automated Management</span></h2>
+<p class="section-sub">The numbers speak for themselves. Automated system management isn't a luxury — it's a competitive necessity.</p>
+<div class="cards-grid">
+<div class="card">
+<div class="card-icon" style="background:rgba(0,229,255,0.06);color:var(--cyan)">&#128176;</div>
+<h3><span>Cost</span> Reduction</h3>
+<p><span class="neon-text">37% average reduction in IT operational costs</span> through automation, intelligent task routing, and elimination of manual processes. AetherOS replaces the need for multiple siloed tools and reduces headcount requirements. <span class="citation">Gartner estimates that organisations using AIOps platforms reduce IT operations costs by 30-40% within 18 months (<a href="https://www.gartner.com/en/infrastructure-operations-management" target="_blank" rel="noopener">Gartner, 2024</a>).</span></p>
+</div>
+<div class="card">
+<div class="card-icon" style="background:rgba(200,169,110,0.06);color:var(--gold)">&#128194;</div>
+<h3><span>Risk</span> Mitigation</h3>
+<p><span class="neon-text">80% reduction in unplanned downtime</span> through proactive monitoring and predictive maintenance. The average cost of IT downtime is $5,600 per minute for mid-sized businesses. AetherOS prevents the preventable. <span class="citation">ITIC reports that 91% of mid-sized enterprises experience at least one unplanned outage per year, with average costs exceeding $300,000 per incident (<a href="https://itic-corp.com/" target="_blank" rel="noopener">ITIC Hourly Cost of Downtime Survey, 2024</a>).</span></p>
+</div>
+<div class="card">
+<div class="card-icon" style="background:rgba(82,255,168,0.06);color:var(--green)">&#127942;</div>
+<h3><span>Competitive</span> Advantage</h3>
+<p><span class="neon-text">10x faster deployment cycles</span> through infrastructure-as-code and automated provisioning. While competitors wait days, AetherOS clients deploy in minutes. Speed wins markets. <span class="citation">DORA (DevOps Research and Assessment) found that elite performers deploy 973x more frequently than low performers, with 6570x faster lead times (<a href="https://dora.dev/" target="_blank" rel="noopener">DORA State of DevOps Report, 2024</a>).</span></p>
+</div>
+</div>
+</div></section>
+
+<section class="section" style="background:var(--bg2)"><div class="container">
+<span class="section-label">Frequently Asked Questions</span>
+<h2 class="section-title"><span>AetherOS</span> System Management<br>Questions Answered</h2>
+<div class="faq">
+<div class="faq-item"><div class="faq-q">What does AetherOS system management include?<span></span></div><div class="faq-a">AetherOS provides complete infrastructure monitoring, automated backups, patch management, incident response, cloud management, and performance optimisation. Everything is managed from a single dashboard with 24/7 monitoring and AI-powered anomaly detection. Unlike traditional MSP tools, AetherOS uses machine learning to predict and prevent issues before they impact your business.</div></div>
+<div class="faq-item"><div class="faq-q">How quickly does AetherOS respond to incidents?<span></div><div class="faq-a">Our mean time to detect (MTTD) is under 5 minutes. Automated playbooks begin resolution immediately. For issues requiring human intervention, our average response time is 15 minutes, 24/7/365. According to IDC, this is 65% faster than traditional monitoring approaches.</div></div>
+<div class="faq-item"><div class="faq-q">Does AetherOS support multi-cloud environments?<span></div><div class="faq-a">Yes. AetherOS manages AWS, Azure, Oracle Cloud, Google Cloud, and hybrid environments from a single dashboard. We optimise costs across all providers and ensure consistent security policies. Flexera reports that organisations using multi-cloud management save an average of 30% on cloud spend.</div></div>
+<div class="faq-item"><div class="faq-q">What uptime guarantee does AetherOS provide?<span></div><div class="faq-a">We offer a 99.9% uptime SLA. Our proactive monitoring and automated incident response ensure that potential issues are identified and resolved before they impact operations. Uptime Institute data shows this is 4.2 percentage points above industry average of 95.7%.</div></div>
+<div class="faq-item"><div class="faq-q">How does AetherOS compare to hiring an in-house IT team?<span></div><div class="faq-a">AetherOS provides 24/7 senior-level expertise at a fraction of the cost. The average UK IT manager salary is £55,000+ per year (Glassdoor, 2024). AetherOS provides senior-level expertise, automated tooling, and round-the-clock monitoring from £148.50/month. Gartner estimates that AI-driven operations reduce IT staffing requirements by 30-40%.</div></div>
+</div>
+</div></section>
+
+
+
+<footer><div class="container">
+<div class="footer-logo">AETHER BUSINESS ARCHITECTS</div>
+<div class="footer-tag">AI Operating System. Leicester, UK.</div>
+<div class="footer-links">
+  <a href="/">Home</a><a href="/sme.html">SME</a><a href="/aether-os-promo-pricing.html">Pricing</a><a href="/aether-news.html">News</a><a href="/community.html">Community</a><a href="/cybersecurity-threats.html">Cybersecurity</a><a href="/system-management.html">System Management</a><a href="/strategic-branding.html">Branding</a><a href="/process-ai-build.html">Process &amp; AI</a><a href="/sme.html#promo">Free Consultation</a>
+</div>
+<div class="footer-copy">&copy; 2026 Aether Business Architects Ltd // Leicester // UK // jay@aetherbusinessarchitectsltd.uk // 07735 326227</div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var a=this.nextElementSibling;
+    if(a.classList.contains('open')){a.classList.remove('open');this.classList.remove('active')}
+    else{a.classList.add('open');this.classList.add('active')}
+  });
+});
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)});
+</script>
+</body>
+</html>
