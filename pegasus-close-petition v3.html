@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Pegasus Residents (and Local Residents) vs Leicester City Council — v1.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Gurmukhi:wght@400;600&family=Noto+Nastaliq+Urdu:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --navy: #1B2A4A;
+    --slate: #3D5A80;
+    --paper: #FAF9F5;
+    --paper-dim: #F0EEE7;
+    --brass: #A9812F;
+    --red: #8C3A3A;
+    --ink: #232323;
+    --line: #D8D3C6;
+    --terra1:#C98A5E; --terra2:#8E6E53; --terra3:#D9B183; --terra4:#7C5C4A; --terra5:#B9835B;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--navy);
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(255,255,255,0.05), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(255,255,255,0.04), transparent 40%);
+    font-family:'Source Sans 3', sans-serif;
+    color: var(--ink);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding: 28px 14px 60px;
+  }
+  [lang="ur"]{ font-family:'Noto Nastaliq Urdu', serif; }
+  [lang="pa"]{ font-family:'Noto Sans Gurmukhi', sans-serif; }
+  [lang="hi"]{ font-family:'Noto Sans Devanagari', sans-serif; }
+
+  .sheet{
+    width:100%;
+    max-width:640px;
+    background: var(--paper);
+    border-radius: 3px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+    overflow:hidden;
+    position:relative;
+  }
+  header.masthead{
+    background: var(--navy);
+    color: var(--paper);
+    padding: 30px 30px 24px;
+    position:relative;
+  }
+  .stamp{
+    position:absolute;
+    top:22px; right:24px;
+    width:76px; height:76px;
+    border:2px solid var(--brass);
+    border-radius:50%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    color: var(--brass);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9px;
+    line-height:1.25;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    transform: rotate(6deg);
+  }
+  .stamp strong{
+    font-size:20px;
+    font-family:'Fraunces', serif;
+    color: var(--paper);
+    line-height:1;
+    margin: 2px 0;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color: #B9C4D6;
+    margin:0 46px 10px 0;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: 26px;
+    line-height:1.2;
+    margin:0 0 12px;
+    max-width: 460px;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 4px 22px;
+    font-size:13px;
+    color:#C3CBDA;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .lang-pill{
+    margin-top:16px;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--paper);
+    font-size:12.5px;
+    padding: 8px 13px;
+    border-radius: 20px;
+    cursor:pointer;
+  }
+  .lang-pill:hover{ background: rgba(255,255,255,0.15); }
+
+  .perforation{ height:14px; background: var(--paper); position:relative; }
+  .perforation::before{
+    content:""; position:absolute; left:0; right:0; top:0; height:0;
+    border-top: 2px dashed var(--line);
+  }
+  .body-pad{ padding: 22px 30px 30px; }
+
+  .grounds{
+    background: var(--paper-dim);
+    border-left: 3px solid var(--brass);
+    padding: 16px 18px;
+    margin-bottom: 22px;
+    border-radius: 2px;
+  }
+  [dir="rtl"] .grounds{ border-left:none; border-right:3px solid var(--brass); }
+  .grounds h2{
+    font-family:'Fraunces', serif;
+    font-size:15px;
+    margin:0 0 8px;
+    color: var(--navy);
+  }
+  .grounds ul{ margin:0; padding-left:18px; }
+  [dir="rtl"] .grounds ul{ padding-left:0; padding-right:18px; }
+  .grounds li{ font-size:13.5px; line-height:1.6; margin-bottom:6px; color:#3a3a3a; }
+  .grounds li:last-child{ margin-bottom:0; }
+  .stat{ color: var(--red); font-weight:600; }
+
+  .ask{
+    font-size: 14px; line-height:1.65; color:#3a3a3a;
+    margin-bottom: 24px; padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  form{ display:flex; flex-direction:column; gap:16px; }
+  .field label{
+    display:block; font-family:'IBM Plex Mono', monospace; font-size:11px;
+    letter-spacing:0.06em; text-transform:uppercase; color: var(--slate); margin-bottom:6px;
+  }
+  [lang="ur"] .field label, [lang="pa"] .field label, [lang="hi"] .field label{ font-family:inherit; text-transform:none; letter-spacing:0; }
+  .field input, .field select{
+    width:100%; font-family:'Source Sans 3', sans-serif; font-size:15px;
+    padding: 11px 12px; border: 1.5px solid var(--line); border-radius: 3px;
+    background: #fff; color: var(--ink);
+  }
+  .field input:focus, .field select:focus{
+    outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(27,42,74,0.12);
+  }
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:480px){ .two-col{ grid-template-columns:1fr; } }
+
+  .sig-field input{ font-family:'Fraunces', serif; font-style:italic; font-size:19px; }
+  .sig-note{ font-size:11.5px; color:#7a7a72; margin-top:5px; }
+
+  .consent{
+    display:flex; gap:10px; align-items:flex-start; font-size:12.5px; line-height:1.5; color:#555;
+    background: var(--paper-dim); padding: 12px 14px; border-radius: 3px;
+  }
+  .consent input{ margin-top:3px; }
+
+  button.submit{
+    margin-top:6px; background: var(--navy); color: var(--paper); border:none;
+    padding: 14px 20px; font-size:15px; font-weight:600; font-family:'Source Sans 3', sans-serif;
+    letter-spacing:0.01em; border-radius: 3px; cursor:pointer; transition: background 0.15s ease;
+  }
+  button.submit:hover{ background:#243A66; }
+  button.submit:disabled{ background:#9aa4b6; cursor:default; }
+
+  .error{ color: var(--red); font-size:13px; margin-top:-6px; }
+
+  .confirmation{ text-align:center; padding: 10px 4px 4px; }
+  .confirmation .check{
+    width:52px; height:52px; border-radius:50%; border:2px solid var(--brass);
+    display:flex; align-items:center; justify-content:center; margin: 0 auto 16px;
+    color: var(--brass); font-size:24px;
+  }
+  .confirmation h2{ font-family:'Fraunces', serif; font-size:21px; color: var(--navy); margin: 0 0 8px; }
+  .confirmation p{ font-size:14px; color:#555; line-height:1.6; max-width:420px; margin:0 auto 4px; }
+  .ref{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color: var(--slate); margin-top:14px;
+    display:inline-block; background: var(--paper-dim); padding: 6px 12px; border-radius: 3px;
+  }
+
+  .tally{
+    text-align:center; padding: 16px 30px 4px; font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color: var(--slate); letter-spacing:0.04em;
+  }
+  .tally strong{ color: var(--navy); font-size:15px; }
+
+  footer.strip{
+    background: var(--paper-dim); padding: 12px 30px; font-size:11px; color:#8a8577;
+    text-align:center; border-top: 1px solid var(--line);
+  }
+
+  /* Contact / reference block */
+  .contact-block{
+    background: var(--navy); color: var(--paper);
+    padding: 26px 30px; display:flex; gap:22px; align-items:center; flex-wrap:wrap;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .contact-info{ flex:1; min-width:200px; }
+  .contact-info .ref-title{
+    font-family:'Fraunces', serif; font-size:15px; color:var(--paper); margin:0 0 8px; line-height:1.4;
+  }
+  .contact-info a{ color:#CFE0FF; }
+  .contact-info .line{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:#B9C4D6; margin:3px 0; }
+  .contact-info .copyright{ font-size:11px; color:#8a95ab; margin-top:10px; }
+  .qr-wrap{
+    background:#fff; padding:10px; border-radius:4px; text-align:center; flex-shrink:0;
+  }
+  .qr-wrap .qr-label{ font-family:'IBM Plex Mono', monospace; font-size:9px; color:var(--navy); margin-top:6px; letter-spacing:0.06em; text-transform:uppercase; }
+
+  /* Thank you section */
+  .thankyou{
+    background: var(--paper-dim);
+    padding: 30px;
+  }
+  .diversity-banner{
+    display:flex; justify-content:center; margin-bottom:22px;
+  }
+  .thankyou h2.ty-heading{
+    font-family:'Fraunces', serif; font-size:20px; color:var(--navy); text-align:center; margin:0 0 18px;
+  }
+  .ty-block{ margin-bottom:16px; padding-bottom:16px; border-bottom:1px dashed var(--line); }
+  .ty-block:last-child{ border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .ty-block .ty-lang-label{
+    font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:6px;
+  }
+  .ty-block p{ margin:0; font-size:14px; line-height:1.7; color:#3a3a3a; }
+  .ty-block[dir="rtl"] p{ font-size:16px; line-height:2; }
+
+  .admin-toggle{
+    position:fixed; bottom:14px; right:14px; font-family:'IBM Plex Mono', monospace; font-size:10px;
+    color:#aab3c4; background:rgba(0,0,0,0.25); padding:5px 9px; border-radius:12px; cursor:pointer; user-select:none;
+  }
+  .admin-panel{
+    max-width:640px; width:100%; background: var(--paper); border-radius:3px; margin-top:16px;
+    padding:20px 24px; font-size:13px;
+  }
+  .admin-panel h3{ font-family:'Fraunces', serif; margin-top:0; color:var(--navy); }
+  .admin-panel table{ width:100%; border-collapse:collapse; font-size:12px; margin-top:10px; }
+  .admin-panel th, .admin-panel td{ text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); }
+  .admin-row-actions{ display:flex; gap:8px; margin-bottom:10px; }
+  .admin-row-actions button{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; padding:6px 10px; border-radius:3px;
+    border:1px solid var(--line); background:#fff; cursor:pointer;
+  }
+  .hidden{ display:none !important; }
+
+  /* Language modal */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(10,15,28,0.6); display:flex; align-items:center; justify-content:center;
+    z-index:100; padding:16px;
+  }
+  .modal-box{
+    background:var(--paper); border-radius:6px; max-width:400px; width:100%; padding:26px 24px; text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  }
+  .modal-box h3{ font-family:'Fraunces', serif; color:var(--navy); margin:0 0 6px; font-size:19px; }
+  .modal-box .sub{ font-size:12.5px; color:#777; margin-bottom:18px; line-height:1.6; }
+  .lang-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .lang-btn{
+    border:1.5px solid var(--line); background:#fff; border-radius:4px; padding:12px 10px; cursor:pointer;
+    font-size:14px; color:var(--ink); text-align:left; display:flex; flex-direction:column; gap:2px;
+  }
+  .lang-btn strong{ font-family:'Fraunces', serif; font-size:15px; }
+  .lang-btn small{ color:#888; font-size:11px; font-family:'IBM Plex Mono', monospace; }
+  .lang-btn:hover{ border-color:var(--navy); background:var(--paper-dim); }
+</style>
+</head>
+<body>
+
+<div style="width:100%; max-width:640px; display:flex; flex-direction:column; align-items:center;">
+  <div class="sheet" id="sheet">
+
+    <header class="masthead">
+      <div class="stamp">SIGN<strong id="stampNo">—</strong>REGISTER</div>
+      <p class="eyebrow" data-i18n="eyebrow">Petition v1.1 · Pegasus Residents &amp; Local Residents vs Leicester City Council</p>
+      <h1 data-i18n="headline">Preserve Tenant Balconies &amp; Address Living Conditions</h1>
+      <div class="meta-row">
+        <span data-i18n="meta1">Opened 17 Aug 2026</span>
+        <span data-i18n="meta2">Collection closes Sun 23 Aug</span>
+      </div>
+      <div class="lang-pill" id="langPill">🌐 <span data-i18n="langPillLabel">Language / ਭਾਸ਼ਾ / زبان / भाषा</span></div>
+    </header>
+
+    <div class="perforation"></div>
+
+    <div class="body-pad">
+
+      <div class="grounds">
+        <h2 data-i18n="groundsHeading">Why we're petitioning the Council</h2>
+        <ul>
+          <li data-i18n="ground1">Recorded indoor temperatures of up to 39°C for 10+ hours once balcony airflow is lost — a real health risk to children and vulnerable residents.</li>
+          <li data-i18n="ground2">The downstairs playground gates remain locked with no access granted to residents, leaving balconies as the only private outdoor space for many families.</li>
+          <li data-i18n="ground3">Residents' own belongings and storage kept on balconies have been locked away and made inaccessible during these works, without residents' consent.</li>
+          <li data-i18n="ground4">Loss of daylight, fresh air and space for plants directly affects residents' wellbeing.</li>
+          <li data-i18n="ground5">Balconies were let and sold as a feature of these flats — removing them without fair resolution affects rent value and property value alike.</li>
+          <li data-i18n="ground6">44 residents of Pegasus Close are already paying in excess of £100 per month between them for just 9 parking spaces — this balcony removal compounds an already unfair set of conditions on this close.</li>
+        </ul>
+      </div>
+
+      <p class="ask" data-i18n="askText">We're asking the Council to pause all balcony removal works and hold a formal consultation with residents to explore repair or upgrade options instead of full removal. Every signature below is added to the register submitted to the Council Planning &amp; Housing Department. For many residents on this close, the balcony removal is the final straw after months of unresolved conditions.</p>
+
+      <form id="petitionForm">
+        <div class="field">
+          <label for="fullName" data-i18n="formFullName">Full name</label>
+          <input type="text" id="fullName" required autocomplete="name" data-i18n-placeholder="phFullName" placeholder="Jordan Smith">
+        </div>
+
+        <div class="field">
+          <label for="address" data-i18n="formAddress">Full flat address (incl. flat/unit number)</label>
+          <input type="text" id="address" required autocomplete="street-address" data-i18n-placeholder="phAddress" placeholder="Flat 12, Pegasus Close, Leicester">
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="tenure" data-i18n="formTenure">You are a…</label>
+            <select id="tenure" required>
+              <option value="" disabled selected data-i18n="tenureSelect">Select one</option>
+              <option data-i18n="tenureOpt1">Council / Housing Association tenant</option>
+              <option data-i18n="tenureOpt2">Private tenant</option>
+              <option data-i18n="tenureOpt3">Homeowner / Leaseholder</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sigDate" data-i18n="formDate">Date</label>
+            <input type="date" id="sigDate" required>
+          </div>
+        </div>
+
+        <div class="field sig-field">
+          <label for="signature" data-i18n="formSignature">Signature (type your full name)</label>
+          <input type="text" id="signature" required data-i18n-placeholder="phFullName" placeholder="Jordan Smith">
+          <p class="sig-note" data-i18n="formSignatureNote">Typing your name here counts as your signature on this register.</p>
+        </div>
+
+        <div class="field">
+          <label data-i18n="formSignaturePad">Draw your signature</label>
+          <div style="border:1.5px solid var(--line); border-radius:3px; background:#fff; touch-action:none;">
+            <canvas id="sigPad" width="560" height="150" style="width:100%; height:150px; display:block; cursor:crosshair;"></canvas>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:6px;">
+            <p class="sig-note" style="margin:0;" data-i18n="formSignaturePadNote">Sign with your finger or mouse. This is stored as an image alongside your typed name.</p>
+            <button type="button" id="clearSigPad" style="font-family:'IBM Plex Mono', monospace; font-size:11px; padding:6px 10px; border-radius:3px; border:1px solid var(--line); background:#fff; cursor:pointer; flex-shrink:0; margin-left:10px;" data-i18n="clearSigPad">Clear</button>
+          </div>
+          <div id="sigPadError" class="error hidden" style="margin-top:6px;" data-i18n="sigPadRequired">Please draw your signature above as well as typing your name.</div>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent" data-i18n="consentText">I confirm I am an adult resident of Pegasus Close or the immediately surrounding flats, and I consent to my name, address and tenure type being included on the signature register submitted to the Council.</label>
+        </div>
+
+        <div id="formError" class="error hidden"></div>
+
+        <button type="submit" class="submit" id="submitBtn" data-i18n="submitBtn">Add my signature</button>
+      </form>
+
+      <div class="confirmation hidden" id="confirmation">
+        <div class="check">✓</div>
+        <h2 data-i18n="confirmHeading">You're on the register</h2>
+        <p data-i18n="confirmText">Thank you — your signature has been added to the Pegasus Close petition. Please share this page's QR code with your neighbours so we can reach as many households as possible before Sunday 23 August.</p>
+        <span class="ref" id="refCode"></span>
+      </div>
+
+    </div>
+
+    <div class="tally" id="tally">Loading signature count…</div>
+    <footer class="strip" data-i18n="footerStrip">Organised by residents and leaseholders of Pegasus Close · Signature sheets submitted to the Council Planning &amp; Housing Department</footer>
+
+    <div class="contact-block">
+      <div class="contact-info">
+        <p class="ref-title">Pegasus Residents (and Local Residents) vs Leicester City Council — v1.1</p>
+        <p class="line"><a href="https://aetherbusinessarchitectsltd.uk/" target="_blank" rel="noopener">aetherbusinessarchitectsltd.uk</a></p>
+        <p class="line">jay@aetherbusinessarchitectsltd.uk</p>
+        <p class="line">07735326227</p>
+        <p class="copyright">© 2026 Aether Business Architects Ltd</p>
+      </div>
+      <div class="qr-wrap">
+        <div id="qrcode"></div>
+        <div class="qr-label">Scan to sign</div>
+      </div>
+    </div>
+
+    <div class="thankyou">
+      <div class="diversity-banner">
+        <svg width="220" height="70" viewBox="0 0 220 70" xmlns="http://www.w3.org/2000/svg" aria-label="Illustration of a diverse community">
+          <circle cx="30" cy="38" r="20" fill="#D9B183"/>
+          <path d="M12 32 Q30 8 48 32 L48 40 Q30 24 12 40 Z" fill="#1B2A4A"/>
+          <circle cx="72" cy="38" r="20" fill="#C98A5E"/>
+          <path d="M52 26 Q72 46 92 26 L92 34 Q72 52 52 34 Z" fill="#A9812F"/>
+          <circle cx="114" cy="38" r="20" fill="#8E6E53"/>
+          <circle cx="156" cy="38" r="20" fill="#B9835B"/>
+          <path d="M138 24 Q156 12 174 24 Q176 34 156 34 Q136 34 138 24 Z" fill="#3D5A80"/>
+          <circle cx="196" cy="38" r="20" fill="#7C5C4A"/>
+        </svg>
+      </div>
+      <h2 class="ty-heading" data-i18n="thankYouHeading">Thank you</h2>
+
+      <div class="ty-block" lang="en">
+        <div class="ty-lang-label">English</div>
+        <p>Thank you to every resident who has taken the time to read, share and sign this petition. Whatever language you speak and wherever you call home on this close, your voice matters and is heard here.</p>
+      </div>
+      <div class="ty-block" lang="pa">
+        <div class="ty-lang-label">ਪੰਜਾਬੀ · Punjabi</div>
+        <p>ਹਰ ਉਸ ਵਸਨੀਕ ਦਾ ਧੰਨਵਾਦ ਜਿਸ ਨੇ ਇਸ ਪਟੀਸ਼ਨ ਨੂੰ ਪੜ੍ਹਨ, ਸਾਂਝਾ ਕਰਨ ਅਤੇ ਦਸਤਖ਼ਤ ਕਰਨ ਲਈ ਸਮਾਂ ਕੱਢਿਆ। ਤੁਸੀਂ ਕੋਈ ਵੀ ਭਾਸ਼ਾ ਬੋਲਦੇ ਹੋ ਅਤੇ ਇਸ ਕਲੋਜ਼ 'ਤੇ ਜਿੱਥੇ ਵੀ ਰਹਿੰਦੇ ਹੋ, ਤੁਹਾਡੀ ਆਵਾਜ਼ ਮਾਅਨੇ ਰੱਖਦੀ ਹੈ ਅਤੇ ਇੱਥੇ ਸੁਣੀ ਜਾਂਦੀ ਹੈ।</p>
+      </div>
+      <div class="ty-block" lang="ur" dir="rtl">
+        <div class="ty-lang-label">اردو · Urdu</div>
+        <p>ہر اس رہائشی کا شکریہ جس نے اس پٹیشن کو پڑھنے، شیئر کرنے اور دستخط کرنے کے لیے وقت نکالا۔ آپ کوئی بھی زبان بولیں اور اس کلوز پر جہاں بھی رہتے ہوں، آپ کی آواز اہم ہے اور یہاں سنی جاتی ہے۔</p>
+      </div>
+      <div class="ty-block" lang="hi">
+        <div class="ty-lang-label">हिन्दी · Hindi</div>
+        <p>हर उस निवासी का धन्यवाद जिसने इस याचिका को पढ़ने, साझा करने और हस्ताक्षर करने के लिए समय निकाला। आप कोई भी भाषा बोलें और इस क्लोज़ पर जहाँ भी रहते हों, आपकी आवाज़ मायने रखती है और यहाँ सुनी जाती है।</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="admin-panel hidden" id="adminPanel">
+    <div id="adminLock">
+      <h3>Organiser view — locked</h3>
+      <p style="font-size:12.5px; color:#777; margin:0 0 14px;">Enter the organiser passcode to view or export signatures.</p>
+      <div style="display:flex; gap:8px;">
+        <input type="password" id="adminPasscode" placeholder="Passcode" style="flex:1; padding:9px 10px; border:1.5px solid var(--line); border-radius:3px; font-size:14px;">
+        <button id="adminUnlock" style="font-family:'IBM Plex Mono', monospace; font-size:12px; padding:9px 14px; border-radius:3px; border:1px solid var(--navy); background:var(--navy); color:#fff; cursor:pointer;">Unlock</button>
+      </div>
+      <p id="adminLockError" style="color:var(--red); font-size:12px; margin-top:8px; display:none;">Incorrect passcode.</p>
+    </div>
+    <div id="adminContent" class="hidden">
+      <h3>Organiser view</h3>
+      <div class="admin-row-actions">
+        <button id="refreshAdmin">Refresh</button>
+        <button id="exportCsv">Export CSV</button>
+        <button id="lockAdmin">Lock</button>
+        <button id="closeAdmin">Close</button>
+      </div>
+      <table>
+        <thead><tr><th>#</th><th>Name</th><th>Address</th><th>Tenure</th><th>Date</th><th>Signature</th></tr></thead>
+        <tbody id="adminBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="admin-toggle" id="adminToggle">organiser view</div>
+
+<!-- Language selection modal -->
+<div class="modal-overlay" id="langModal">
+  <div class="modal-box">
+    <h3 data-i18n="langPopupHeading">Choose your language</h3>
+    <p class="sub" data-i18n="langPopupText">Read and sign this petition in your language.</p>
+    <div class="lang-grid">
+      <button class="lang-btn" data-lang="en"><strong>English</strong><small>English</small></button>
+      <button class="lang-btn" data-lang="pa"><strong>ਪੰਜਾਬੀ</strong><small>Punjabi</small></button>
+      <button class="lang-btn" data-lang="ur"><strong>اردو</strong><small>Urdu</small></button>
+      <button class="lang-btn" data-lang="hi"><strong>हिन्दी</strong><small>Hindi</small></button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---------- Translations ----------
+  const T = {
+    en: {
+      eyebrow: "Petition v1.1 · Pegasus Residents &amp; Local Residents vs Leicester City Council",
+      headline: "Preserve Tenant Balconies &amp; Address Living Conditions",
+      meta1: "Opened 17 Aug 2026", meta2: "Collection closes Sun 23 Aug",
+      langPillLabel: "Language",
+      groundsHeading: "Why we're petitioning the Council",
+      ground1: "Recorded indoor temperatures of up to 39°C for 10+ hours once balcony airflow is lost — a real health risk to children and vulnerable residents.",
+      ground2: "The downstairs playground gates remain locked with no access granted to residents, leaving balconies as the only private outdoor space for many families.",
+      ground3: "Residents' own belongings and storage kept on balconies have been locked away and made inaccessible during these works, without residents' consent.",
+      ground4: "Loss of daylight, fresh air and space for plants directly affects residents' wellbeing.",
+      ground5: "Balconies were let and sold as a feature of these flats — removing them without fair resolution affects rent value and property value alike.",
+      ground6: "44 residents of Pegasus Close are already paying in excess of £100 per month between them for just 9 parking spaces — this balcony removal compounds an already unfair set of conditions on this close.",
+      askText: "We're asking the Council to pause all balcony removal works and hold a formal consultation with residents to explore repair or upgrade options instead of full removal. Every signature below is added to the register submitted to the Council Planning &amp; Housing Department. For many residents on this close, the balcony removal is the final straw after months of unresolved conditions.",
+      formFullName: "Full name", formAddress: "Full flat address (incl. flat/unit number)",
+      formTenure: "You are a…", tenureSelect: "Select one",
+      tenureOpt1: "Council / Housing Association tenant", tenureOpt2: "Private tenant", tenureOpt3: "Homeowner / Leaseholder",
+      formDate: "Date", formSignature: "Signature (type your full name)",
+      formSignatureNote: "Typing your name here counts as your signature on this register.",
+      consentText: "I confirm I am an adult resident of Pegasus Close or the immediately surrounding flats, and I consent to my name, address and tenure type being included on the signature register submitted to the Council.",
+      submitBtn: "Add my signature", submitBtnLoading: "Adding your signature…",
+      confirmHeading: "You're on the register",
+      confirmText: "Thank you — your signature has been added to the Pegasus Close petition. Please share this page's QR code with your neighbours so we can reach as many households as possible before Sunday 23 August.",
+      footerStrip: "Organised by residents and leaseholders of Pegasus Close · Signature sheets submitted to the Council Planning &amp; Housing Department",
+      langPopupHeading: "Choose your language", langPopupText: "Read and sign this petition in your language.",
+      thankYouHeading: "Thank you",
+      formSignaturePad: "Draw your signature", formSignaturePadNote: "Sign with your finger or mouse. This is stored as an image alongside your typed name.", clearSigPad: "Clear", sigPadRequired: "Please draw your signature above as well as typing your name.",
+      phFullName: "Jordan Smith", phAddress: "Flat 12, Pegasus Close, Leicester"
+    },
+    pa: {
+      eyebrow: "ਪਟੀਸ਼ਨ v1.1 · ਪੈਗਾਸਸ ਦੇ ਵਸਨੀਕ ਅਤੇ ਸਥਾਨਕ ਵਸਨੀਕ ਬਨਾਮ ਲੈਸਟਰ ਸਿਟੀ ਕੌਂਸਲ",
+      headline: "ਕਿਰਾਏਦਾਰਾਂ ਦੀਆਂ ਬਾਲਕੋਨੀਆਂ ਬਚਾਓ ਅਤੇ ਰਿਹਾਇਸ਼ੀ ਹਾਲਾਤਾਂ ਨੂੰ ਸੁਧਾਰੋ",
+      meta1: "17 ਅਗਸਤ 2026 ਨੂੰ ਸ਼ੁਰੂ ਹੋਈ", meta2: "ਐਤਵਾਰ 23 ਅਗਸਤ ਨੂੰ ਬੰਦ ਹੋਵੇਗੀ",
+      langPillLabel: "ਭਾਸ਼ਾ",
+      groundsHeading: "ਅਸੀਂ ਕੌਂਸਲ ਕੋਲ ਪਟੀਸ਼ਨ ਕਿਉਂ ਪਾ ਰਹੇ ਹਾਂ",
+      ground1: "ਬਾਲਕੋਨੀ ਦੀ ਹਵਾ ਬੰਦ ਹੋਣ ਨਾਲ ਘਰ ਦੇ ਅੰਦਰ ਤਾਪਮਾਨ 10 ਘੰਟਿਆਂ ਤੋਂ ਵੱਧ ਸਮੇਂ ਲਈ 39°C ਤੱਕ ਪਹੁੰਚ ਗਿਆ ਹੈ — ਇਹ ਬੱਚਿਆਂ ਅਤੇ ਕਮਜ਼ੋਰ ਵਸਨੀਕਾਂ ਲਈ ਗੰਭੀਰ ਸਿਹਤ ਖ਼ਤਰਾ ਹੈ।",
+      ground2: "ਹੇਠਾਂ ਖੇਡ ਦੇ ਮੈਦਾਨ ਦੇ ਗੇਟ ਬੰਦ ਪਏ ਹਨ ਅਤੇ ਵਸਨੀਕਾਂ ਨੂੰ ਕੋਈ ਪਹੁੰਚ ਨਹੀਂ ਦਿੱਤੀ ਗਈ, ਜਿਸ ਕਾਰਨ ਬਾਲਕੋਨੀਆਂ ਹੀ ਕਈ ਪਰਿਵਾਰਾਂ ਲਈ ਇਕੱਲੀ ਨਿੱਜੀ ਖੁੱਲ੍ਹੀ ਥਾਂ ਬਚਦੀ ਹੈ।",
+      ground3: "ਵਸਨੀਕਾਂ ਦੀ ਆਪਣੀ ਨਿੱਜੀ ਸਮਾਨ ਅਤੇ ਬਾਲਕੋਨੀ 'ਤੇ ਰੱਖਿਆ ਸਟੋਰੇਜ ਬਿਨਾਂ ਸਹਿਮਤੀ ਦੇ ਬੰਦ ਕਰ ਕੇ ਪਹੁੰਚ ਤੋਂ ਬਾਹਰ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।",
+      ground4: "ਧੁੱਪ, ਤਾਜ਼ੀ ਹਵਾ ਅਤੇ ਪੌਦੇ ਲਾਉਣ ਦੀ ਥਾਂ ਗੁਆਉਣਾ ਸਿੱਧਾ ਵਸਨੀਕਾਂ ਦੀ ਸਿਹਤ ਅਤੇ ਖੁਸ਼ਹਾਲੀ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦਾ ਹੈ।",
+      ground5: "ਇਹ ਫਲੈਟ ਬਾਲਕੋਨੀ ਦੇ ਨਾਲ ਕਿਰਾਏ 'ਤੇ ਦਿੱਤੇ ਅਤੇ ਵੇਚੇ ਗਏ ਸਨ — ਬਿਨਾਂ ਕਿਸੇ ਨਿਆਂਪੂਰਨ ਹੱਲ ਦੇ ਇਨ੍ਹਾਂ ਨੂੰ ਹਟਾਉਣ ਨਾਲ ਕਿਰਾਏ ਅਤੇ ਜਾਇਦਾਦ ਦੀ ਕੀਮਤ ਦੋਵਾਂ 'ਤੇ ਅਸਰ ਪੈਂਦਾ ਹੈ।",
+      ground6: "ਪੈਗਾਸਸ ਕਲੋਜ਼ ਦੇ 44 ਵਸਨੀਕ ਪਹਿਲਾਂ ਹੀ ਸਿਰਫ਼ 9 ਪਾਰਕਿੰਗ ਥਾਵਾਂ ਲਈ ਮਿਲ ਕੇ £100 ਤੋਂ ਵੱਧ ਪ੍ਰਤੀ ਮਹੀਨਾ ਦੇ ਰਹੇ ਹਨ — ਬਾਲਕੋਨੀ ਹਟਾਉਣ ਨਾਲ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਨਾਇਨਸਾਫ਼ੀ ਵਾਲੀ ਸਥਿਤੀ ਹੋਰ ਵਿਗੜ ਜਾਵੇਗੀ।",
+      askText: "ਅਸੀਂ ਕੌਂਸਲ ਨੂੰ ਬੇਨਤੀ ਕਰਦੇ ਹਾਂ ਕਿ ਬਾਲਕੋਨੀ ਹਟਾਉਣ ਦਾ ਕੰਮ ਰੋਕਿਆ ਜਾਵੇ ਅਤੇ ਵਸਨੀਕਾਂ ਨਾਲ ਰਸਮੀ ਸਲਾਹ-ਮਸ਼ਵਰਾ ਕੀਤਾ ਜਾਵੇ ਤਾਂ ਜੋ ਪੂਰੀ ਤਰ੍ਹਾਂ ਹਟਾਉਣ ਦੀ ਬਜਾਏ ਮੁਰੰਮਤ ਜਾਂ ਸੁਧਾਰ ਦੇ ਬਦਲ ਲੱਭੇ ਜਾ ਸਕਣ। ਹੇਠਾਂ ਹਰ ਦਸਤਖਤ ਕੌਂਸਲ ਪਲੈਨਿੰਗ ਅਤੇ ਹਾਊਸਿੰਗ ਵਿਭਾਗ ਨੂੰ ਭੇਜੇ ਜਾਣ ਵਾਲੇ ਰਜਿਸਟਰ ਵਿੱਚ ਜੋੜਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਕਲੋਜ਼ ਦੇ ਕਈ ਵਸਨੀਕਾਂ ਲਈ, ਮਹੀਨਿਆਂ ਦੇ ਅਣਸੁਲਝੇ ਹਾਲਾਤਾਂ ਤੋਂ ਬਾਅਦ ਇਹ ਆਖ਼ਰੀ ਹੱਦ ਹੈ।",
+      formFullName: "ਪੂਰਾ ਨਾਮ", formAddress: "ਪੂਰਾ ਫਲੈਟ ਪਤਾ (ਫਲੈਟ/ਯੂਨਿਟ ਨੰਬਰ ਸਮੇਤ)",
+      formTenure: "ਤੁਸੀਂ ਹੋ…", tenureSelect: "ਇੱਕ ਚੁਣੋ",
+      tenureOpt1: "ਕੌਂਸਲ / ਹਾਊਸਿੰਗ ਐਸੋਸੀਏਸ਼ਨ ਕਿਰਾਏਦਾਰ", tenureOpt2: "ਪ੍ਰਾਈਵੇਟ ਕਿਰਾਏਦਾਰ", tenureOpt3: "ਘਰ ਦਾ ਮਾਲਕ / ਲੀਜ਼ਹੋਲਡਰ",
+      formDate: "ਤਾਰੀਖ਼", formSignature: "ਦਸਤਖ਼ਤ (ਆਪਣਾ ਪੂਰਾ ਨਾਮ ਟਾਈਪ ਕਰੋ)",
+      formSignatureNote: "ਇੱਥੇ ਆਪਣਾ ਨਾਮ ਟਾਈਪ ਕਰਨਾ ਇਸ ਰਜਿਸਟਰ 'ਤੇ ਤੁਹਾਡੇ ਦਸਤਖ਼ਤ ਵਜੋਂ ਗਿਣਿਆ ਜਾਂਦਾ ਹੈ।",
+      consentText: "ਮੈਂ ਪੁਸ਼ਟੀ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ ਕਿ ਮੈਂ ਪੈਗਾਸਸ ਕਲੋਜ਼ ਜਾਂ ਨੇੜਲੇ ਫਲੈਟਾਂ ਦਾ ਬਾਲਗ ਵਸਨੀਕ ਹਾਂ, ਅਤੇ ਮੈਂ ਆਪਣਾ ਨਾਮ, ਪਤਾ ਅਤੇ ਕਿਰਾਏਦਾਰੀ ਕਿਸਮ ਕੌਂਸਲ ਨੂੰ ਭੇਜੇ ਜਾਣ ਵਾਲੇ ਦਸਤਖ਼ਤ ਰਜਿਸਟਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰਨ ਦੀ ਸਹਿਮਤੀ ਦਿੰਦਾ/ਦਿੰਦੀ ਹਾਂ।",
+      submitBtn: "ਮੇਰੇ ਦਸਤਖ਼ਤ ਸ਼ਾਮਲ ਕਰੋ", submitBtnLoading: "ਦਸਤਖ਼ਤ ਸ਼ਾਮਲ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…",
+      confirmHeading: "ਤੁਸੀਂ ਰਜਿਸਟਰ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋ ਗਏ ਹੋ",
+      confirmText: "ਧੰਨਵਾਦ — ਤੁਹਾਡੇ ਦਸਤਖ਼ਤ ਪੈਗਾਸਸ ਕਲੋਜ਼ ਪਟੀਸ਼ਨ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰ ਦਿੱਤੇ ਗਏ ਹਨ। ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਪੇਜ ਦਾ QR ਕੋਡ ਆਪਣੇ ਗੁਆਂਢੀਆਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ ਤਾਂ ਜੋ ਐਤਵਾਰ 23 ਅਗਸਤ ਤੋਂ ਪਹਿਲਾਂ ਵੱਧ ਤੋਂ ਵੱਧ ਘਰਾਂ ਤੱਕ ਪਹੁੰਚਿਆ ਜਾ ਸਕੇ।",
+      footerStrip: "ਪੈਗਾਸਸ ਕਲੋਜ਼ ਦੇ ਵਸਨੀਕਾਂ ਅਤੇ ਲੀਜ਼ਹੋਲਡਰਾਂ ਦੁਆਰਾ ਆਯੋਜਿਤ · ਦਸਤਖ਼ਤ ਸ਼ੀਟਾਂ ਕੌਂਸਲ ਪਲੈਨਿੰਗ ਅਤੇ ਹਾਊਸਿੰਗ ਵਿਭਾਗ ਨੂੰ ਭੇਜੀਆਂ ਜਾਣਗੀਆਂ",
+      langPopupHeading: "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", langPopupText: "ਇਸ ਪਟੀਸ਼ਨ ਨੂੰ ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਪੜ੍ਹੋ ਅਤੇ ਦਸਤਖ਼ਤ ਕਰੋ।",
+      thankYouHeading: "ਧੰਨਵਾਦ",
+      formSignaturePad: "ਆਪਣੇ ਦਸਤਖ਼ਤ ਬਣਾਓ", formSignaturePadNote: "ਆਪਣੀ ਉਂਗਲ ਜਾਂ ਮਾਊਸ ਨਾਲ ਦਸਤਖ਼ਤ ਕਰੋ। ਇਹ ਤੁਹਾਡੇ ਟਾਈਪ ਕੀਤੇ ਨਾਮ ਦੇ ਨਾਲ ਇੱਕ ਤਸਵੀਰ ਵਜੋਂ ਸੰਭਾਲਿਆ ਜਾਂਦਾ ਹੈ।", clearSigPad: "ਸਾਫ਼ ਕਰੋ", sigPadRequired: "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਨਾਮ ਟਾਈਪ ਕਰਨ ਦੇ ਨਾਲ-ਨਾਲ ਉੱਪਰ ਆਪਣੇ ਦਸਤਖ਼ਤ ਵੀ ਬਣਾਓ।",
+      phFullName: "ਜਸਪ੍ਰੀਤ ਸਿੰਘ", phAddress: "ਫਲੈਟ 12, ਪੈਗਾਸਸ ਕਲੋਜ਼, ਲੈਸਟਰ"
+    },
+    ur: {
+      eyebrow: "پٹیشن v1.1 · پیگاسس اور مقامی رہائشی بمقابلہ لیسٹر سٹی کونسل",
+      headline: "کرایہ داروں کی بالکونیاں محفوظ رکھیں اور رہائشی حالات کو بہتر بنائیں",
+      meta1: "17 اگست 2026 کو شروع ہوئی", meta2: "اتوار 23 اگست کو بند ہو جائے گی",
+      langPillLabel: "زبان",
+      groundsHeading: "ہم کونسل سے یہ پٹیشن کیوں کر رہے ہیں",
+      ground1: "بالکونی کی ہوا بند ہونے کے بعد گھر کے اندر درجہ حرارت 10 گھنٹے سے زیادہ 39 ڈگری سیلسیس تک پہنچ چکا ہے — یہ بچوں اور کمزور رہائشیوں کے لیے سنگین صحت کا خطرہ ہے۔",
+      ground2: "نیچے کھیل کے میدان کے گیٹ بند پڑے ہیں اور رہائشیوں کو کوئی رسائی نہیں دی گئی، جس کی وجہ سے بالکونیاں کئی خاندانوں کے لیے واحد نجی کھلی جگہ رہ گئی ہیں۔",
+      ground3: "رہائشیوں کا اپنا سامان اور بالکونی پر رکھا ذخیرہ بغیر رضامندی کے بند کر کے ناقابلِ رسائی بنا دیا گیا ہے۔",
+      ground4: "دھوپ، تازہ ہوا اور پودے لگانے کی جگہ کا نہ ہونا براہِ راست رہائشیوں کی ذہنی و جسمانی صحت پر اثر انداز ہوتا ہے۔",
+      ground5: "یہ فلیٹس بالکونی کے ساتھ کرائے پر دیے اور فروخت کیے گئے تھے — بغیر کسی منصفانہ حل کے انہیں ہٹانا کرائے اور جائیداد کی قیمت دونوں کو متاثر کرتا ہے۔",
+      ground6: "پیگاسس کلوز کے 44 رہائشی پہلے ہی صرف 9 پارکنگ جگہوں کے لیے مل کر ماہانہ £100 سے زیادہ ادا کر رہے ہیں — بالکونی ہٹانے سے پہلے سے ناانصافی پر مبنی صورتحال مزید خراب ہو جائے گی۔",
+      askText: "ہم کونسل سے درخواست کرتے ہیں کہ بالکونی ہٹانے کا کام فوری طور پر روکا جائے اور رہائشیوں کے ساتھ باقاعدہ مشاورت کی جائے تاکہ مکمل خاتمے کے بجائے مرمت یا بہتری کے متبادل تلاش کیے جا سکیں۔ نیچے دیا گیا ہر دستخط کونسل پلاننگ اینڈ ہاؤسنگ ڈیپارٹمنٹ کو بھیجے جانے والے رجسٹر میں شامل کیا جاتا ہے۔ اس کلوز کے کئی رہائشیوں کے لیے، مہینوں کے حل نہ ہونے والے حالات کے بعد یہ آخری حد ہے۔",
+      formFullName: "پورا نام", formAddress: "مکمل فلیٹ پتہ (فلیٹ/یونٹ نمبر سمیت)",
+      formTenure: "آپ ہیں…", tenureSelect: "ایک منتخب کریں",
+      tenureOpt1: "کونسل / ہاؤسنگ ایسوسی ایشن کرایہ دار", tenureOpt2: "پرائیویٹ کرایہ دار", tenureOpt3: "مالکِ مکان / لیز ہولڈر",
+      formDate: "تاریخ", formSignature: "دستخط (اپنا پورا نام ٹائپ کریں)",
+      formSignatureNote: "یہاں اپنا نام ٹائپ کرنا اس رجسٹر پر آپ کے دستخط کے طور پر شمار ہوگا۔",
+      consentText: "میں تصدیق کرتا/کرتی ہوں کہ میں پیگاسس کلوز یا قریبی فلیٹس کا بالغ رہائشی ہوں، اور میں اپنا نام، پتہ اور کرایہ داری کی نوعیت کونسل کو بھیجے جانے والے دستخطی رجسٹر میں شامل کرنے کی رضامندی دیتا/دیتی ہوں۔",
+      submitBtn: "میرے دستخط شامل کریں", submitBtnLoading: "دستخط شامل کیے جا رہے ہیں…",
+      confirmHeading: "آپ رجسٹر میں شامل ہو گئے ہیں",
+      confirmText: "شکریہ — آپ کے دستخط پیگاسس کلوز پٹیشن میں شامل کر دیے گئے ہیں۔ براہِ کرم اس صفحے کا QR کوڈ اپنے پڑوسیوں کے ساتھ شیئر کریں تاکہ اتوار 23 اگست سے پہلے زیادہ سے زیادہ گھروں تک پہنچا جا سکے۔",
+      footerStrip: "پیگاسس کلوز کے رہائشیوں اور لیز ہولڈرز کی جانب سے منظم · دستخطی شیٹس کونسل پلاننگ اینڈ ہاؤسنگ ڈیپارٹمنٹ کو بھیجی جائیں گی",
+      langPopupHeading: "اپنی زبان منتخب کریں", langPopupText: "یہ پٹیشن اپنی زبان میں پڑھیں اور دستخط کریں۔",
+      thankYouHeading: "شکریہ",
+      formSignaturePad: "اپنے دستخط بنائیں", formSignaturePadNote: "اپنی انگلی یا ماؤس سے دستخط کریں۔ یہ آپ کے ٹائپ کردہ نام کے ساتھ ایک تصویر کے طور پر محفوظ کیا جاتا ہے۔", clearSigPad: "صاف کریں", sigPadRequired: "براہِ کرم اپنا نام ٹائپ کرنے کے ساتھ ساتھ اوپر اپنے دستخط بھی بنائیں۔",
+      phFullName: "محمد علی", phAddress: "فلیٹ 12، پیگاسس کلوز، لیسٹر"
+    },
+    hi: {
+      eyebrow: "याचिका v1.1 · पेगासस और स्थानीय निवासी बनाम लेस्टर सिटी काउंसिल",
+      headline: "किरायेदारों की बालकनियाँ बचाएं और रहने की स्थितियों में सुधार करें",
+      meta1: "17 अगस्त 2026 को शुरू हुई", meta2: "रविवार 23 अगस्त को बंद होगी",
+      langPillLabel: "भाषा",
+      groundsHeading: "हम काउंसिल के पास याचिका क्यों दायर कर रहे हैं",
+      ground1: "बालकनी की हवा बंद होने के बाद घर के अंदर का तापमान 10 घंटे से अधिक समय तक 39°C तक पहुँच गया है — यह बच्चों और कमज़ोर निवासियों के लिए गंभीर स्वास्थ्य जोखिम है।",
+      ground2: "नीचे के खेल के मैदान के गेट बंद पड़े हैं और निवासियों को कोई पहुँच नहीं दी गई है, जिससे बालकनियाँ ही कई परिवारों के लिए एकमात्र निजी खुली जगह रह गई हैं।",
+      ground3: "निवासियों का अपना सामान और बालकनी पर रखा भंडारण बिना सहमति के बंद कर के पहुँच से बाहर कर दिया गया है।",
+      ground4: "धूप, ताज़ी हवा और पौधे लगाने की जगह न होना सीधे निवासियों के स्वास्थ्य और भलाई को प्रभावित करता है।",
+      ground5: "ये फ्लैट बालकनी के साथ किराए पर दिए और बेचे गए थे — बिना किसी उचित समाधान के इन्हें हटाने से किराए और संपत्ति के मूल्य दोनों पर असर पड़ता है।",
+      ground6: "पेगासस क्लोज़ के 44 निवासी पहले से ही केवल 9 पार्किंग स्थानों के लिए मिलकर £100 से अधिक प्रति माह दे रहे हैं — बालकनी हटाने से पहले से ही अनुचित स्थिति और बिगड़ जाएगी।",
+      askText: "हम काउंसिल से अनुरोध करते हैं कि बालकनी हटाने का काम तुरंत रोका जाए और निवासियों के साथ औपचारिक परामर्श किया जाए ताकि पूर्ण निष्कासन के बजाय मरम्मत या सुधार के विकल्प खोजे जा सकें। नीचे दिया गया हर हस्ताक्षर काउंसिल प्लानिंग एंड हाउसिंग विभाग को भेजे जाने वाले रजिस्टर में जोड़ा जाता है। इस क्लोज़ के कई निवासियों के लिए, महीनों की अनसुलझी स्थितियों के बाद यह आखिरी हद है।",
+      formFullName: "पूरा नाम", formAddress: "पूरा फ्लैट पता (फ्लैट/यूनिट नंबर सहित)",
+      formTenure: "आप हैं…", tenureSelect: "एक चुनें",
+      tenureOpt1: "काउंसिल / हाउसिंग एसोसिएशन किरायेदार", tenureOpt2: "निजी किरायेदार", tenureOpt3: "गृहस्वामी / लीज़होल्डर",
+      formDate: "तारीख़", formSignature: "हस्ताक्षर (अपना पूरा नाम टाइप करें)",
+      formSignatureNote: "यहाँ अपना नाम टाइप करना इस रजिस्टर पर आपके हस्ताक्षर के रूप में गिना जाएगा।",
+      consentText: "मैं पुष्टि करता/करती हूँ कि मैं पेगासस क्लोज़ या आस-पास के फ्लैट्स का वयस्क निवासी हूँ, और मैं अपना नाम, पता और किरायेदारी प्रकार काउंसिल को भेजे जाने वाले हस्ताक्षर रजिस्टर में शामिल करने की सहमति देता/देती हूँ।",
+      submitBtn: "मेरा हस्ताक्षर जोड़ें", submitBtnLoading: "हस्ताक्षर जोड़ा जा रहा है…",
+      confirmHeading: "आप रजिस्टर में शामिल हो गए हैं",
+      confirmText: "धन्यवाद — आपका हस्ताक्षर पेगासस क्लोज़ याचिका में जोड़ दिया गया है। कृपया इस पेज का QR कोड अपने पड़ोसियों के साथ साझा करें ताकि रविवार 23 अगस्त से पहले अधिक से अधिक घरों तक पहुँचा जा सके।",
+      footerStrip: "पेगासस क्लोज़ के निवासियों और लीज़होल्डरों द्वारा आयोजित · हस्ताक्षर शीट काउंसिल प्लानिंग एंड हाउसिंग विभाग को भेजी जाएंगी",
+      langPopupHeading: "अपनी भाषा चुनें", langPopupText: "इस याचिका को अपनी भाषा में पढ़ें और हस्ताक्षर करें।",
+      thankYouHeading: "धन्यवाद",
+      formSignaturePad: "अपने हस्ताक्षर बनाएं", formSignaturePadNote: "अपनी उंगली या माउस से हस्ताक्षर करें। यह आपके टाइप किए गए नाम के साथ एक छवि के रूप में सहेजा जाता है।", clearSigPad: "साफ़ करें", sigPadRequired: "कृपया अपना नाम टाइप करने के साथ-साथ ऊपर अपने हस्ताक्षर भी बनाएं।",
+      phFullName: "जसप्रीत सिंह", phAddress: "फ्लैट 12, पेगासस क्लोज़, लेस्टर"
+    }
+  };
+
+  const RTL = { ur: true };
+
+  function applyLanguage(lang){
+    const dict = T[lang] || T.en;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      const key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      const key = el.getAttribute('data-i18n-placeholder');
+      if(dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+    });
+    document.getElementById('htmlRoot').setAttribute('lang', lang);
+    document.getElementById('htmlRoot').setAttribute('dir', RTL[lang] ? 'rtl' : 'ltr');
+    document.getElementById('sheet').setAttribute('dir', RTL[lang] ? 'rtl' : 'ltr');
+    try{ localStorage.getItem; }catch(e){}
+    window.__currentLang = lang;
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLanguage(btn.getAttribute('data-lang'));
+      document.getElementById('langModal').classList.add('hidden');
+    });
+  });
+  document.getElementById('langPill').addEventListener('click', function(){
+    document.getElementById('langModal').classList.remove('hidden');
+  });
+
+  // Show language modal automatically on first load
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.getElementById('langModal').classList.remove('hidden');
+    }, 400);
+  });
+
+  // QR code
+  try{
+    new QRCode(document.getElementById("qrcode"), {
+      text: "https://aetherbusinessarchitectsltd.uk/",
+      width: 108, height: 108,
+      colorDark: "#1B2A4A", colorLight: "#FFFFFF"
+    });
+  }catch(e){}
+
+  // ---------- Form + storage logic ----------
+  const form = document.getElementById('petitionForm');
+  const formError = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+  const confirmation = document.getElementById('confirmation');
+  const tally = document.getElementById('tally');
+  const stampNo = document.getElementById('stampNo');
+  const refCode = document.getElementById('refCode');
+  const dateInput = document.getElementById('sigDate');
+
+  const today = new Date();
+  dateInput.value = today.toISOString().slice(0,10);
+  dateInput.max = today.toISOString().slice(0,10);
+
+  const LIST_KEY = 'pegasus-petition:signature-ids';
+
+  // ---------- Signature pad (drawn signature) ----------
+  const sigCanvas = document.getElementById('sigPad');
+  const sigCtx = sigCanvas.getContext('2d');
+  const clearSigPadBtn = document.getElementById('clearSigPad');
+  const sigPadError = document.getElementById('sigPadError');
+  let sigHasDrawn = false;
+  let sigDrawing = false;
+  let sigLastPoint = null;
+
+  function resizeSigCanvas(){
+    const rect = sigCanvas.getBoundingClientRect();
+    const ratio = window.devicePixelRatio || 1;
+    const prevDrawing = sigCanvas.toDataURL();
+    sigCanvas.width = rect.width * ratio;
+    sigCanvas.height = rect.height * ratio;
+    sigCtx.scale(ratio, ratio);
+    sigCtx.lineWidth = 2.2;
+    sigCtx.lineCap = 'round';
+    sigCtx.lineJoin = 'round';
+    sigCtx.strokeStyle = '#1B2A4A';
+  }
+  resizeSigCanvas();
+  window.addEventListener('resize', function(){
+    const wasEmpty = !sigHasDrawn;
+    resizeSigCanvas();
+    if(wasEmpty){ sigHasDrawn = false; }
+  });
+
+  function getSigPoint(evt){
+    const rect = sigCanvas.getBoundingClientRect();
+    const point = (evt.touches && evt.touches[0]) ? evt.touches[0] : evt;
+    return { x: point.clientX - rect.left, y: point.clientY - rect.top };
+  }
+  function sigStart(evt){
+    evt.preventDefault();
+    sigDrawing = true;
+    sigLastPoint = getSigPoint(evt);
+  }
+  function sigMove(evt){
+    if(!sigDrawing) return;
+    evt.preventDefault();
+    const p = getSigPoint(evt);
+    sigCtx.beginPath();
+    sigCtx.moveTo(sigLastPoint.x, sigLastPoint.y);
+    sigCtx.lineTo(p.x, p.y);
+    sigCtx.stroke();
+    sigLastPoint = p;
+    sigHasDrawn = true;
+    sigPadError.classList.add('hidden');
+  }
+  function sigEnd(){ sigDrawing = false; }
+
+  sigCanvas.addEventListener('mousedown', sigStart);
+  sigCanvas.addEventListener('mousemove', sigMove);
+  window.addEventListener('mouseup', sigEnd);
+  sigCanvas.addEventListener('touchstart', sigStart, { passive:false });
+  sigCanvas.addEventListener('touchmove', sigMove, { passive:false });
+  sigCanvas.addEventListener('touchend', sigEnd);
+
+  clearSigPadBtn.addEventListener('click', function(){
+    sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+    sigHasDrawn = false;
+  });
+
+  function getSigDataUrl(){
+    return sigHasDrawn ? sigCanvas.toDataURL('image/png') : null;
+  }
+
+  async function getSignatureIds(){
+    try{
+      const res = await window.storage.get(LIST_KEY, true);
+      return res && res.value ? JSON.parse(res.value) : [];
+    }catch(e){ return []; }
+  }
+
+  async function refreshTally(){
+    const ids = await getSignatureIds();
+    tally.innerHTML = '<strong>' + ids.length + '</strong> signature' + (ids.length===1?'':'s') + ' collected so far';
+    stampNo.textContent = String(ids.length + 1).padStart(3,'0');
+  }
+  refreshTally();
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    formError.classList.add('hidden');
+
+    const fullName = document.getElementById('fullName').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const tenure = document.getElementById('tenure').value;
+    const sigDate = document.getElementById('sigDate').value;
+    const signature = document.getElementById('signature').value.trim();
+    const consent = document.getElementById('consent').checked;
+
+    if(!fullName || !address || !tenure || !sigDate || !signature || !consent){
+      formError.textContent = 'Please complete every field and confirm consent before submitting.';
+      formError.classList.remove('hidden');
+      return;
+    }
+    if(signature.toLowerCase() !== fullName.toLowerCase()){
+      formError.textContent = 'Please type your full name exactly as entered above to sign.';
+      formError.classList.remove('hidden');
+      return;
+    }
+    const sigImage = getSigDataUrl();
+    if(!sigImage){
+      sigPadError.classList.remove('hidden');
+      sigCanvas.scrollIntoView({ behavior:'smooth', block:'center' });
+      return;
+    }
+
+    submitBtn.disabled = true;
+    const dict = T[window.__currentLang || 'en'] || T.en;
+    submitBtn.textContent = dict.submitBtnLoading;
+
+    try{
+      const id = 'sig_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+      const entry = { id, fullName, address, tenure, sigDate, signatureImage: sigImage, submittedAt: new Date().toISOString() };
+
+      await window.storage.set(id, JSON.stringify(entry), true);
+
+      const ids = await getSignatureIds();
+      ids.push(id);
+      await window.storage.set(LIST_KEY, JSON.stringify(ids), true);
+
+      form.classList.add('hidden');
+      confirmation.classList.remove('hidden');
+      refCode.textContent = 'Reference ' + id.slice(-8).toUpperCase();
+      await refreshTally();
+    }catch(err){
+      formError.textContent = 'Something went wrong saving your signature. Please try again.';
+      formError.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.textContent = dict.submitBtn;
+    }
+  });
+
+  // Organiser / admin view — passcode gated
+  const ADMIN_PASSCODE = 'PegasusOrganiser44'; // change this to whatever you'd like, then re-share the file
+  let adminUnlocked = false;
+
+  const adminToggle = document.getElementById('adminToggle');
+  const adminPanel = document.getElementById('adminPanel');
+  const adminBody = document.getElementById('adminBody');
+  const adminLock = document.getElementById('adminLock');
+  const adminContent = document.getElementById('adminContent');
+  const adminPasscodeInput = document.getElementById('adminPasscode');
+  const adminLockError = document.getElementById('adminLockError');
+
+  async function loadAdmin(){
+    const ids = await getSignatureIds();
+    const rows = [];
+    for(const id of ids){
+      try{
+        const res = await window.storage.get(id, true);
+        if(res && res.value) rows.push(JSON.parse(res.value));
+      }catch(e){}
+    }
+    rows.sort((a,b)=> new Date(a.submittedAt) - new Date(b.submittedAt));
+    adminBody.innerHTML = rows.map((r,i)=>
+      '<tr><td>'+(i+1)+'</td><td>'+escapeHtml(r.fullName)+'</td><td>'+escapeHtml(r.address)+'</td><td>'+escapeHtml(r.tenure)+'</td><td>'+escapeHtml(r.sigDate)+'</td><td>'+(r.signatureImage ? '<img src="'+r.signatureImage+'" alt="signature" style="height:26px; background:#fff; border:1px solid var(--line);">' : '—')+'</td></tr>'
+    ).join('');
+    return rows;
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function showLockScreen(){
+    adminUnlocked = false;
+    adminLock.classList.remove('hidden');
+    adminContent.classList.add('hidden');
+    adminPasscodeInput.value = '';
+    adminLockError.style.display = 'none';
+  }
+
+  async function tryUnlock(){
+    if(adminPasscodeInput.value === ADMIN_PASSCODE){
+      adminUnlocked = true;
+      adminLock.classList.add('hidden');
+      adminContent.classList.remove('hidden');
+      await loadAdmin();
+    }else{
+      adminLockError.style.display = 'block';
+    }
+  }
+
+  adminToggle.addEventListener('click', async function(){
+    const willOpen = adminPanel.classList.contains('hidden');
+    adminPanel.classList.toggle('hidden');
+    if(willOpen){
+      if(adminUnlocked){
+        adminLock.classList.add('hidden');
+        adminContent.classList.remove('hidden');
+        await loadAdmin();
+      }else{
+        showLockScreen();
+      }
+    }
+  });
+  document.getElementById('adminUnlock').addEventListener('click', tryUnlock);
+  adminPasscodeInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); tryUnlock(); } });
+  document.getElementById('lockAdmin').addEventListener('click', showLockScreen);
+  document.getElementById('closeAdmin').addEventListener('click', ()=> adminPanel.classList.add('hidden'));
+  document.getElementById('refreshAdmin').addEventListener('click', loadAdmin);
+  document.getElementById('exportCsv').addEventListener('click', async function(){
+    const rows = await loadAdmin();
+    let csv = 'Name,Address,Tenure,Date\n';
+    rows.forEach(r=>{
+      csv += [r.fullName, r.address, r.tenure, r.sigDate].map(v => '"'+String(v).replace(/"/g,'""')+'"').join(',') + '\n';
+    });
+    const blob = new Blob([csv], {type:'text/csv'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'pegasus-close-signatures.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+})();
+</script>
+
+</body>
+</html>
