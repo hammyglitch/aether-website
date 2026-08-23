@@ -49,7 +49,7 @@
     pointer-events:none;
   }
   .content{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; }
-
+ 
   .masthead{
     background:var(--navy);
     color:#fff;
@@ -96,7 +96,7 @@
     transform:rotate(6deg);
     box-shadow:0 4px 10px rgba(0,0,0,0.25);
   }
-
+ 
   .cta{
     width:100%;
     display:flex;
@@ -147,7 +147,7 @@
     line-height:1.8;
   }
   .cta-text .contact a{ color:var(--navy); }
-
+ 
   .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -175,7 +175,7 @@
     margin-top:5px;
     line-height:1.4;
   }
-
+ 
   .grounds{
     padding:10mm 16mm 4mm;
     width:100%;
@@ -199,7 +199,7 @@
     margin-bottom:4mm;
   }
   .grounds li b{ color:var(--alert); }
-
+ 
   .ask-line{
     margin:4mm 16mm 0;
     padding:6mm 7mm;
@@ -212,7 +212,7 @@
     text-align:left;
   }
   .ask-line strong{ color:var(--navy); }
-
+ 
   .lang-strip{
     margin:8mm 16mm 0;
     background:var(--navy);
@@ -249,7 +249,7 @@
   .lang-item.pa{ font-family:'Noto Sans Gurmukhi', sans-serif; }
   .lang-item.hi{ font-family:'Noto Sans Devanagari', sans-serif; }
   .lang-item.gu{ font-family:'Noto Sans Gujarati', sans-serif; }
-
+ 
   footer.strip{
     background:var(--navy);
     color:#9fb0cc;
@@ -262,7 +262,7 @@
     width:100%;
   }
   footer.strip strong{ color:#fff; }
-
+ 
   @media print{
     body{ background:none; padding:0; }
     .page{ box-shadow:none; width:auto; min-height:auto; }
@@ -276,19 +276,19 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="page">
   <div class="bg-photo"></div>
-
+ 
   <div class="content">
-
+ 
     <div class="masthead">
       <div class="ribbon">SIGN TODAY</div>
       <p class="eyebrow">Petition Form Flyer v1 · Pegasus Residents &amp; Local Residents vs Leicester City Council — v1.1</p>
       <h1 class="headline">Don't Take<br>Our <span class="accent">Balconies.</span></h1>
       <p class="sub-headline">Every household on this close deserves air, light, safe outdoor space and a fair hearing — whatever language you speak.</p>
     </div>
-
+ 
     <div class="cta">
       <div class="qr-box">
         <div id="qrcode"></div>
@@ -304,7 +304,7 @@
         </p>
       </div>
     </div>
-
+ 
     <div class="stats">
       <div class="stat-cell">
         <div class="stat-num">39°C</div>
@@ -323,7 +323,7 @@
         <div class="stat-label">Access to the locked playground or locked balcony storage</div>
       </div>
     </div>
-
+ 
     <div class="grounds">
       <h2>Why we're signing</h2>
       <ul>
@@ -333,9 +333,9 @@
         <li><b>Paying more, getting less</b> — balconies were sold and let as a feature; removing them cuts living space and property value without fair resolution.</li>
       </ul>
     </div>
-
+ 
     <p class="ask-line"><strong>What we're asking for:</strong> pause all balcony removal works now, and hold a proper consultation with residents on repair or upgrade options — not full removal. For many of us, this is the final straw after months of unresolved conditions.</p>
-
+ 
     <div class="lang-strip">
       <p class="lead">This matters in every language spoken on this close</p>
       <div class="lang-grid">
@@ -346,23 +346,24 @@
         <div class="lang-item gu"><span class="tag">ગુજરાતી · Gujarati</span>તમારો અવાજ મહત્વનો છે. તમારી ભાષામાં સહી કરો.</div>
       </div>
     </div>
-
+ 
     <footer class="strip">
       <strong>Organised by residents and leaseholders of Pegasus Close</strong> · Signature register submitted to the Council Planning &amp; Housing Department · © 2026 Aether Business Architects Ltd
     </footer>
-
+ 
   </div>
 </div>
-
+ 
 <script>
   try{
     new QRCode(document.getElementById("qrcode"), {
-      text: "https://aetherbusinessarchitectsltd.uk/",
+      text: "https://aetherbusinessarchitectsltd.uk/pegasus-close-petition-v3",
       width: 168, height: 168,
       colorDark: "#1B2A4A", colorLight: "#FFFFFF"
     });
   }catch(e){}
 </script>
-
+ 
 </body>
 </html>
+ 
