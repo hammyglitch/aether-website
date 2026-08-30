@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">Pegasus Residents (and Local Residents) vs Leicester City Council — v1.1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Gurmukhi:wght@400;600&family=Noto+Nastaliq+Urdu:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Gurmukhi:wght@400;600&family=Noto+Nastaliq+Urdu:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Gujarati:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
   :root{
@@ -37,6 +37,7 @@
   [lang="ur"]{ font-family:'Noto Nastaliq Urdu', serif; }
   [lang="pa"]{ font-family:'Noto Sans Gurmukhi', sans-serif; }
   [lang="hi"]{ font-family:'Noto Sans Devanagari', sans-serif; }
+  [lang="gu"]{ font-family:'Noto Sans Gujarati', sans-serif; }
 
   .sheet{
     width:100%;
@@ -153,7 +154,7 @@
     display:block; font-family:'IBM Plex Mono', monospace; font-size:11px;
     letter-spacing:0.06em; text-transform:uppercase; color: var(--slate); margin-bottom:6px;
   }
-  [lang="ur"] .field label, [lang="pa"] .field label, [lang="hi"] .field label{ font-family:inherit; text-transform:none; letter-spacing:0; }
+  [lang="ur"] .field label, [lang="pa"] .field label, [lang="hi"] .field label, [lang="gu"] .field label{ font-family:inherit; text-transform:none; letter-spacing:0; }
   .field input, .field select{
     width:100%; font-family:'Source Sans 3', sans-serif; font-size:15px;
     padding: 11px 12px; border: 1.5px solid var(--line); border-radius: 3px;
@@ -283,6 +284,26 @@
   .lang-btn strong{ font-family:'Fraunces', serif; font-size:15px; }
   .lang-btn small{ color:#888; font-size:11px; font-family:'IBM Plex Mono', monospace; }
   .lang-btn:hover{ border-color:var(--navy); background:var(--paper-dim); }
+
+  /* Extra scaling safeguards across device sizes */
+  @media (max-width:600px){
+    .body-pad{ padding:18px 20px 24px; }
+    .contact-block{ padding:20px 20px; }
+    .thankyou{ padding:22px 20px; }
+    .admin-panel{ padding:16px 18px; }
+  }
+  @media (max-width:420px){
+    .masthead{ padding:24px 22px 20px; }
+    .stamp{ width:60px; height:60px; top:18px; right:18px; font-size:8px; }
+    .stamp strong{ font-size:16px; }
+    .eyebrow{ margin-right:66px; font-size:10px; }
+    h1{ font-size:21px; margin-right:0; }
+    .lang-grid{ grid-template-columns:1fr; }
+    .modal-box{ padding:22px 18px; }
+    .contact-block{ flex-direction:column; align-items:flex-start; gap:16px; }
+    .qr-wrap{ align-self:center; }
+    .grounds{ padding-left:22px; padding-right:22px; }
+  }
 </style>
 </head>
 <body>
@@ -296,7 +317,7 @@
       <h1 data-i18n="headline">Preserve Tenant Balconies &amp; Address Living Conditions</h1>
       <div class="meta-row">
         <span data-i18n="meta1">Opened 17 Aug 2026</span>
-      
+        <span data-i18n="meta2">Collection closes Sun 23 Aug</span>
       </div>
       <div class="lang-pill" id="langPill">🌐 <span data-i18n="langPillLabel">Language / ਭਾਸ਼ਾ / زبان / भाषा</span></div>
     </header>
@@ -431,6 +452,10 @@
         <div class="ty-lang-label">हिन्दी · Hindi</div>
         <p>हर उस निवासी का धन्यवाद जिसने इस याचिका को पढ़ने, साझा करने और हस्ताक्षर करने के लिए समय निकाला। आप कोई भी भाषा बोलें और इस क्लोज़ पर जहाँ भी रहते हों, आपकी आवाज़ मायने रखती है और यहाँ सुनी जाती है।</p>
       </div>
+      <div class="ty-block" lang="gu">
+        <div class="ty-lang-label">ગુજરાતી · Gujarati</div>
+        <p>દરેક એ રહેવાસીનો આભાર જેમણે આ અરજી વાંચવા, શેર કરવા અને સહી કરવા માટે સમય કાઢ્યો. તમે કોઈપણ ભાષા બોલો અને આ ક્લોઝ પર જ્યાં પણ રહેતા હો, તમારો અવાજ મહત્વનો છે અને અહીં સાંભળવામાં આવે છે.</p>
+      </div>
     </div>
 
   </div>
@@ -473,6 +498,7 @@
       <button class="lang-btn" data-lang="pa"><strong>ਪੰਜਾਬੀ</strong><small>Punjabi</small></button>
       <button class="lang-btn" data-lang="ur"><strong>اردو</strong><small>Urdu</small></button>
       <button class="lang-btn" data-lang="hi"><strong>हिन्दी</strong><small>Hindi</small></button>
+      <button class="lang-btn" data-lang="gu"><strong>ગુજરાતી</strong><small>Gujarati</small></button>
     </div>
   </div>
 </div>
@@ -592,6 +618,34 @@
       thankYouHeading: "धन्यवाद",
       formSignaturePad: "अपने हस्ताक्षर बनाएं", formSignaturePadNote: "अपनी उंगली या माउस से हस्ताक्षर करें। यह आपके टाइप किए गए नाम के साथ एक छवि के रूप में सहेजा जाता है।", clearSigPad: "साफ़ करें", sigPadRequired: "कृपया अपना नाम टाइप करने के साथ-साथ ऊपर अपने हस्ताक्षर भी बनाएं।",
       phFullName: "जसप्रीत सिंह", phAddress: "फ्लैट 12, पेगासस क्लोज़, लेस्टर"
+    },
+    gu: {
+      eyebrow: "અરજી v1.1 · પેગાસસ અને સ્થાનિક રહેવાસીઓ વિરુદ્ધ લેસ્ટર સિટી કાઉન્સિલ",
+      headline: "ભાડૂતોની બાલ્કનીઓ બચાવો અને રહેવાની સ્થિતિ સુધારો",
+      meta1: "17 ઓગસ્ટ 2026ના રોજ શરૂ થઈ", meta2: "રવિવાર 23 ઓગસ્ટે બંધ થશે",
+      langPillLabel: "ભાષા",
+      groundsHeading: "અમે કાઉન્સિલ પાસે અરજી કેમ કરી રહ્યા છીએ",
+      ground1: "બાલ્કનીની હવા બંધ થયા પછી ઘરની અંદરનું તાપમાન 10 કલાકથી વધુ સમય માટે 39°C સુધી પહોંચી ગયું છે — આ બાળકો અને નબળા રહેવાસીઓ માટે ગંભીર આરોગ્ય જોખમ છે.",
+      ground2: "નીચેના રમતના મેદાનના દરવાજા બંધ છે અને રહેવાસીઓને કોઈ પ્રવેશ આપવામાં આવ્યો નથી, જેના કારણે બાલ્કનીઓ જ ઘણા પરિવારો માટે એકમાત્ર ખાનગી ખુલ્લી જગ્યા રહી ગઈ છે.",
+      ground3: "રહેવાસીઓનો પોતાનો સામાન અને બાલ્કની પર રાખેલો સંગ્રહ સંમતિ વિના બંધ કરીને પ્રવેશ બહાર કરી દેવામાં આવ્યો છે.",
+      ground4: "તડકો, તાજી હવા અને છોડ ઉગાડવાની જગ્યા ગુમાવવી સીધી રીતે રહેવાસીઓના સ્વાસ્થ્ય અને સુખાકારીને અસર કરે છે.",
+      ground5: "આ ફ્લેટ બાલ્કની સાથે ભાડે અપાયા અને વેચાયા હતા — યોગ્ય ઉકેલ વિના તેમને દૂર કરવાથી ભાડા અને મિલકતની કિંમત બંને પર અસર થાય છે.",
+      ground6: "પેગાસસ ક્લોઝના 44 રહેવાસીઓ પહેલેથી જ ફક્ત 9 પાર્કિંગ જગ્યાઓ માટે મળીને દર મહિને £100થી વધુ ચૂકવી રહ્યા છે — બાલ્કની દૂર કરવાથી પહેલેથી અન્યાયી પરિસ્થિતિ વધુ ખરાબ થશે.",
+      askText: "અમે કાઉન્સિલને વિનંતી કરીએ છીએ કે બાલ્કની દૂર કરવાનું કામ તાત્કાલિક રોકવામાં આવે અને રહેવાસીઓ સાથે ઔપચારિક પરામર્શ કરવામાં આવે જેથી સંપૂર્ણ દૂર કરવાને બદલે સમારકામ કે સુધારાના વિકલ્પો શોધી શકાય. નીચે આપેલી દરેક સહી કાઉન્સિલ પ્લાનિંગ એન્ડ હાઉસિંગ વિભાગને મોકલવામાં આવતા રજિસ્ટરમાં ઉમેરવામાં આવે છે. આ ક્લોઝના ઘણા રહેવાસીઓ માટે, મહિનાઓની વણઉકેલાયેલી પરિસ્થિતિ પછી આ છેલ્લી હદ છે.",
+      formFullName: "પૂરું નામ", formAddress: "પૂરું ફ્લેટ સરનામું (ફ્લેટ/યુનિટ નંબર સહિત)",
+      formTenure: "તમે છો…", tenureSelect: "એક પસંદ કરો",
+      tenureOpt1: "કાઉન્સિલ / હાઉસિંગ એસોસિએશન ભાડૂત", tenureOpt2: "ખાનગી ભાડૂત", tenureOpt3: "ઘરમાલિક / લીઝહોલ્ડર",
+      formDate: "તારીખ", formSignature: "સહી (તમારું પૂરું નામ ટાઈપ કરો)",
+      formSignatureNote: "અહીં તમારું નામ ટાઈપ કરવું એ આ રજિસ્ટર પર તમારી સહી તરીકે ગણાશે.",
+      consentText: "હું પુષ્ટિ કરું છું કે હું પેગાસસ ક્લોઝ અથવા નજીકના ફ્લેટ્સનો પુખ્ત રહેવાસી છું, અને હું મારું નામ, સરનામું અને ભાડૂતીનો પ્રકાર કાઉન્સિલને મોકલવામાં આવતા સહી રજિસ્ટરમાં સામેલ કરવાની સંમતિ આપું છું.",
+      submitBtn: "મારી સહી ઉમેરો", submitBtnLoading: "સહી ઉમેરવામાં આવી રહી છે…",
+      confirmHeading: "તમે રજિસ્ટરમાં સામેલ થઈ ગયા છો",
+      confirmText: "આભાર — તમારી સહી પેગાસસ ક્લોઝ અરજીમાં ઉમેરવામાં આવી છે. કૃપા કરીને આ પેજનો QR કોડ તમારા પડોશીઓ સાથે શેર કરો જેથી રવિવાર 23 ઓગસ્ટ પહેલાં વધુમાં વધુ ઘરો સુધી પહોંચી શકાય.",
+      footerStrip: "પેગાસસ ક્લોઝના રહેવાસીઓ અને લીઝહોલ્ડરો દ્વારા આયોજિત · સહી શીટ્સ કાઉન્સિલ પ્લાનિંગ એન્ડ હાઉસિંગ વિભાગને મોકલવામાં આવશે",
+      langPopupHeading: "તમારી ભાષા પસંદ કરો", langPopupText: "આ અરજી તમારી ભાષામાં વાંચો અને સહી કરો.",
+      thankYouHeading: "આભાર",
+      formSignaturePad: "તમારી સહી દોરો", formSignaturePadNote: "તમારી આંગળી અથવા માઉસથી સહી કરો. આ તમારા ટાઈપ કરેલા નામ સાથે એક છબી તરીકે સંગ્રહિત થાય છે.", clearSigPad: "સાફ કરો", sigPadRequired: "કૃપા કરીને તમારું નામ ટાઈપ કરવાની સાથે ઉપર તમારી સહી પણ દોરો.",
+      phFullName: "જસપ્રીત સિંહ", phAddress: "ફ્લેટ 12, પેગાસસ ક્લોઝ, લેસ્ટર"
     }
   };
 
@@ -634,7 +688,7 @@
   // QR code
   try{
     new QRCode(document.getElementById("qrcode"), {
-      text: "https://aetherbusinessarchitectsltd.uk/",
+      text: "https://aether-website.pages.dev/pegasus-close-petition-v3.html",
       width: 108, height: 108,
       colorDark: "#1B2A4A", colorLight: "#FFFFFF"
     });
@@ -653,8 +707,6 @@
   const today = new Date();
   dateInput.value = today.toISOString().slice(0,10);
   dateInput.max = today.toISOString().slice(0,10);
-
-  const LIST_KEY = 'pegasus-petition:signature-ids';
 
   // ---------- Signature pad (drawn signature) ----------
   const sigCanvas = document.getElementById('sigPad');
@@ -724,17 +776,16 @@
     return sigHasDrawn ? sigCanvas.toDataURL('image/png') : null;
   }
 
-  async function getSignatureIds(){
-    try{
-      const res = await window.storage.get(LIST_KEY, true);
-      return res && res.value ? JSON.parse(res.value) : [];
-    }catch(e){ return []; }
-  }
-
   async function refreshTally(){
-    const ids = await getSignatureIds();
-    tally.innerHTML = '<strong>' + ids.length + '</strong> signature' + (ids.length===1?'':'s') + ' collected so far';
-    stampNo.textContent = String(ids.length + 1).padStart(3,'0');
+    try{
+      const res = await fetch('/api/count');
+      const data = await res.json();
+      const n = data.count || 0;
+      tally.innerHTML = '<strong>' + n + '</strong> signature' + (n===1?'':'s') + ' collected so far';
+      stampNo.textContent = String(n + 1).padStart(3,'0');
+    }catch(e){
+      tally.textContent = 'Signature count unavailable right now';
+    }
   }
   refreshTally();
 
@@ -771,18 +822,17 @@
     submitBtn.textContent = dict.submitBtnLoading;
 
     try{
-      const id = 'sig_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
-      const entry = { id, fullName, address, tenure, sigDate, signatureImage: sigImage, submittedAt: new Date().toISOString() };
-
-      await window.storage.set(id, JSON.stringify(entry), true);
-
-      const ids = await getSignatureIds();
-      ids.push(id);
-      await window.storage.set(LIST_KEY, JSON.stringify(ids), true);
+      const res = await fetch('/api/signatures', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullName, address, tenure, sigDate, signatureImage: sigImage })
+      });
+      if(!res.ok) throw new Error('save failed');
+      const data = await res.json();
 
       form.classList.add('hidden');
       confirmation.classList.remove('hidden');
-      refCode.textContent = 'Reference ' + id.slice(-8).toUpperCase();
+      refCode.textContent = 'Reference ' + data.id.slice(-8).toUpperCase();
       await refreshTally();
     }catch(err){
       formError.textContent = 'Something went wrong saving your signature. Please try again.';
@@ -793,8 +843,8 @@
   });
 
   // Organiser / admin view — passcode gated
-  const ADMIN_PASSCODE = 'PegasusOrganiser44'; // change this to whatever you'd like, then re-share the file
   let adminUnlocked = false;
+  let sessionPasscode = ''; // held only in memory for this page visit, never stored
 
   const adminToggle = document.getElementById('adminToggle');
   const adminPanel = document.getElementById('adminPanel');
@@ -805,19 +855,19 @@
   const adminLockError = document.getElementById('adminLockError');
 
   async function loadAdmin(){
-    const ids = await getSignatureIds();
-    const rows = [];
-    for(const id of ids){
-      try{
-        const res = await window.storage.get(id, true);
-        if(res && res.value) rows.push(JSON.parse(res.value));
-      }catch(e){}
+    try{
+      const res = await fetch('/api/signatures?passcode=' + encodeURIComponent(sessionPasscode));
+      if(res.status === 401){ showLockScreen(); adminLockError.style.display = 'block'; return []; }
+      const data = await res.json();
+      const rows = data.rows || [];
+      adminBody.innerHTML = rows.map((r,i)=>
+        '<tr><td>'+(i+1)+'</td><td>'+escapeHtml(r.fullName)+'</td><td>'+escapeHtml(r.address)+'</td><td>'+escapeHtml(r.tenure)+'</td><td>'+escapeHtml(r.sigDate)+'</td><td>'+(r.signatureImage ? '<img src="'+r.signatureImage+'" alt="signature" style="height:26px; background:#fff; border:1px solid var(--line);">' : '—')+'</td></tr>'
+      ).join('');
+      return rows;
+    }catch(e){
+      adminBody.innerHTML = '<tr><td colspan="6">Could not load signatures right now.</td></tr>';
+      return [];
     }
-    rows.sort((a,b)=> new Date(a.submittedAt) - new Date(b.submittedAt));
-    adminBody.innerHTML = rows.map((r,i)=>
-      '<tr><td>'+(i+1)+'</td><td>'+escapeHtml(r.fullName)+'</td><td>'+escapeHtml(r.address)+'</td><td>'+escapeHtml(r.tenure)+'</td><td>'+escapeHtml(r.sigDate)+'</td><td>'+(r.signatureImage ? '<img src="'+r.signatureImage+'" alt="signature" style="height:26px; background:#fff; border:1px solid var(--line);">' : '—')+'</td></tr>'
-    ).join('');
-    return rows;
   }
 
   function escapeHtml(s){
@@ -826,6 +876,7 @@
 
   function showLockScreen(){
     adminUnlocked = false;
+    sessionPasscode = '';
     adminLock.classList.remove('hidden');
     adminContent.classList.add('hidden');
     adminPasscodeInput.value = '';
@@ -833,11 +884,18 @@
   }
 
   async function tryUnlock(){
-    if(adminPasscodeInput.value === ADMIN_PASSCODE){
+    const attempt = adminPasscodeInput.value;
+    const res = await fetch('/api/signatures?passcode=' + encodeURIComponent(attempt));
+    if(res.ok){
+      sessionPasscode = attempt;
       adminUnlocked = true;
       adminLock.classList.add('hidden');
       adminContent.classList.remove('hidden');
-      await loadAdmin();
+      const data = await res.json();
+      const rows = data.rows || [];
+      adminBody.innerHTML = rows.map((r,i)=>
+        '<tr><td>'+(i+1)+'</td><td>'+escapeHtml(r.fullName)+'</td><td>'+escapeHtml(r.address)+'</td><td>'+escapeHtml(r.tenure)+'</td><td>'+escapeHtml(r.sigDate)+'</td><td>'+(r.signatureImage ? '<img src="'+r.signatureImage+'" alt="signature" style="height:26px; background:#fff; border:1px solid var(--line);">' : '—')+'</td></tr>'
+      ).join('');
     }else{
       adminLockError.style.display = 'block';
     }
@@ -861,18 +919,8 @@
   document.getElementById('lockAdmin').addEventListener('click', showLockScreen);
   document.getElementById('closeAdmin').addEventListener('click', ()=> adminPanel.classList.add('hidden'));
   document.getElementById('refreshAdmin').addEventListener('click', loadAdmin);
-  document.getElementById('exportCsv').addEventListener('click', async function(){
-    const rows = await loadAdmin();
-    let csv = 'Name,Address,Tenure,Date\n';
-    rows.forEach(r=>{
-      csv += [r.fullName, r.address, r.tenure, r.sigDate].map(v => '"'+String(v).replace(/"/g,'""')+'"').join(',') + '\n';
-    });
-    const blob = new Blob([csv], {type:'text/csv'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'pegasus-close-signatures.csv';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  document.getElementById('exportCsv').addEventListener('click', function(){
+    window.location.href = '/api/export?passcode=' + encodeURIComponent(sessionPasscode);
   });
 })();
 </script>
